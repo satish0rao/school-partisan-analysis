@@ -7,13 +7,15 @@ testing = False
 
 if testing:
     # TODO:  put in small test files/and globs to do speed up run.
+    pass
 else:
     schools = pd.read_csv("school-data/ca2012entities_csv.txt")
     zipcodes = pd.read_csv("zipcodes/US Zip Codes from 2013 Government Data")
     shapefiles = g.glob("election-data/california-2016-election-precinct-maps/shapefiles/*.shp")
     entities = pd.read_csv("school-data/ca2012entities_csv.txt")
     votes = pd.read_csv("election-data/california-2016-election-precinct-maps/final-results/all_precinct_results.csv")
-    scores = pd.read_csv("school-data/ca2012_all_csv_v3.txt")
+    #scores = pd.read_csv("school-data/ca2012_1_csv_v3.txt")
+    scores = pd.read_csv("school-data/african_am.txt")
 
 
 zipHash = {}
@@ -92,7 +94,8 @@ for fname in shapefiles:
 
 
 output = pd.DataFrame({'zip':zips, 'precinct': precincts, 'longitude': longs, 'latitude': lats})
-output.to_csv("precints_zipcodes.csv")
+output.to_csv("precincts_zipcodes.csv")
+
 
 
 # How should we match schools to precincts?
@@ -113,13 +116,14 @@ output.to_csv("precints_zipcodes.csv")
 schools = entities[entities['Type Id'] == 7] # Schools rather than districts or counties.
 
 schoolsPrecincts = {}
-
+schoolNames = {}
 school_key_column = 'School Code'
 
 for index,row in schools.iterrows():
     key = int(row["Zip Code"])
     if key in precinctZipHash:
         schoolsPrecincts[row[school_key_column]] = precinctZipHash[key]
+        schoolNames[row[school_key_column]] = row['School Name']
     else:
         # Do something better here!
         continue
@@ -155,27 +159,38 @@ for key in schoolsPrecincts.keys():
 # (2) Get test from schools, and correlate to number for clinton v trump.
 #     (b) Test scores in school-data/...
 
-testId = 11  # 
-studentGroup = 1 # All students
-grade = 9 #
+testIds = [9,10,11,12,13,14,15]  # 
+studentGroups = [220] # African Americans
+#studentGroup = 1 # all students
+grades = [9,10,11] #
 
 
 
-scores = scores[(scores['Test Id'] == testId) & (scores['Subgroup ID'] == studentGroup) & (scores['Grade'] == 9)]
+scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Subgroup ID'].isin(studentGroups)) & (scores['Grade'].isin(grades))]
 
 schoolScores = {}
+schoolNumbers = {}
 
 for index,row in scores.iterrows():
     key = row[school_key_column]
 
-    if row["Percentage At Or Above Proficient"] != '*':
-        print row["Percentage At Or Above Proficient"]
-        schoolScores[key] = float(row["Percentage At Or Above Proficient"])
 
+    if key == 0:
+        continue
+
+    if row["Percentage At Or Above Proficient"] != '*':
+        if not key in schoolScores.keys():
+            schoolScores[key] = float(row["Percentage At Or Above Proficient"])
+            schoolNumbers[key] = row["Students Tested"]
+        else:
+            schoolScores[key] = (schoolScores[key]*schoolNumbers[key] + row["Students Tested"]*float(row["Percentage At Or Above Proficient"]))/(1.0* (schoolNumbers[key] + row["Students Tested"]))
+            schoolNumbers[key] += row["Students Tested"]
 ids = []
 votes = []
 scores = []
 names = []
+numbers = []
+districts = []
 
 for key in schoolScores.keys():
     if key in schoolVotes:
@@ -183,13 +198,15 @@ for key in schoolScores.keys():
         if clinton+trump > 0:
             ids.append(key)
             names.append(schools[schools[school_key_column] == key]['School Name'].iloc[0])
+            districts.append(schools[schools[school_key_column] == key]['District Name'].iloc[0])
             scores.append(schoolScores[key])
             votes.append(clinton/(clinton+trump))
+            numbers.append(schoolNumbers[key])
          
 
 
 
-kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'vote': votes,'score': scores})
+kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'vote': votes,'score': scores, 'number': numbers})
 kahuna.to_csv("kahuna.csv")
 
 

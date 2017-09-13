@@ -1,0 +1,8 @@
+import pandas as pd
+
+def process(chunk):
+    
+
+chunksize = 10 ** 5
+for chunk in pd.read_csv(filename, chunksize=chunksize):
+    process(chunk)
