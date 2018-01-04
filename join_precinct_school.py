@@ -1,8 +1,26 @@
 import pandas as pd
 import shapefile as shp
 import glob as g
+import sys
+import os.path
+import scipy.stats
 
 
+argv = sys.argv
+
+
+
+scores_file = 'school-data/ca2012_1_csv_v3.txt'
+#studentGroups = [220] # African Americans
+#studentGroups = [1] # all students
+
+if len(argv) > 1:
+    scores_file = argv[1]
+    # studentGroups = []
+    # for i in xrange(2,len(argv)):
+    #     print i, argv, len(argv)
+    #     studentGroups.append(int(argv[i]))
+    
 testing = False
 
 if testing:
@@ -15,17 +33,8 @@ else:
     entities = pd.read_csv("school-data/ca2012entities_csv.txt")
     votes = pd.read_csv("election-data/california-2016-election-precinct-maps/final-results/all_precinct_results.csv")
     #scores = pd.read_csv("school-data/ca2012_1_csv_v3.txt")
-    scores = pd.read_csv("school-data/african_am.txt")
+    scores = pd.read_csv("%s" % scores_file)
 
-
-zipHash = {}
-
-for index,row in zipcodes.iterrows():
-    key = (int(row['LNG']),int(row['LAT']))
-    if not key in zipHash:
-        zipHash[key] = [(row['LNG'],row['LAT'],row['ZIP'])]
-    else:
-        zipHash[key].append((row['LNG'],row['LAT'],row['ZIP']))
 
 #print zipHash.keys()
 
@@ -45,56 +54,72 @@ def lookup(point):
                     min_val = ptDist((x[0],x[1]),point)
                     min = x[2]
     return min
+
+if (not os.path.isfile("precincts_zipcodes.csv")):
+    zipHash = {}
+
+    for index,row in zipcodes.iterrows():
+        key = (int(row['LNG']),int(row['LAT']))
+        if not key in zipHash:
+            zipHash[key] = [(row['LNG'],row['LAT'],row['ZIP'])]
+        else:
+            zipHash[key].append((row['LNG'],row['LAT'],row['ZIP']))
                     
 
+    zips = []
+    precincts = []
+    lats = []
+    longs = []
 
 
-zips = []
-precincts = []
-lats = []
-longs = []
+    precinctPointsHash = {}
+    precinctZipHash = {}
 
+    for fname in shapefiles:
+        parts = fname.split('.')
+        print "processing ", fname
+        print parts
+        sf = shp.Reader(parts[0])
+        fields = sf.fields[1:] 
+        field_names = [field[0] for field in fields] 
+        print fields
+        for shape in sf.shapeRecords():
+            if len(shape.shape.points) > 1:
+                zipcode = lookup(shape.shape.points[0])
+                lat = shape.shape.points[0][1]
+                lng = shape.shape.points[0][0]
+            else:
+                print "reusing zipcode for" , atr
+            atr = dict(zip(field_names, shape.record))  
+            zips.append(zipcode)
+            lats.append(lat)
+            longs.append(lng)
 
-precinctPointsHash = {}
-precinctZipHash = {}
+            key = (int(lng),int(lat))
+            precinct = atr['pct16']
+            if key in precinctPointsHash.keys():
+                precinctPointsHash[key].append((lat,lng,precinct))
+            else:
+                precinctPointsHash[key] = [(lat,lng,precinct)]
+            if zipcode in precinctZipHash.keys():
+                precinctZipHash[zipcode].append(precinct)
+            else:
+                precinctZipHash[zipcode] = [precinct]
 
-for fname in shapefiles:
-    parts = fname.split('.')
-    print "processing ", fname
-    print parts
-    sf = shp.Reader(parts[0])
-    fields = sf.fields[1:] 
-    field_names = [field[0] for field in fields] 
-    print fields
-    for shape in sf.shapeRecords():
-        if len(shape.shape.points) > 1:
-            zipcode = lookup(shape.shape.points[0])
-            lat = shape.shape.points[0][1]
-            lng = shape.shape.points[0][0]
-        else:
-            print "reusing zipcode for" , atr
-        atr = dict(zip(field_names, shape.record))  
-        zips.append(zipcode)
-        lats.append(lat)
-        longs.append(lng)
+                precincts.append(precinct)
 
-        key = (int(lng),int(lat))
-        precinct = atr['pct16']
-        if key in precinctPointsHash.keys():
-            precinctPointsHash[key].append((lat,lng,precinct))
-        else:
-            precinctPointsHash[key] = [(lat,lng,precinct)]
+    output = pd.DataFrame({'zip':zips, 'precinct': precincts, 'longitude': longs, 'latitude': lats})
+    output.to_csv("precincts_zipcodes.csv")
+else:
+    output = pd.read_csv("precincts_zipcodes.csv")
+    precinctZipHash = {}
+    for idx,row in output.iterrows():
+        zipcode = row['zip']
+        precinct = row['precinct']
         if zipcode in precinctZipHash.keys():
             precinctZipHash[zipcode].append(precinct)
         else:
             precinctZipHash[zipcode] = [precinct]
-
-        precincts.append(precinct)
-
-
-
-output = pd.DataFrame({'zip':zips, 'precinct': precincts, 'longitude': longs, 'latitude': lats})
-output.to_csv("precincts_zipcodes.csv")
 
 
 
@@ -110,8 +135,6 @@ output.to_csv("precincts_zipcodes.csv")
 # and match a precinct to that school or something.
 
 # For now just assign all precincts with the same zipcode to the school.
-
-
 
 schools = entities[entities['Type Id'] == 7] # Schools rather than districts or counties.
 
@@ -135,11 +158,9 @@ for index,row in schools.iterrows():
 
 # Probably should use Dataframe.apply
 
-
-
 precinctsClinton = {}
 precinctsTrump = {}
-
+    
 for index,row in votes.iterrows():
     precinctsClinton[row['pct16']] = float(row['pres_clinton'])
     precinctsTrump[row['pct16']] = float(row['pres_trump'])
@@ -159,21 +180,20 @@ for key in schoolsPrecincts.keys():
 # (2) Get test from schools, and correlate to number for clinton v trump.
 #     (b) Test scores in school-data/...
 
-testIds = [9,10,11,12,13,14,15]  # 
-studentGroups = [220] # African Americans
-#studentGroup = 1 # all students
+#testIds = [9,10,11,12,13,14,15]  #  math tests.
+testIds = [7]
+
 grades = [9,10,11] #
 
 
-
-scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Subgroup ID'].isin(studentGroups)) & (scores['Grade'].isin(grades))]
+#scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Subgroup ID'].isin(studentGroups)) & (scores['Grade'].isin(grades))]
+scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Grade'].isin(grades))]
 
 schoolScores = {}
 schoolNumbers = {}
 
 for index,row in scores.iterrows():
     key = row[school_key_column]
-
 
     if key == 0:
         continue
@@ -204,13 +224,15 @@ for key in schoolScores.keys():
             numbers.append(schoolNumbers[key])
          
 
-
-
 kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'vote': votes,'score': scores, 'number': numbers})
 kahuna.to_csv("kahuna.csv")
 
 
 print kahuna.corr()
+
+print kahuna.describe()
+
+#print scipy.stats.pearsonr(kahuna['vote'],kahuna['score'])
 
 
 #print output

@@ -1,0 +1,9 @@
+import pandas as pd
+
+
+a = pd.read_csv("one.csv")
+b = pd.read_csv("two.csv")
+
+a.merge(two, on='School Code')
+
+print a.corr()

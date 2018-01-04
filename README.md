@@ -18,3 +18,9 @@ Data Descriptions:
 
  election-data/   - contains precinct level returns and shapfiles for precincts.
 
+--------------------------------
+
+1) Matching schools to precinct.
+
+  Method 1:  Match precinct to zipcode, only use the precincts with same zipcode of school to determine vote.
+  Method 2:  Match precincts to closest school using zipcode locations for location of school.
