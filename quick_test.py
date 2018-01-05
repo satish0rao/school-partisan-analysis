@@ -19,11 +19,13 @@ combined = a.merge(b, on='School Code')
 num_x = 0
 num_y = 0
 
-columns = ['score_x','vote_x','score_y','vote_y']
+#columns = ['score_x','vote_x','score_y','vote_y']
+columns = ['score_x','score_y','vote_y']
 
 report = combined[(combined['number_x'] > num_x) & (combined['number_y'] > num_y)][columns]
 
 print report.corr()
-print report.describe()
+print report.describe().loc['count':'std']
+
 
 

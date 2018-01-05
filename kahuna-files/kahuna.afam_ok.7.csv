@@ -1,0 +1,336 @@
+,District,School Code,School Name,number,score,vote
+0,Alameda City Unified,1,District Students in NPS,183,7.74316939891,0.643058547424
+1,Modesto City High,110593,James C. Enochs High,34,58.9411764706,0.503361941726
+2,Murrieta Valley Unified,118794,Murrieta Mesa High,74,58.5810810811,0.551023137622
+3,Redlands Unified,118802,Citrus Valley High,44,61.4772727273,0.455927591103
+4,Los Angeles Unified,1939479,WESM Health/Sports Medicine,289,47.6193771626,0.76065511572
+5,Anaheim Union High,3033115,John F. Kennedy High,44,61.4090909091,0.620361429163
+6,San Marcos Unified,3737632,San Marcos High,32,87.34375,0.556289356474
+7,Corona-Norco Unified,110627,Eleanor Roosevelt High,182,64.8736263736,0.469943247562
+8,Riverside Unified,3336237,Polytechnic High,70,49.9571428571,0.55196454629
+9,Clovis Unified,1030196,Clovis West High,12,50.0,0.410257742673
+10,Chaffey Joint Union High,3631157,Colony High,74,57.2432432432,0.584564584732
+11,William S. Hart Union High,102459,Golden Valley High,86,48.8837209302,0.493247068338
+12,Murrieta Valley Unified,100420,Vista Murrieta High,118,71.1779661017,0.408031308491
+13,William S. Hart Union High,102475,West Ranch High,63,69.4920634921,0.56037496028
+14,Lynwood Unified,1935436,Lynwood High,33,11.9090909091,0.818173573955
+15,West Covina Unified,1939537,West Covina High,11,55.0,0.722227984649
+16,Muroc Joint Unified,1531987,Desert Junior-Senior High,45,53.1111111111,0.289198606272
+17,West Contra Costa Unified,735316,Pinole Valley High,91,19.8461538462,0.820333432569
+18,Los Angeles County Office of Education,1933399,L.A. Co. High School/Arts,34,79.4411764706,0.750386750387
+19,Corona-Norco Unified,3334232,Norco High,28,60.4285714286,0.521374277896
+20,San Juan Unified,3430493,Bella Vista High,11,73.0,0.486412512219
+21,Hanford Joint Union High,1634401,Hanford High,14,57.0,0.41235459286
+22,Berkeley Unified,131177,Berkeley High,233,19.1373390558,0.95595970901
+23,Sacramento City Unified,3430519,Capital City,34,6.08823529412,0.810262114997
+24,Elk Grove Unified,3432572,Elk Grove High,35,63.2285714286,0.53358802929
+25,Lodi Unified,3930237,Bear Creek High,58,48.5689655172,0.613983375582
+26,Fresno Unified,1030279,Bullard High,83,50.0722891566,0.571761688236
+27,Torrance Unified,1939602,West High,51,66.6470588235,0.643809331448
+28,Hayward Unified,135319,Mt. Eden High,33,39.2121212121,0.805712270804
+29,Los Angeles Unified,1935519,Manual Arts Senior High,12,8.0,0.87685560054
+30,Elk Grove Unified,116897,Cosumnes Oaks High,117,58.0,0.635654169855
+31,Conejo Valley Unified,5630116,Westlake High,27,70.2222222222,0.53258887876
+32,Corona-Norco Unified,110759,John F. Kennedy High,11,82.0,0.521374277896
+33,San Juan Unified,3436714,Rio Americano High,13,69.0,0.613832853026
+34,Sweetwater Union High,3731627,Otay Ranch Senior High,63,66.3968253968,0.675064800415
+35,Pittsburg Unified,735407,Pittsburg Senior High,131,28.358778626,0.811901646119
+36,Sequoia Union High,4130993,Carlmont High,12,67.0,0.798728472558
+37,Natomas Unified,3430584,Natomas High,47,31.7234042553,0.638572425017
+38,Tracy Joint Unified,3930302,Merrill F. West High,60,31.6,0.628774661119
+39,Elk Grove Unified,3430592,Laguna Creek High,87,52.3103448276,0.669520992267
+40,San Diego Unified,3733698,Madison High,25,60.08,0.604657849339
+41,San Diego Unified,3735750,Point Loma High,39,69.4358974359,0.687368103708
+42,Elk Grove Unified,108753,Pleasant Grove High,96,67.9375,0.53358802929
+43,Colton Joint Unified,3631322,Bloomington High,13,54.0,0.760985136161
+44,Patterson Joint Unified,5036256,Patterson High,38,36.7105263158,0.577589023195
+45,Long Beach Unified,125153,Beach High-ILP,11,9.0,0.575231756596
+46,San Francisco Unified,3834082,Mission High,12,25.0,0.938423268274
+47,William S. Hart Union High,1931492,Canyon High,56,53.625,0.579585410653
+48,Twin Rivers Unified,3430634,Elwood J. Keema High,15,13.0,0.524216204068
+49,Mt. Diablo Unified,731380,Clayton Valley High,34,43.9411764706,0.66013560674
+50,Lake Elsinore Unified,3332350,Elsinore High,42,66.619047619,0.382344624781
+51,Napa Valley Unified,121087,American Canyon High,61,42.7049180328,0.717882632831
+52,Tracy Joint Unified,119040,John C. Kimball High,96,47.6875,0.622109275731
+53,Bellflower Unified,1935618,Mayfair High,148,47.3513513514,0.728351881293
+54,Riverside Unified,3334406,North (John W.) High,81,57.012345679,0.6940433213
+55,Sacramento City Unified,3434768,Kennedy (John F.) High,67,46.5074626866,0.746039824416
+56,Fresno Unified,1031897,Edison High,71,57.8591549296,0.443277310924
+57,Glendora Unified,1933597,Glendora High,11,73.0,0.519502353732
+58,El Dorado Union High,930081,Oak Ridge High,24,79.2916666667,0.455197962491
+59,East Side Union High,4335907,Piedmont Hills High,39,44.0256410256,0.675513501039
+60,East Side Union High,4330023,Santa Teresa High,56,58.7857142857,0.723253757737
+61,Riverside Unified,3336492,Ramona High,23,30.2608695652,0.554218787348
+62,Compton Unified,1931567,Centennial High,50,9.76,0.843711153803
+63,Fullerton Joint Union High,3037496,Troy High,12,92.0,0.591143294806
+64,Temecula Valley Unified,3330370,Temecula Valley High,75,50.9333333333,0.408742194469
+65,Arcadia Unified,1930288,Arcadia High,31,61.2580645161,0.641412361689
+66,Hesperia Unified,119115,Oak Hills High,59,42.3050847458,0.291064388962
+67,Upland Unified,3637584,Upland High,81,52.7901234568,0.610185756392
+68,Long Beach Unified,1935758,Millikan High,145,56.5931034483,0.575231756596
+69,Moreno Valley Unified,3330396,Canyon Springs High,126,49.373015873,0.601864262215
+70,Clovis Unified,1030501,Buchanan High,14,79.0,0.398396767466
+71,Tustin Unified,3037553,Tustin High,12,42.0,0.624855443582
+72,San Leandro Unified,137588,San Leandro High,174,40.9770114943,0.737482842991
+73,Moreno Valley Unified,3330438,Valley View High,114,46.4561403509,0.546990496304
+74,Corona-Norco Unified,3330446,Centennial High,131,61.4732824427,0.432162875041
+75,Kern Union High,110999,Frontier High,13,62.0,0.413674372848
+76,Long Beach Unified,1939875,Wilson High,157,50.2484076433,0.742538438348
+77,Vacaville Unified,4837803,Vacaville High,60,46.8333333333,0.570959803117
+78,Rialto Unified,102830,Wilmer Amina Carter High,127,38.5039370079,0.666440562998
+79,Beaumont Unified,3330479,Beaumont Senior High,48,60.7083333333,0.465511092089
+80,Twin Rivers Unified,3436979,Rio Linda High,11,45.0,0.671213208902
+81,Lake Elsinore Unified,3330487,Temescal Canyon High,28,53.6785714286,0.453914327917
+82,Los Angeles Unified,1931708,Chatsworth Senior High,54,51.7592592593,0.545961333175
+83,Manhattan Beach Unified,1935808,Mira Costa High,62,74.0967741935,0.682744775044
+84,Elk Grove Unified,3430873,Franklin High,141,57.4680851064,0.635654169855
+85,William S. Hart Union High,1931740,Saugus High,37,53.8918918919,0.45738545338
+86,San Ramon Valley Unified,113118,Dougherty Valley High,63,58.5555555556,0.711773832098
+87,Murrieta Valley Unified,3330529,Murrieta Valley High,41,58.1219512195,0.551023137622
+88,Antioch Unified,117218,Dozier-Libbey Medical High,31,54.5483870968,0.720506845325
+89,Kern Union High,1530344,Stockdale High,59,62.6440677966,0.815833333333
+90,Stockton Unified,3932654,Franklin High,11,36.0,0.546288209607
+91,Oxnard Union High,5634548,Oxnard High,18,56.0,0.647087467283
+92,Val Verde Unified,3330552,Rancho Verde High,162,51.3641975309,0.553964887475
+93,Los Angeles Unified,1995489,Los Angeles Unified Alternativ,32,25.6875,0.81433061866
+94,Mt. Diablo Unified,731646,College Park High,11,45.0,0.706974540128
+95,Las Virgenes Unified,1931781,Calabasas High,48,58.0625,0.64766536965
+96,San Francisco Unified,3830288,Balboa High,14,7.0,0.857183118439
+97,San Lorenzo Unified,137745,Royal Sunset (Continuation),11,0.0,0.819102405629
+98,Los Angeles Unified,1937838,San Pedro Senior High,53,47.1509433962,0.721876046901
+99,Corona-Norco Unified,3330586,Lee V. Pollard High (Cont.),11,0.0,0.581043375328
+100,Los Angeles Unified,1933852,Alexander Hamilton Senior Hig,234,54.6752136752,0.816042024447
+101,Acalanes Union High,733725,Las Lomas High,16,63.0,0.74777603349
+102,Perris Union High,113191,Heritage High,48,60.2916666667,0.502294893861
+103,Claremont Unified,1931823,Claremont High,67,55.1343283582,0.593502314996
+104,Monrovia Unified,1935923,Monrovia High,51,53.1176470588,0.687778528022
+105,Val Verde Unified,109108,Citrus Hill High,50,34.22,0.599527085125
+106,William S. Hart Union High,1933902,Hart (William S.) Senior High,12,67.0,0.493247068338
+107,Santa Monica-Malibu Unified,1938000,Santa Monica High,91,48.2417582418,0.83513562224
+108,San Lorenzo Unified,137810,San Lorenzo High,95,30.3157894737,0.789598540146
+109,Los Angeles Unified,1931864,Grover Cleveland High,49,73.1428571429,0.695140327745
+110,Kern Union High,1536606,West High,11,27.0,0.40262955988
+111,San Jose Unified,4330080,Gunderson High,11,45.0,0.726104035234
+112,Kern Union High,1530476,Liberty High,15,67.0,0.298972449739
+113,Desert Sands Unified,3330669,La Quinta High,24,87.75,0.441717002956
+114,Centinela Valley Union High,1933951,Hawthorne High,50,24.02,0.874346343312
+115,Antelope Valley Union High,1995398,Highland High,286,49.1853146853,0.419696176008
+116,Santa Clara Unified,4330122,Santa Clara High,14,64.0,0.761659933896
+117,Corona-Norco Unified,3330701,Santiago High,140,65.6,0.432162875041
+118,Antelope Valley Union High,1995406,Littlerock High,54,31.462962963,0.492362982929
+119,Grossmont Union High,3730066,Valhalla High,44,40.7727272727,0.44045616003
+120,Poway Unified,3730074,Mt. Carmel High,44,59.2954545455,0.590174713507
+121,Los Angeles Unified,1938885,University Senior High,71,54.7746478873,0.816501215559
+122,Fairfield-Suisun Unified,4836003,Sem Yeto Continuation High,28,7.0,0.649664153932
+123,Perris Union High,3330727,Paloma Valley High,48,48.125,0.445681281176
+124,Inglewood Unified,1936046,Morningside High,28,29.3214285714,0.838403294368
+125,Temecula Valley Unified,3330743,Chaparral High,77,61.1298701299,0.423866370972
+126,Compton Unified,1931963,Compton High,50,8.28,0.898423817863
+127,Santa Rosa High,4930244,Carrillo (Maria) High,11,64.0,0.760627802691
+128,Oxnard Union High,5634761,Rio Mesa High,14,57.0,0.733040003592
+129,Oakland Unified,137943,Skyline High,137,41.1678832117,0.773475898939
+130,Oakland Unified,6114011,"Independent Study, Sojourner",15,20.0,0.879256384577
+131,Oakland Unified,135905,Oakland High,75,17.6133333333,0.925277728796
+132,Pasadena Unified,1936103,John Muir High,60,36.5166666667,0.669747025528
+133,Washington Unified,5735154,River City Senior High,45,44.4222222222,0.782843431314
+134,Stockton Unified,3937406,Stagg Senior High,26,22.8461538462,0.594881537774
+135,Victor Valley Union High,3638012,Victor Valley High,103,25.1941747573,0.447736654306
+136,San Diego Unified,3730173,Serra High,64,55.09375,0.582085269983
+137,Folsom-Cordova Unified,3433216,Folsom High,29,85.9310344828,0.496486605182
+138,San Diego Unified,3730181,Mira Mesa High,46,65.5,0.620477794411
+139,Long Beach Unified,1995539,Calif Acad Math and Science,29,100.0,0.641695637546
+140,Liberty Union High,733980,Liberty High,33,57.1818181818,0.571727092258
+141,Los Angeles Unified,1936160,Nathaniel Narbonne Senior Hig,144,43.8333333333,0.690962980886
+142,El Segundo Unified,1932763,El Segundo High,14,71.0,0.697785277368
+143,Riverside Unified,3330859,Martin Luther King Jr. High,148,59.4594594595,0.529643427355
+144,Twin Rivers Unified,3433265,Foothill High,47,36.2127659574,0.542284984841
+145,Long Beach Unified,1995570,Educational Partnership High,16,19.0,0.727155394941
+146,Los Alamitos Unified,3033917,Los Alamitos High,59,69.5762711864,0.515223440825
+147,Roseville Joint Union High,3130176,Woodcreek High,12,75.0,0.516927675612
+148,Palos Verdes Peninsula Unified,1995588,Palos Verdes Penins. High,62,75.8387096774,0.558045395403
+149,Fontana Unified,3630902,Kaiser (Henry J.) High,42,50.0,0.782992589478
+150,ABC Unified,1930056,Cerritos High,68,72.25,0.669346150659
+151,Campbell Union High,4338505,Westmont High,34,49.7058823529,0.759295386734
+152,Monterey Peninsula Unified,111435,Marina High,12,83.0,0.751621643813
+153,Central Unified,1030626,Central High East Campus,93,44.311827957,0.586681844052
+154,Kern Union High,1530708,Bakersfield High,66,46.9242424242,0.42465976693
+155,Los Angeles Unified,1932128,Crenshaw Senior High,63,16.126984127,0.878698742865
+156,Sierra Sands Unified,1531367,Burroughs High,16,50.0,0.31420233463
+157,Grossmont Union High,3732336,Granite Hills High,28,46.1428571429,0.44045616003
+158,Oakland Unified,136051,Oakland Technical High,150,44.68,0.855087197935
+159,Milpitas Unified,4334470,Milpitas High,39,63.7692307692,0.761451562984
+160,Vacaville Unified,4830089,Wood (Will C.) High,57,33.2456140351,0.533185589272
+161,San Diego Unified,3730314,University City High,13,62.0,0.535812574977
+162,Poway Unified,118935,Del Norte High,23,60.652173913,0.480098943108
+163,Clovis Unified,113555,Clovis North High,38,73.4210526316,0.405669291339
+164,Torrance Unified,1936277,North High,59,52.6440677966,0.695008146941
+165,Sacramento City Unified,3435419,McClatchy (C. K.) High,27,29.7777777778,0.813576409309
+166,Temecula Valley Unified,105734,Great Oak High,81,60.3950617284,0.408742194469
+167,Culver City Unified,1932201,Culver City High,232,55.2198275862,0.783232413541
+168,Compton Unified,1995695,"Chavez (Cesar) High, Cont.",16,0.0,0.843711153803
+169,Torrance Unified,1938356,South High,22,82.0,0.613316134154
+170,San Diego Unified,3730371,San Diego SCPA,11,82.0,0.639748894279
+171,Campbell Union High,4331955,Del Mar High,22,45.5,0.769785351466
+172,Palm Springs Unified,3335130,Palm Springs High,11,64.0,0.614053395947
+173,Los Angeles Unified,1936350,North Hollywood Senior High,13,54.0,0.806232062321
+174,Sweetwater Union High,3730405,Bonita Vista Senior High,44,84.1818181818,0.675064800415
+175,Roseville Joint Union High,3136504,Roseville High,12,33.0,0.465835086665
+176,Moreno Valley Unified,3331071,Vista del Lago High,115,31.5217391304,0.553964887475
+177,West Contra Costa Unified,732164,De Anza Senior High,57,24.7894736842,0.8259762309
+178,Newark Unified,130054,Newark Memorial High,33,48.5757575758,0.786626940927
+179,Fremont Unified,130062,American High,12,50.0,0.759161490683
+180,Grossmont Union High,3734548,Monte Vista High,73,47.7945205479,0.567637598284
+181,Anaheim Union High,3030038,Cypress High,43,79.3488372093,0.555395524042
+182,South Pasadena Unified,1938455,South Pasadena Senior High,23,95.8260869565,0.803680981595
+183,William S. Hart Union High,1995802,Valencia High,87,66.724137931,0.553500458575
+184,Compton Unified,1932326,Dominguez High,42,19.0,0.897839225101
+185,Pleasanton Unified,130096,Foothill High,26,53.6538461538,0.704460402549
+186,Vista Unified,3738705,Vista High,24,48.0833333333,0.523737297133
+187,Los Angeles Unified,1932383,Susan Miller Dorsey Senior Hi,117,27.4017094017,0.911423670669
+188,Hayward Unified,138339,Tennyson High,12,25.0,0.811079667267
+189,Kern Union High,1530385,Ridgeview High,48,54.0416666667,0.441355674029
+190,Vallejo City Unified,4838504,Vallejo High,108,27.9907407407,0.823778345576
+191,San Francisco Unified,3839081,Washington (George) High,11,45.0,0.859501229364
+192,Folsom-Cordova Unified,3431533,Cordova High,55,54.5272727273,0.513401072086
+193,Pomona Unified,1995901,Diamond Ranch High,96,70.7395833333,0.694546617624
+194,San Diego Unified,3734654,Morse High,34,47.2647058824,0.762409667101
+195,Castro Valley Unified,132225,Castro Valley High,97,46.3917525773,0.748513127992
+196,Long Beach Unified,1934470,Jordan High,146,23.7054794521,0.777751852068
+197,Bellflower Unified,1930775,Bellflower High,57,40.1228070175,0.728351881293
+198,Chaffey Joint Union High,3630225,Alta Loma High,54,49.8888888889,0.475426024151
+199,Downey Unified,1932441,Downey High,36,52.8055555556,0.687788741231
+200,Long Beach Unified,1995935,Cabrillo High,80,33.8625,0.737823921668
+201,Manteca Unified,3930310,Sierra High,27,55.5555555556,0.507855822551
+202,West Contra Costa Unified,730291,Middle College High,24,87.4166666667,0.870163170163
+203,Los Angeles Unified,1938612,William Howard Taft Senior Hi,67,47.671641791,0.705670515605
+204,Alameda City Unified,130229,Alameda High,45,55.5555555556,0.891270112975
+205,San Lorenzo Unified,111799,East Bay Arts High,13,27.0,0.819102405629
+206,Antelope Valley Union High,1995968,Phoenix High Community Day,28,0.0,0.5248
+207,Silver Valley Unified,3630274,Silver Valley High,29,55.6206896552,0.383355350066
+208,East Side Union High,4330692,Evergreen Valley High,11,64.0,0.800276490201
+209,Manteca Unified,101576,Weston Ranch High,42,38.2857142857,0.507855822551
+210,Sweetwater Union High,111831,Olympian High,59,72.813559322,0.675064800415
+211,Grossmont Union High,3734761,Mount Miguel High,59,27.5593220339,0.567637598284
+212,Antelope Valley Union High,1936624,Palmdale High,224,29.6696428571,0.5248
+213,Fairfield-Suisun Unified,4830451,Armijo High,91,42.7252747253,0.649664153932
+214,Monterey Peninsula Unified,2735348,Seaside High,15,60.0,0.674866063713
+215,San Marcos Unified,105726,Mission Hills High,37,70.4864864865,0.485431302545
+216,Carlsbad Unified,3730694,Carlsbad High,12,83.0,0.549352222947
+217,Liberty Union High,107797,Heritage High,119,59.8991596639,0.571727092258
+218,Lemoore Union High,1635606,Lemoore High,49,59.1428571429,0.421127512004
+219,East Side Union High,4330031,Independence High,23,39.1304347826,0.800276490201
+220,Elk Grove Unified,3430618,Sheldon High,93,54.8387096774,0.599445599446
+221,Chaffey Joint Union High,3630373,Etiwanda High,246,59.243902439,0.52787952788
+222,Vista Unified,3730728,Rancho Buena Vista High,29,55.275862069,0.523737297133
+223,San Diego Unified,3732781,Henry High,56,60.6428571429,0.645101219439
+224,Chaffey Joint Union High,3634482,Ontario High,11,18.0,0.673227478223
+225,Torrance Unified,1938752,Torrance High,28,42.7142857143,0.680197090568
+226,Twin Rivers Unified,3433794,Grant Union High,64,25.0,0.606024488027
+227,Los Angeles Unified,1996115,City of Angels,86,28.976744186,0.875575270308
+228,Long Beach Unified,1934678,Lakewood High,229,40.423580786,0.627080240644
+229,Apple Valley Unified,3630423,Apple Valley High,17,47.0,0.412444444444
+230,Liberty Union High,730457,Freedom High,87,33.1264367816,0.567729804007
+231,Antioch Unified,730465,Deer Valley High,217,46.1935483871,0.720506845325
+232,Mt. Diablo Unified,734566,Mt. Diablo High,12,33.0,0.702267303103
+233,Paramount Unified,1936749,Paramount High,49,34.306122449,0.852637254021
+234,Campbell Union High,4330866,Branham High,30,46.5666666667,0.722009598445
+235,Chino Valley Unified,3632502,Chino High,25,32.12,0.56642519685
+236,Poway Unified,3730819,Rancho Bernardo High,30,63.3333333333,0.555760188088
+237,Norwalk-La Mirada Unified,1934728,La Mirada High,16,63.0,0.651520069242
+238,Oceanside Unified,3739018,El Camino High,87,53.0114942529,0.506075917651
+239,Inglewood Unified,1934231,Inglewood High,122,14.8770491803,0.841366589141
+240,Travis Unified,4838801,Vanden High,145,63.2068965517,0.649664153932
+241,San Francisco Unified,3833241,Lincoln (Abraham) High,41,19.3902439024,0.825506052539
+242,Sweetwater Union High,3730843,Eastlake High,83,80.5662650602,0.64510460251
+243,Pasadena Unified,1936822,Pasadena High,89,43.8651685393,0.689621329844
+244,San Jacinto Unified,3337656,San Jacinto High,24,42.0,0.489327296248
+245,Chino Valley Unified,3630522,Ruben S. Ayala High,59,56.0508474576,0.56642519685
+246,Elk Grove Unified,105916,Monterey Trail High,98,52.1836734694,0.53358802929
+247,San Diego Unified,3730884,Scripps Ranch High,34,79.5,0.602946365561
+248,Fremont Unified,138693,Washington High,41,51.2926829268,0.759161490683
+249,Modesto City High,5034913,Robert Elliott Alternative Ed,12,8.0,0.557129407737
+250,Fontana Unified,3630555,Fontana Miller (A. B.) High,15,40.0,0.598276322822
+251,West Contra Costa Unified,730598,Hercules High,89,41.1235955056,0.796276929513
+252,Chaffey Joint Union High,3630571,Rancho Cucamonga High,202,59.4257425743,0.475426024151
+253,Jurupa Unified,114157,Patriot High,11,64.0,0.588575560376
+254,Rialto Unified,3630597,Rialto High,35,40.0,0.797048080953
+255,Morongo Unified,3636743,Twentynine Palms High,13,54.0,0.330801687764
+256,New Haven Unified,134668,James Logan High,114,46.4912280702,0.816524839006
+257,Corona-Norco Unified,3331600,Corona High,44,72.7727272727,0.47779425263
+258,Pleasanton Unified,130583,Amador Valley High,24,62.5,0.670665009323
+259,Los Angeles Unified,119727,Ramon C. Cortines School of V,25,60.12,0.854956965253
+260,Los Angeles Unified,1931526,Carson Senior High,92,30.7717391304,0.776502242152
+261,Anaheim Union High,3036712,Savanna High,24,45.75,0.685525159022
+262,Capistrano Unified,3030574,Aliso Niguel High,28,64.6785714286,0.504467148292
+263,Los Angeles Unified,1932847,Los Angeles Center for Enrich,47,68.1063829787,0.740799366838
+264,Long Beach Unified,1936947,Polytechnic High,395,49.4278481013,0.836324705586
+265,Walnut Valley Unified,1932862,Diamond Bar High,52,59.6923076923,0.57246031746
+266,San Francisco Unified,3833407,Lowell High,11,73.0,0.826167975509
+267,Dublin Unified,132704,Dublin High,72,62.4444444444,0.700857618296
+268,Centinela Valley Union High,1934926,Lawndale High,36,58.6666666667,0.75959933222
+269,Sacramento City Unified,101972,Rosemont High,48,47.875,0.620729256388
+270,Los Angeles Unified,1933241,Gardena Senior High,86,21.1395348837,0.739858156028
+271,Los Angeles Unified,1939040,Venice Senior High,47,44.4893617021,0.805606900801
+272,East Side Union High,4335204,Oak Grove High,42,23.7857142857,0.723253757737
+273,Colton Joint Unified,3632742,Colton High,14,36.0,0.621570090359
+274,Lincoln Unified,3933801,Lincoln High,83,48.4457831325,0.594881537774
+275,Oakland Unified,110189,McClymonds High,47,9.40425531915,0.836138613861
+276,Los Angeles Unified,124529,Rancho Dominguez Preparatory,65,29.6,0.737823921668
+277,San Juan Unified,3432051,Del Campo High,35,51.5142857143,0.486412512219
+278,Los Angeles Unified,1932920,Fairfax Senior High,80,49.875,0.843086361491
+279,Vallejo City Unified,4830147,Bethel (Jesse M.) High,132,30.7575757576,0.737650351766
+280,Moreno Valley Unified,3333770,Moreno Valley High,60,28.3,0.600726019361
+281,San Ramon Valley Unified,730051,California High,28,57.4285714286,0.689691871072
+282,Hesperia Unified,3630746,Sultana High,26,57.5,0.346627880273
+283,Fontana Unified,108191,Summit High,119,52.9663865546,0.598276322822
+284,Oceanside Unified,3735206,Oceanside High,57,65.9298245614,0.585771868293
+285,Kern Union High,116392,Independence High,60,49.9333333333,0.815833333333
+286,Redlands Unified,3630779,Redlands East Valley High,31,55.1290322581,0.560438237419
+287,Lodi Unified,108225,Ronald E. McNair High,25,39.92,0.568053440739
+288,Victor Valley Union High,3630787,Silverado High,105,37.0095238095,0.562874603361
+289,Centinela Valley Union High,1935048,Leuzinger High,24,17.0,0.75959933222
+290,Los Angeles Unified,1933001,King/Drew Medical Magnet High,141,59.8156028369,0.855679055228
+291,Walnut Valley Unified,1939149,Walnut High,55,61.7454545455,0.622432392493
+292,Sweetwater Union High,3731064,Chula Vista Senior High,11,45.0,0.754016957886
+293,Long Beach Unified,1996503,Renaissance High for the Arts,29,76.0,0.836324705586
+294,Tracy Joint Unified,3938008,Tracy High,35,65.7142857143,0.628774661119
+295,Downey Unified,1939164,Warren High,28,67.2857142857,0.687788741231
+296,Beverly Hills Unified,1930981,Beverly Hills High,58,53.3793103448,0.720806916427
+297,Fairfield-Suisun Unified,4833000,Fairfield High,77,33.6363636364,0.649664153932
+298,Roseville Joint Union High,116459,Antelope High,61,59.0327868852,0.514728477984
+299,Orange County Department of Education,3030764,Access County Community,60,11.75,0.554275122895
+300,Antioch Unified,730861,Antioch High,62,36.8548387097,0.671317619435
+301,Antelope Valley Union High,100081,William J. (Pete) Knight High,260,34.9846153846,0.55445193331
+302,Redondo Beach Unified,1937143,Redondo Union High,105,65.7619047619,0.71605516872
+303,Berkeley Unified,134924,Berkeley Technology,17,8.0,0.95595970901
+304,West Contra Costa Unified,732941,El Cerrito Senior High,130,30.7076923077,0.889901823282
+305,Alameda City Unified,132878,Encinal High,55,48.9636363636,0.891270112975
+306,Elk Grove Unified,3430170,Valley High,11,27.0,0.810262114997
+307,Benicia Unified,4831004,Benicia High,72,46.4861111111,0.689301416707
+308,Fairfield-Suisun Unified,4830170,Rodriguez (Angelo) High,183,47.1530054645,0.658152554234
+309,San Lorenzo Unified,130849,Arroyo High,51,41.1568627451,0.789598540146
+310,Apple Valley Unified,3630894,Granite Hills High,44,45.5681818182,0.285087719298
+311,Pasadena Unified,1931062,Blair High,50,54.14,0.756913385827
+312,Saddleback Valley Unified,3034956,Mission Viejo High,14,86.0,0.475959441779
+313,Natomas Unified,102236,Inderkum High,82,38.9146341463,0.673297678059
+314,Redlands Unified,3635042,Redlands Senior High,37,70.3513513514,0.560438237419
+315,Antelope Valley Union High,1996644,R. Rex Parris High,14,7.0,0.5248
+316,Kern Union High,100198,Golden Valley High,11,18.0,0.568197553658
+317,ABC Unified,1933159,Gahr (Richard) High,146,56.0821917808,0.669346150659
+318,Davis Joint Unified,5732201,Davis Senior High,11,73.0,0.521778584392
+319,Rialto Unified,3633005,Eisenhower Senior High,53,37.7169811321,0.797048080953
+320,San Juan Unified,3432317,El Camino Fundamental High,27,51.9259259259,0.613677778969
+321,Antioch Unified,110494,Bidwell Continuation High,15,7.0,0.671317619435
+322,Chino Valley Unified,3631017,Chino Hills High,113,66.610619469,0.56642519685
+323,Burbank Unified,1931187,Burbank High,33,57.9090909091,0.687874685747
+324,Fontana Unified,120758,Jurupa Hills High,12,58.0,0.782992589478
+325,Elk Grove Unified,3430329,"Rio Cazadero High, Cont.",11,18.0,0.810262114997
+326,Stockton Unified,3932100,Edison High,30,29.8,0.651608986035
+327,Chaffey Joint Union High,3631058,Los Osos High,166,67.4939759036,0.432260912753
+328,Alvord Unified,3330008,La Sierra High,49,71.1836734694,0.641564318035
+329,Hanford Joint Union High,1630169,Hanford West High,27,48.5185185185,0.41235459286
+330,Irvine Unified,3035102,University High,11,73.0,0.631859982201
+331,Burbank Unified,1931237,Burroughs High,42,64.3095238095,0.808108640031
+332,Riverside Unified,3330024,Arlington High,27,55.8888888889,0.512108731466
+333,Center Joint Unified,3430378,Center High,62,46.7419354839,0.514728477984
+334,Centinela Valley Union High,1930239,Lloyde (R. K.) High,20,16.0,0.75959933222

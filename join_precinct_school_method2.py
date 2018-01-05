@@ -5,6 +5,7 @@ import sys
 import os.path
 import scipy.stats
 
+import params
 
 argv = sys.argv
 
@@ -14,12 +15,22 @@ scores_file = 'school-data/ca2012_1_csv_v3.txt'
 #studentGroups = [220] # African Americans
 #studentGroups = [1] # all students
 
+#testIds = [9,10,11,12,13,14,15]  #  math tests.
+testIds = [7] # ela test
+
 if len(argv) > 1:
     scores_file = argv[1]
+    if len(argv)>2:
+        testsIds = []
+        for x in range(2,len(argv)):
+            testIds.append(int(argv[x]))
+            
     # studentGroups = []
     # for i in xrange(2,len(argv)):
     #     print i, argv, len(argv)
     #     studentGroups.append(int(argv[i]))
+
+
     
 testing = False
 
@@ -76,6 +87,7 @@ def geom_lookup(point,latsToZips):
 
 # For now just assign all precincts with the same zipcode to the school.
 school_key_column = 'School Code'
+urban_precincts = {}
 
 if not os.path.isfile("school_to_precinct.csv"):
 
@@ -127,6 +139,9 @@ if not os.path.isfile("school_to_precinct.csv"):
 
     schoolsPrecincts = {}
 
+    urban_shapefiles = ['037-los-angeles.shp','075-san-francisco.shp']
+
+
     for fname in shapefiles:
         parts = fname.split('.')
         print "processing ", fname
@@ -136,6 +151,10 @@ if not os.path.isfile("school_to_precinct.csv"):
         field_names = [field[0] for field in fields] 
         print fields
         
+        urban_precinct = False
+        if fname.split('/')[-1] in urban_shapefiles:
+            urban_precinct = True
+
         for shape in sf.shapeRecords():
             close_schools = []
             if len(shape.shape.points) > 1:
@@ -154,6 +173,7 @@ if not os.path.isfile("school_to_precinct.csv"):
 
             precinct = atr['pct16']
 
+            urban_precincts[precinct] = urban_precinct
 
             for key in close_schools:
                 if key in schoolsPrecincts:
@@ -165,14 +185,17 @@ if not os.path.isfile("school_to_precinct.csv"):
         school_ids = []
         school_names = []
         precincts_ids  = []
+        urban_or_nots = []
 
         for key in schoolsPrecincts.keys():
             for precinct in schoolsPrecincts[key]:
                 school_ids.append(key)
                 school_names.append(schoolNames[key])
                 precincts_ids.append(precinct)
-        
-        output = pd.DataFrame({"school": school_ids, "school name": school_names, "precinct":precincts_ids})
+                urban_or_nots.append(urban_precincts[precinct])
+
+        output = pd.DataFrame({"school": school_ids, "school name": school_names, 
+                               "precinct":precincts_ids, "urban":urban_or_nots})
         output.to_csv("school_to_precinct.csv")
 else:
     schoolsPrecincts = {}
@@ -183,7 +206,8 @@ else:
             schoolsPrecincts[key].append(row['precinct'])
         else:
             schoolsPrecincts[key] = [row['precinct']]
-
+        urban_precincts[row['precinct']] = row['urban']
+            
 # (1) Get voting for precincts matched to school, make dataframe, indicating clinton v trump.
 #     (a) Results in final-results directory.
 
@@ -198,31 +222,51 @@ for index,row in votes.iterrows():
     precinctsTrump[row['pct16']] = float(row['pres_trump'])
 
 schoolVotes = {}
+schoolUrban = {}
 
 for key in schoolsPrecincts.keys():
     clinton = 0
     trump = 0
+
+    urban_count = 0
+    count = 0
+
     for x in schoolsPrecincts[key]:
         if x in precinctsTrump:
             #print "schoolVotes:", x, clinton,trump
             clinton += precinctsClinton[x]
             trump += precinctsTrump[x]
+            count += 1
+            if urban_precincts[x]:
+                urban_count+=1
+
+    if (urban_count >= count/2):
+        #print "School %s is urban", key
+        schoolUrban[key] = True
+    else:
+        schoolUrban[key] = False
     schoolVotes[key] = (clinton,trump)
+
+
 
 # (2) Get test from schools, and correlate to number for clinton v trump.
 #     (b) Test scores in school-data/...
 
-#testIds = [9,10,11,12,13,14,15]  #  math tests.
-testIds = [7] # ela test
-
 grades = [9,10,11] #
-
 
 #scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Subgroup ID'].isin(studentGroups)) & (scores['Grade'].isin(grades))]
 scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Grade'].isin(grades))]
 
 schoolScores = {}
 schoolNumbers = {}
+
+def include_school(key):
+    if not key in schoolUrban:
+        return False
+    if schoolUrban[key]:
+        return params.include_urban()
+    else:
+        return params.include_non_urban()
 
 for index,row in scores.iterrows():
     key = row[school_key_column]
@@ -231,12 +275,15 @@ for index,row in scores.iterrows():
         continue
 
     if row["Percentage At Or Above Proficient"] != '*':
+        if (row["Students Tested"] < 1) or (not include_school(key)):
+            continue
         if not key in schoolScores.keys():
             schoolScores[key] = float(row["Percentage At Or Above Proficient"])
             schoolNumbers[key] = row["Students Tested"]
         else:
             schoolScores[key] = (schoolScores[key]*schoolNumbers[key] + row["Students Tested"]*float(row["Percentage At Or Above Proficient"]))/(1.0* (schoolNumbers[key] + row["Students Tested"]))
             schoolNumbers[key] += row["Students Tested"]
+
 ids = []
 votes = []
 scores = []

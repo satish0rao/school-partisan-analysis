@@ -13,7 +13,11 @@ if len(argv) > 1:
 
 chunksize = 10 ** 5
 first = True
-for chunk in pd.read_csv('ca2012_all_csv_v3.txt', chunksize=chunksize):
+infile = 'ca2012_all_csv_v3.txt'
+if subgroup_id == 1:
+    infile = 'ca2012_1_csv_v3.txt'
+
+for chunk in pd.read_csv(infile, chunksize=chunksize):
     this_one = chunk[chunk['Subgroup ID'] == subgroup_id]
     if first:
         this_one.to_csv(out_file)
