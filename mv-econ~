@@ -1,0 +1,3 @@
+
+mv kahuna.econ_not.7.csv kahuna.econ_ok.7.csv
+mv kahuna.econ_not.9\ 10\ 11\ 12\ 13\ 14\ 15.csv  kahuna.econ_not_ok.9\ 10\ 11\ 12\ 13\ 14\ 15.csv 

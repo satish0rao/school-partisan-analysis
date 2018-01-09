@@ -1,0 +1,134 @@
+,District,District Code,School Code,School Name,number,score,vote
+0,Los Angeles Unified,64733,102913,Middle College High,73,53.4794520548,0.73945599022
+1,Los Angeles Unified,64733,102921,Harbor Teacher Preparation Ac,13,100.0,0.810384159139
+2,Los Angeles County Office of Education,10199,121871,Los Padrinos Juvenile,52,2.13461538462,0.755491167399
+3,San Francisco Unified,68478,3830288,Balboa High,42,6.92857142857,0.857183118439
+4,Los Angeles Unified,64733,1931864,Grover Cleveland High,71,44.9718309859,0.695140327745
+5,Los Angeles Unified,64733,1995794,Youth Opportunities Unlim,44,8.90909090909,0.908750514846
+6,Bellflower Unified,64303,1930775,Bellflower High,112,38.5,0.728351881293
+7,Los Angeles Unified,64733,1938968,Van Nuys Senior High,67,51.7462686567,0.765187419216
+8,Compton Unified,73437,1995695,"Chavez (Cesar) High, Cont.",18,0.0,0.843711153803
+9,Los Angeles Unified,64733,1933852,Alexander Hamilton Senior Hig,305,45.4885245902,0.816042024447
+10,Covina-Valley Unified,64436,1936418,Northview High,15,27.0,0.712248743719
+11,Los Angeles Unified,64733,1934371,Thomas Jefferson Senior High,44,11.0909090909,0.922107850668
+12,Compton Unified,73437,1932326,Dominguez High,202,20.0544554455,0.897839225101
+13,Los Angeles County Office of Education,10199,121897,Central Juvenile Hall,66,3.60606060606,0.755491167399
+14,Los Angeles Unified,64733,124461,Social Justice: Global Issues,22,10.0,0.922107850668
+15,Los Angeles Unified,64733,1932847,Los Angeles Center for Enrich,46,65.1956521739,0.740799366838
+16,Long Beach Unified,64725,1936947,Polytechnic High,491,29.1405295316,0.836324705586
+17,William S. Hart Union High,65136,102459,Golden Valley High,50,37.88,0.493247068338
+18,Los Angeles Unified,64733,124479,Social Justice: Fine and Perf,38,23.5526315789,0.922107850668
+19,Los Angeles County Office of Education,10199,121921,Afflerbaugh-Paige Camp,13,0.0,0.755491167399
+20,Pasadena Unified,64881,1936822,Pasadena High,112,34.4107142857,0.689621329844
+21,Lynwood Unified,64774,1935436,Lynwood High,56,32.2321428571,0.818173573955
+22,Centinela Valley Union High,64352,1934926,Lawndale High,159,47.5408805031,0.75959933222
+23,Santa Monica-Malibu Unified,64980,1938000,Santa Monica High,91,34.7252747253,0.83513562224
+24,West Covina Unified,65094,1939537,West Covina High,58,61.8103448276,0.722227984649
+25,Norwalk-La Mirada Unified,64840,1936467,Norwalk High,35,25.6857142857,0.66824754731
+26,Los Angeles Unified,64733,1932888,Downtown Business High,46,36.9565217391,0.854956965253
+27,Lompoc Unified,69229,4233060,Lompoc High,13,62.0,0.409012131716
+28,Los Angeles Unified,64733,1932383,Susan Miller Dorsey Senior Hi,346,27.0317919075,0.911423670669
+29,Los Angeles Unified,64733,1939040,Venice Senior High,90,28.9777777778,0.805606900801
+30,San Francisco Unified,68478,3839081,Washington (George) High,34,26.2941176471,0.859501229364
+31,Los Angeles Unified,64733,124529,Rancho Dominguez Preparatory,145,39.1517241379,0.737823921668
+32,Los Angeles Unified,64733,1934454,David Starr Jordan Senior Hig,108,3.80555555556,0.91624251497
+33,Los Angeles Unified,64733,1932920,Fairfax Senior High,178,39.6966292135,0.843086361491
+34,ABC Unified,64212,1930361,Artesia High,81,48.3333333333,0.684382665576
+35,Los Angeles Unified,64733,1938554,Sylmar Senior High,12,17.0,0.824708926261
+36,Pomona Unified,64907,1995901,Diamond Ranch High,48,45.7916666667,0.694546617624
+37,Centinela Valley Union High,64352,1933951,Hawthorne High,160,29.2125,0.874346343312
+38,San Francisco Unified,68478,3830403,Marshall (Thurgood) High,38,10.8947368421,0.868364791399
+39,Pomona Unified,64907,1937028,Pomona Senior High,90,29.7444444444,0.724364942147
+40,Antelope Valley Union High,64246,1995398,Highland High,41,37.0,0.419696176008
+41,Los Angeles Unified,64733,1939479,WESM Health/Sports Medicine,378,32.0079365079,0.76065511572
+42,Antelope Valley Union High,64246,1995406,Littlerock High,15,20.0,0.492362982929
+43,Los Angeles Unified,64733,1930387,Central High,27,3.88888888889,0.846559206448
+44,Downey Unified,64451,1932441,Downey High,48,40.4791666667,0.687788741231
+45,Long Beach Unified,64725,1995935,Cabrillo High,227,25.4669603524,0.737823921668
+46,Los Angeles Unified,64733,114850,West Adams Preparatory High,107,24.2990654206,0.904467987103
+47,Los Angeles Unified,64733,1930403,Whitney Young Continuation,12,17.0,0.878698742865
+48,Inglewood Unified,64634,1936046,Morningside High,187,21.3529411765,0.838403294368
+49,Los Angeles Unified,64733,1931955,"Ellington (Duke) High, Cont.",11,0.0,0.73945599022
+50,Los Angeles Unified,64733,1938612,William Howard Taft Senior Hi,147,41.7619047619,0.705670515605
+51,Compton Unified,73437,1931963,Compton High,209,13.2440191388,0.898423817863
+52,Duarte Unified,64469,1932482,Duarte High,14,57.0,0.69235280319
+53,Centinela Valley Union High,64352,1935048,Leuzinger High,193,34.2227979275,0.75959933222
+54,Los Angeles Unified,64733,1933001,King/Drew Medical Magnet High,515,51.8912621359,0.855679055228
+55,Pomona Unified,64907,1933175,Ganesha High,28,26.3571428571,0.742633439973
+56,Los Angeles Unified,64733,1935568,John Marshall Senior High,24,46.0,0.690659481653
+57,Los Angeles Unified,64733,1934033,Hollywood Senior High,101,57.0297029703,0.869295923769
+58,Los Angeles Unified,64733,1931476,Canoga Park Senior High,51,50.9803921569,0.744038635678
+59,Long Beach Unified,64725,1996503,Renaissance High for the Arts,64,56.3125,0.836324705586
+60,Downey Unified,64451,1939164,Warren High,23,30.2608695652,0.687788741231
+61,Long Beach Unified,64725,125153,Beach High-ILP,52,5.80769230769,0.575231756596
+62,San Francisco Unified,68478,3834082,Mission High,50,12.24,0.938423268274
+63,Pasadena Unified,64881,1936103,John Muir High,155,23.864516129,0.669747025528
+64,Antelope Valley Union High,64246,1936624,Palmdale High,44,32.0,0.5248
+65,Redondo Beach Unified,75341,1937143,Redondo Union High,32,62.5625,0.71605516872
+66,Bellflower Unified,64303,1935618,Mayfair High,121,40.694214876,0.728351881293
+67,Los Angeles Unified,64733,1931526,Carson Senior High,164,27.2804878049,0.776502242152
+68,San Francisco Unified,68478,102103,Jordan (June) School for Equi,26,19.1538461538,0.857183118439
+69,Bellflower Unified,64303,1938190,Somerset Continuation High,12,8.0,0.728351881293
+70,San Francisco Unified,68478,3830031,Wells (Ida B.) High,19,5.0,0.910737683438
+71,Long Beach Unified,64725,1995539,Calif Acad Math and Science,41,97.4390243902,0.641695637546
+72,Long Beach Unified,64725,1937176,Reid High,21,15.0,0.737823921668
+73,Los Angeles Unified,64733,1936160,Nathaniel Narbonne Senior Hig,255,42.3490196078,0.690962980886
+74,Long Beach Unified,64725,1934470,Jordan High,375,20.9306666667,0.777751852068
+75,Los Angeles Unified,64733,1996073,Tri-C Community Day,31,3.38709677419,0.846559206448
+76,Compton Unified,73437,1931567,Centennial High,176,16.5965909091,0.843711153803
+77,San Francisco Unified,68478,3830064,"Downtown High, Cont.",11,0.0,0.938828162129
+78,Long Beach Unified,64725,1995570,Educational Partnership High,29,3.0,0.727155394941
+79,Monrovia Unified,64790,1935923,Monrovia High,67,43.2985074627,0.687778528022
+80,Los Angeles County Office of Education,10199,121822,Nidorf Juvenile Hall,14,0.0,0.755491167399
+81,Pasadena Unified,64881,1931062,Blair High,81,42.8271604938,0.756913385827
+82,Los Angeles Unified,64733,1933118,John C. Fremont Senior High,200,10.865,0.902615006047
+83,Los Angeles Unified,64733,1995489,Los Angeles Unified Alternativ,19,11.0,0.81433061866
+84,ABC Unified,64212,1930056,Cerritos High,13,85.0,0.669346150659
+85,Los Angeles Unified,64733,1937226,Reseda Senior High,53,37.4528301887,0.695140327745
+86,Los Angeles Unified,64733,1996115,City of Angels,141,25.3546099291,0.875575270308
+87,Long Beach Unified,64725,1934678,Lakewood High,248,29.2419354839,0.627080240644
+88,Los Angeles Unified,64733,1939941,John F. Kennedy High,15,27.0,0.607977991747
+89,Los Angeles Unified,64733,1932128,Crenshaw Senior High,545,16.3229357798,0.878698742865
+90,Antelope Valley Union High,64246,1996644,R. Rex Parris High,16,0.0,0.5248
+91,ABC Unified,64212,1933159,Gahr (Richard) High,83,47.9156626506,0.669346150659
+92,Los Angeles Unified,64733,1939305,George Washington Preparatory,560,16.8857142857,0.73945599022
+93,Paramount Unified,64873,1936749,Paramount High,230,33.5956521739,0.852637254021
+94,Los Angeles Unified,64733,109447,Santee Education Complex,76,12.2105263158,0.922107850668
+95,Los Angeles Unified,64733,6061451,Foshay Learning Center,39,64.2564102564,0.899553064162
+96,Long Beach Unified,64725,1935758,Millikan High,104,40.1538461538,0.575231756596
+97,San Francisco Unified,68478,3834769,O'Connell (John) Alternative,14,7.0,0.927743252017
+98,Torrance Unified,65060,1936277,North High,64,45.5,0.695008146941
+99,Inglewood Unified,64634,1934231,Inglewood High,284,20.1901408451,0.841366589141
+100,San Francisco Unified,68478,3833241,Lincoln (Abraham) High,35,22.7142857143,0.825506052539
+101,Los Angeles Unified,64733,1930650,Phineas Banning Senior High,25,19.96,0.810384159139
+102,Covina-Valley Unified,64436,1938372,South Hills High,11,45.0,0.70250079139
+103,Pasadena Unified,64881,1931674,Marshall Fundamental,53,62.5660377358,0.640983033059
+104,Long Beach Unified,64725,1939875,Wilson High,169,35.5266272189,0.742538438348
+105,Los Angeles Unified,64733,112037,East Valley Sr. High,11,27.0,0.806232062321
+106,Pasadena Unified,64881,1936806,Rose City High (Continuation),12,8.0,0.727877176015
+107,Culver City Unified,64444,1932201,Culver City High,129,54.0542635659,0.783232413541
+108,Los Angeles Unified,64733,1937838,San Pedro Senior High,123,30.162601626,0.721876046901
+109,Los Angeles Unified,64733,119727,Ramon C. Cortines School of V,77,45.0909090909,0.854956965253
+110,Los Angeles Unified,64733,1933233,Sherman Oaks Center for Enric,12,75.0,0.695140327745
+111,Los Angeles County Office of Education,10199,1996214,Renaissance Community Day,49,4.73469387755,0.874346343312
+112,Los Angeles Unified,64733,1933241,Gardena Senior High,201,17.815920398,0.739858156028
+113,Los Angeles Unified,64733,1935519,Manual Arts Senior High,258,17.2984496124,0.87685560054
+114,Los Angeles Unified,64733,1931708,Chatsworth Senior High,93,41.8064516129,0.545961333175
+115,Los Angeles Unified,64733,1930692,Riley (Thomas) High,18,17.0,0.91624251497
+116,Los Angeles Unified,64733,1938885,University Senior High,197,38.9898477157,0.816501215559
+117,Los Angeles Unified,64733,124362,Valley Academy of Arts and Sc,17,56.0,0.607977991747
+118,Los Angeles Unified,64733,101329,William J. Johnston Community,12,8.0,0.721876046901
+119,San Francisco Unified,68478,3831765,Galileo High,48,13.3333333333,0.904845733346
+120,Los Angeles Unified,64733,1936350,North Hollywood Senior High,71,54.7746478873,0.806232062321
+121,Lynwood Unified,64774,109538,Marco Antonio Firebaugh High,54,18.2962962963,0.818173573955
+122,Los Angeles Unified,64733,1933795,Ulysses S. Grant Senior High,59,37.5084745763,0.743107540624
+123,San Francisco Unified,68478,3830353,Intl Studies Academy,36,13.9722222222,0.938828162129
+124,Los Angeles Unified,64733,120808,Dorothy V. Johnson Comm. Day,15,0.0,0.91624251497
+125,San Francisco Unified,68478,3830254,Burton (Phillip and Sala) Aca,29,17.7586206897,0.852908045296
+126,Whittier Union High,65128,1937903,Santa Fe High,37,51.3513513514,0.783517010062
+127,Los Angeles Unified,64733,106997,Orthopaedic Hospital,13,62.0,0.904467987103
+128,Inglewood Unified,64634,1934249,Hillcrest High,11,9.0,0.841366589141
+129,Los Angeles Unified,64733,1935352,Los Angeles Senior High,118,27.4915254237,0.855435342607
+130,Los Angeles Unified,64733,1935865,James Monroe High,38,39.3684210526,0.706802053886
+131,Los Angeles Unified,64733,107003,Northridge Academy High,15,67.0,0.746801978509
+132,Centinela Valley Union High,64352,1930239,Lloyde (R. K.) High,33,9.0,0.75959933222

@@ -1,0 +1,15 @@
+import glob as g
+
+to_move = g.glob("*_not.*.csv")
+
+for x in to_move:
+    z = x.split('.')
+    u = z[0:-1]
+    u = '.'.join(u)
+    y = u.split('_')
+    w = y[0:-1]
+    w.append('econ_ok.csv')
+    z = '-'.join(w)
+    cmd = 'mv %s %s' % (x,z)
+    print cmd
+                 

@@ -23,7 +23,7 @@ num_y = 0
 columns = ['score_x','score_y','vote_y']
 
 report = combined[(combined['number_x'] > num_x) & (combined['number_y'] > num_y)][columns]
-
+report['diff'] = report['score_y'] - report['score_x']
 print report.corr()
 print report.describe().loc['count':'std']
 

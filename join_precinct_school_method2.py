@@ -289,6 +289,7 @@ votes = []
 scores = []
 names = []
 numbers = []
+district_codes = []
 districts = []
 
 for key in schoolScores.keys():
@@ -299,12 +300,13 @@ for key in schoolScores.keys():
             ids.append(key)
             names.append(schools[schools[school_key_column] == key]['School Name'].iloc[0])
             districts.append(schools[schools[school_key_column] == key]['District Name'].iloc[0])
+            district_codes.append(schools[schools[school_key_column] == key]['District Code'].iloc[0])
             scores.append(schoolScores[key])
             votes.append(clinton/(clinton+trump))
             numbers.append(schoolNumbers[key])
          
 
-kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'vote': votes,'score': scores, 'number': numbers})
+kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'District Code': district_codes, 'vote': votes,'score': scores, 'number': numbers})
 kahuna.to_csv("kahuna.csv")
 
 

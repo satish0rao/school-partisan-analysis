@@ -1,0 +1,7 @@
+import glob as g
+
+to_move = g.glob("*_not.csv")
+
+for x in to_move:
+    z = x.split('.')
+    cmd = 'mv x %s' % x.split('.)
