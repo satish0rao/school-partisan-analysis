@@ -11,25 +11,35 @@ argv = sys.argv
 
 
 
-scores_file = 'school-data/ca2012_1_csv_v3.txt'
+
+
 #studentGroups = [220] # African Americans
 #studentGroups = [1] # all students
 
 #testIds = [9,10,11,12,13,14,15]  #  math tests.
 testIds = [7] # ela test
 
+year='2013'
+
+scores_file = 'school-data/ca%s_1_csv_v3.txt' % year
+if year=='2017':
+    scores_file = 'school-data/sb_ca2017_all_csv_v2.txt'
+
 if len(argv) > 1:
     scores_file = argv[1]
     if len(argv)>2:
-        testsIds = []
-        for x in range(2,len(argv)):
-            testIds.append(int(argv[x]))
-            
+        year = argv[2]
+        if len(argv) > 3:
+            testsIds = []
+            for x in range(3,len(argv)):
+                testIds.append(int(argv[x]))
     # studentGroups = []
     # for i in xrange(2,len(argv)):
     #     print i, argv, len(argv)
     #     studentGroups.append(int(argv[i]))
 
+
+#scores_file = 'school-data/ca2012_1_csv_v3.txt'
 
     
 testing = False
@@ -253,6 +263,7 @@ for key in schoolsPrecincts.keys():
 #     (b) Test scores in school-data/...
 
 grades = [9,10,11] #
+#grades = [1,2,3,4,5]
 
 #scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Subgroup ID'].isin(studentGroups)) & (scores['Grade'].isin(grades))]
 scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Grade'].isin(grades))]
@@ -268,20 +279,27 @@ def include_school(key):
     else:
         return params.include_non_urban()
 
+eval_column = "Percentage At Or Above Proficient"
+if year == '2017':
+    eval_column = 'Percentage Standard Met and Above'
+
 for index,row in scores.iterrows():
     key = row[school_key_column]
 
     if key == 0:
         continue
 
-    if row["Percentage At Or Above Proficient"] != '*':
+    if row[eval_column] != '*':
         if (row["Students Tested"] < 1) or (not include_school(key)):
             continue
         if not key in schoolScores.keys():
-            schoolScores[key] = float(row["Percentage At Or Above Proficient"])
+            schoolScores[key] = float(row[eval_column])
             schoolNumbers[key] = row["Students Tested"]
         else:
-            schoolScores[key] = (schoolScores[key]*schoolNumbers[key] + row["Students Tested"]*float(row["Percentage At Or Above Proficient"]))/(1.0* (schoolNumbers[key] + row["Students Tested"]))
+            print 'scores',schoolScores[key]
+            print "row", row
+            print 'numbers', schoolNumbers[key]
+            schoolScores[key] = (schoolScores[key]*schoolNumbers[key] + row["Students Tested"]*float(row[eval_column]))/(1.0* (schoolNumbers[key] + row["Students Tested"]))
             schoolNumbers[key] += row["Students Tested"]
 
 ids = []
@@ -307,7 +325,7 @@ for key in schoolScores.keys():
          
 
 kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'District Code': district_codes, 'vote': votes,'score': scores, 'number': numbers})
-kahuna.to_csv("kahuna.csv")
+kahuna.to_csv("kahuna.csv",index=False)
 
 
 print kahuna.corr()

@@ -17,6 +17,10 @@ Y = [0.5,2.0,2.0,6.0,3.0,8.0,6.0,7.0,10.0,11.0]
 #print "Pearsonr"
 #print pearsonr(a,b)
 
+
+print "Scipy"
+print scipy.stats.linregress(X,Y)
+
 print "Numpy"
 print np.corrcoef(X,Y)
 
@@ -36,14 +40,14 @@ print df.corr()
 print "OLS"
 
 
-model = sm.OLS(Y,X).fit()
+model = sm.OLS(Y,sm.add_constant(X)).fit()
 print "Raw"
 print model.summary()
 
 Y = df['Y']
 X = df['X']
 
-model = sm.OLS(Y,X).fit()
+model = sm.OLS(Y,sm.add_constant(X)).fit()
 print "Pandas"
 print model.summary()
 

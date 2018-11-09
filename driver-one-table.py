@@ -10,7 +10,11 @@ import numpy as np
 math = "9 10 11 12 13 14 15"
 ela = "7"
 
-tests = [("econ_dis",31, ela),("econ_ok",111,ela),("all",1,ela),
+tests = [("male_math",3,math),("female_math",4,math),("male_ela",3,ela),("female_ela",4,ela),
+         ("afam",74, math),("afam_econ_dis",200,math),("afam_econ_ok",220,math),
+         ("white",80, math),("white_econ_dis",206,math),("white_econ_ok",226,math)]
+
+not_used_tests = [("econ_dis",31, ela),("econ_ok",111,ela),("all",1,ela),
          ("econ_dis",31, math),("econ_ok",111,math),("all",1,math),
          ("afam",74, math),("afam_econ_dis",200,math),("afam_econ_ok",220,math),
          ("white",80, math),("white_econ_dis",206,math),("white_econ_ok",226,math),
@@ -18,18 +22,16 @@ tests = [("econ_dis",31, ela),("econ_ok",111,ela),("all",1,ela),
          ("white",80,ela),("white_econ_dis",206,ela),("white_econ_ok",226,ela)]
 
 # tests = []
-for (name,code) in [("hispanic",78),("hispanic_econ_dis",204),("hispanic_econ_ok",224),
-                    ("asian",76),("asian_econ_dis", 202),("asian_econ_ok",222),("male",3),("female",4)]:
-    for test_set in (math,ela):
-        tests.append((name,code,test_set))
+#for (name,code) in [("hispanic",78),("hispanic_econ_dis",204),("hispanic_econ_ok",224),
+#                    ("asian",76),("asian_econ_dis", 202),("asian_econ_ok",222),("male",3),("female",4)]:
+#    for test_set in (math,ela):
+#        tests.append((name,code,test_set))
 
 
-#tests = [('afam',74,ela),('white',80,ela)]
+# #tests = [('afam',74,ela),('white',80,ela)]
 
 urban = True
 non_urban = True
-
-
 
 if urban == False:
     root_for_outfiles = 'non-urban-kahuna-files'
@@ -45,19 +47,21 @@ cmd = "cp %s params.py" % param_file
 print "Running ", cmd
 os.system(cmd)
 
+# year
+year = '2013'
+
 for (prefix,code,test_set) in tests:
-    if not os.path.isfile("%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix,test_set)):
+    if not os.path.isfile("%s/%s.%s.%s.csv" % (root_for_outfiles,prefix,year,test_set)):
         if not os.path.isfile("school-data/%s.txt" % prefix):
             cmd = "cd school-data; python split_by_demo.py %s.txt %d; cd .." % (prefix, code)
             print "Running ", cmd
             os.system(cmd)
-        cmd = "python join_precinct_school_method2.py school-data/%s.txt %s" % (prefix,test_set)
+        cmd = "python join_precinct_school_method2.py school-data/%s.txt %s %s" % (prefix,year,test_set)
         print "Running ", cmd
         os.system(cmd)
-        cmd = "mv kahuna.csv \"%s/kahuna.%s.%s.csv\"" % (root_for_outfiles, prefix, test_set)
+        cmd = "mv kahuna.csv \"%s/%s.%s.%s.csv\"" % (root_for_outfiles, prefix, year, test_set)
         print "Running ", cmd
         os.system(cmd)
-
 
 
 table = {}
@@ -69,8 +73,8 @@ for i in range(len(tests)):
         (prefix2,code2,test_set2) = tests[j]
         if (test_set1 != test_set2):
             continue
-        file1 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix1,test_set1)
-        file2 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix2,test_set2)
+        file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,test_set1)
+        file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,test_set2)
         a = pd.read_csv(file1)
         b = pd.read_csv(file2)
         columns = ['number_x','score_x','score_y','vote_y']
@@ -171,8 +175,8 @@ for x in seda.columns:
             (prefix2,code2,test_set2) = tests[j]
             if (test_set1 != test_set2):
                 continue
-            file1 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix1,test_set1)
-            file2 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix2,test_set2)
+            file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,test_set1)
+            file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,test_set2)
             a = pd.read_csv(file1)
             b = pd.read_csv(file2)
             num_x = 0

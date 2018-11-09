@@ -12,6 +12,7 @@ import statsmodels.api as sm
 math = "9 10 11 12 13 14 15"
 ela = "7"
 
+
 tests = [("econ_dis",31, ela),("econ_ok",111,ela),("all",1,ela),
          ("econ_dis",31, math),("econ_ok",111,math),("all",1,math),
          ("afam",74, math),("afam_econ_dis",200,math),("afam_econ_ok",220,math),
@@ -27,11 +28,15 @@ for (name,code) in [("hispanic",78),("hispanic_econ_dis",204),("hispanic_econ_ok
 
 
 #tests = [('afam',74,ela),('white',80,ela),('afam',74,math),('white',80,math)]
-tests = [('afam',74,math),('white',80,math)]
+tests = [('afam',74,math),('afam_econ_dis',200,math),('white',80,math),('afam_econ_ok',220,math)]
+#tests = [('afam',74,2),('afam_econ_dis',200,2),('white',80,2),('afam_econ_ok',220,2)]
+#tests = [('afam',74,1),('afam_econ_dis',200,1),('white',80,1),('afam_econ_ok',220,1)]
+#tests = [('afam',74,ela),('afam_econ_dis',200,ela),('white',80,ela),('afam_econ_ok',220,ela)]
+
+
 
 urban = True
 non_urban = True
-
 
 
 if urban == False:
@@ -48,16 +53,29 @@ cmd = "cp %s params.py" % param_file
 print "Running ", cmd
 os.system(cmd)
 
+year = '2013'
+#year = '2017'
+
+def ts_name(test_set):
+    ts_name = test_set
+    if ts_name == math:
+        return 'math'
+    elif ts_name == ela:
+        return 'ela'
+    else:
+        return test_set
+
 for (prefix,code,test_set) in tests:
-    if not os.path.isfile("%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix,test_set)):
-        if not os.path.isfile("school-data/%s.txt" % prefix):
-            cmd = "cd school-data; python split_by_demo.py %s.txt %d; cd .." % (prefix, code)
+    if not os.path.isfile("%s/%s.%s.%s.csv" % (root_for_outfiles,prefix,year,ts_name(test_set))):
+        if not os.path.isfile("school-data/%s.%s.txt" % (prefix,year)):
+            cmd = "cd school-data; python split_by_demo.py %s.%s.txt %d %s; cd .." % (prefix,year, code,year)
             print "Running ", cmd
             os.system(cmd)
-        cmd = "python join_precinct_school_method2.py school-data/%s.txt %s" % (prefix,test_set)
+        cmd = "python join_precinct_school_method2.py school-data/%s.%s.txt %s %s" % (prefix,year,year,test_set)
         print "Running ", cmd
         os.system(cmd)
-        cmd = "mv kahuna.csv \"%s/kahuna.%s.%s.csv\"" % (root_for_outfiles, prefix, test_set)
+        test_set_name = ts_name(test_set)
+        cmd = "mv kahuna.csv \"%s/%s.%s.%s.csv\"" % (root_for_outfiles, prefix, year, test_set_name)
         print "Running ", cmd
         os.system(cmd)
 
@@ -66,14 +84,16 @@ for (prefix,code,test_set) in tests:
 table = {}
 
 
+
 for i in range(len(tests)):
     for j in range(len(tests)):
         (prefix1,code1,test_set1) = tests[i]
         (prefix2,code2,test_set2) = tests[j]
         if (test_set1 != test_set2):
             continue
-        file1 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix1,test_set1)
-        file2 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix2,test_set2)
+
+        file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,ts_name(test_set1))
+        file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,ts_name(test_set2))
         a = pd.read_csv(file1)
         b = pd.read_csv(file2)
         columns = ['number_x','score_x','score_y','vote_y']
@@ -162,9 +182,20 @@ number = 0
 
 
 #covariates = ['paredVblkwht','perblk','baplus_wht']
-#covariates = ['paredVblkwht','baplus_wht','occsales_fem','perblk']
+
 #covariates = ['occsales_fem']
-covariates = ['vote_x']
+#covariates = ['vote_x']
+
+
+def dup_data_frame(df,dup_level, dup_field):
+    row_lst = []
+    for idx,row in df.iterrows():
+        for i in xrange(0,row[dup_field],dup_level):
+            row_lst.append(row.to_dict())
+    #print row_lst
+    result = pd.DataFrame(row_lst)
+    #print result
+    return result
 
 for i in range(len(tests)):
     for j in range(len(tests)):
@@ -176,33 +207,69 @@ for i in range(len(tests)):
         if (prefix1 == prefix2) and (test_set1 == test_set2):
             continue
 
-        file1 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix1,test_set1)
-        file2 = "%s/kahuna.%s.%s.csv" % (root_for_outfiles,prefix2,test_set2)
+        file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,ts_name(test_set1))
+        file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,ts_name(test_set2))
         a = pd.read_csv(file1)
         b = pd.read_csv(file2)
 
         combined = a.merge(b,on='School Code')
         combined['diff'] =combined['score_y'] - combined['score_x']
         relevant_columns = ['School Code','District_x','School Name_x', 'score_x','score_y','number_x','number_y','vote_x','diff']
+        covariates = ['paredVblkwht'] # ,'baplus_wht','occsales_fem']
+        covariates = ['perblk']
+        seda_columns = covariates + ['paredVblkwht','baplus_wht','occsales_fem','paredVhspwht','occsales_fem']
+
         combined = combined[relevant_columns]
-        combined = combined.merge(seda,left_on='District_x',right_on='leaname')[relevant_columns +  covariates]
+        combined = combined.merge(seda,left_on='District_x',right_on='leaname')[relevant_columns +  seda_columns]
         print prefix1, test_set1, prefix2, test_set2
         print combined.corr()
         combined.to_csv("%s/%s.%s.%s.%s.csv" %(root_for_outfiles,prefix1,prefix2,test_set1,test_set2),index=False)
 
+
         combined = combined.dropna()
+        print "Number of students", combined['number_x'].sum()
+        #combined = dup_data_frame(combined,10,'number_x')
+
+        print "Correlation Again"
+        print combined.corr()
+
         Y = combined['diff']
+        covariates = covariates+ ['number_x']
+        covariates = ['number_x','paredVblkwht','occsales_fem']
         X = combined[covariates]
 
-        model = sm.OLS(Y,X).fit()
+    
+        model = sm.OLS(Y,sm.add_constant(X)).fit()
         print "Covariates", covariates
         print model.summary()
 
         Y = combined['diff']
         #covariates1 = ['baplus_wht']
         covariates1 = covariates
+        #X = combined[covariates1 + ['vote_x']]
         X = combined[covariates1 + ['vote_x']]
 
-        model = sm.OLS(Y,X).fit()
+        model = sm.OLS(Y,sm.add_constant(X)).fit()
         print "Covariates and vote", covariates1
+        print model.summary()
+
+        Y = combined['diff']
+        #covariates1 = ['baplus_wht']
+        covariates1 = covariates
+        #X = combined[covariates1 + ['vote_x']]
+        X = combined[covariates1 + ['paredVblkwht','number_x','paredVhspwht']]
+
+        model = sm.OLS(Y,sm.add_constant(X)).fit()
+        print "Covariates and ", covariates1, X.columns[-1]
+        print model.summary()
+
+        Y = combined['diff']
+        #covariates1 = ['baplus_wht']
+        covariates1 = covariates
+        #X = combined[covariates1 + ['vote_x']]
+        combined['random'] = pd.Series(np.random.randint(2,size = combined['diff'].count()),index=combined.index)
+        X = combined[covariates1 + ['random']]
+
+        print "Covariates and ", covariates1, 'random'
+        model = sm.OLS(Y,sm.add_constant(X)).fit()
         print model.summary()

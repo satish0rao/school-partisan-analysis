@@ -1,0 +1,757 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10060\viewh9760\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Alabama Matching Notes\
+Kyle Dropp and Jonathan Rodden\
+\
+Matching summary: \
+There was significant precinct consolidation between 2008 and 2010. The original VTD file contained 2,000 rows, compared with more than 2,500 rows in the vote total file. 1987 out of 1993 Census voting districts were matched with a vote total. \
+\
+\
+File names: \
+al_geo_0927 - geo file\
+al_0608_wNV_0927 - vote file\
+al_geo_merge_0927 - merged file\
+\
+Absentee voters:\
+Absentee votes and provisional votes are tallied at the county level. The approximately 100,000 absentee votes cast in 2008 and 2,000 provisional votes have been omitted. \
+\
+\
+Variable Names: \
+Census VTD file names\
+-al_geo_id - row identifier from raw Census VTD file\
+-al_vote_id - row identifier from raw vote total file\
+-VAP - Voting Age Population from Census FTP\
+-Pop100 - full population from Census FTP\
+-STATEFP10 - state code from census\
+-COUNTYFP10 - county code from census\
+-VTDST10 - voting district code from census\
+-GEOID10 - geo identifier from census\
+-VTDI10 - voting code from census\
+-Name10 - voting district identifier\
+-ALAND10 - land\
+-AWATER10 - water\
+-INTPLAT10 - latitude\
+-INTPTLON10 - longitude\
+-LogRecNo - Census FTP identifier\
+-al_agg - cumulative VAP for precincts where totals were summed and allocated by VAP to VTDs\
+-fraction - VAP/al_agg\
+-county - string county name\
+-precinct - precinct string - vote file\
+-tot08 - total votes 2008\
+-usp_d_08 - 2008 presidential votes, Democratic\
+-usp_r_08 - 2008 presidential votes, Republican\
+-usp_tot - 2008 presidential votes, total\
+-uss_d_08 - 2008 senate votes, Democratic\
+-uss_r_08 - 2008 senate votes, Republican\
+-uss_tot - 2008 senate votes, total\
+-ush_d_08 - 2008 house votes, Democratic\
+-ush_r_08 - 2008 house votes, Republican\
+-ush_tot - 2008 house votes, total\
+-tot06 - total votes 2006\
+-gov_d_06 - 2006 gubernatorial votes, Democratic\
+-gov_r_06 - 2006 gubernatorial votes, Republican\
+-gov_tot - 2006 gubernatorial votes, total\
+-ltgov_d_06 - 2006 lt. gubernatorial votes, Democratic\
+-ltgov_r_06 - 2006 lt. gubernatorial votes, Republican\
+-ag_d_06 - 2006 attorney general votes, Democratic\
+-ag_r_06 - 2006 attorney general votes, Republican\
+-sos_d_06 - 2006 SOS votes, Democratic\
+-sos_r_06 - 2006 SOS votes, Republican\
+-treas_d_06 - 2006 state treasurer votes, Democratic\
+-treas_r_06 - 2006 state treasurer votes, Republican\
+-audit_d_06 - 2006 state auditor votes, Democratic\
+-audit_r_06 - 2006 state auditor votes, Republican\
+-ush_d_06 - 2006 house votes, Democratic\
+-ush_r_06 - 2006 house votes, Republican\
+\
+Democratic percentage key: \
+p - president\
+s - senate\
+h - house\
+g - governor\
+a - attorney general\
+h - house\
+l - lt gov\
+y - sos\
+t - treasurer\
+aud - auditor\
+av - average\
+NDV - normal democratic votes\
+NRV - normal Republican votes\
+\
+Matching summary: \
+\
+Autauga: \
+-Camelia Baptist Church 1, Camelia Baptist Church 2 and Camelia Baptist Church TO Camelia Baptist Church\
+-Church of the Living Water 1, Church of the Living Water 2 TO Church of the Living Water\
+-PINE LEVEL FIRE STATION 1, PINE LEVEL FIRE STATION 2 TO PINE LEVEL FIRE STATION 1\
+-SAFE HARBOR MINISTRIES 1, SAFE HARBOR MINISTRIES 2, SAFE HARBOR MINISTRIES 3 TO SAFE HARBOR MINISTRIES \
+-TRINITY UNITED METHODIST 1, TRINITY UNITED METHODIST 2, TRINITY UNITED METHODIST 3 TO TRINITY UNITED METHODIST \
+-UPPER KINGSTON COMM CNTR 1, UPPER KINGSTON COMM CNTR 2 TO UPPER KINGSTON COMM CNTR \
+-Central AL electric coop to Mulberry/Statesville\
+\
+Baldwin:\
+-BAY MINETTE CITY HALL CIVIC 1, BAY MINETTE CITY HALL CIVIC 2, BAY MINETTE CITY HALL CIVIC 3 TO BAY MINETTE CITY HALL & Civic Center\
+-DAPHNE CIVIC CENTER 1, DAPHNE CIVIC CENTER 2, DAPHNE CIVIC CENTER 3, DAPHNE CIVIC CENTER 4, DAPHNE CIVIC CENTER 5 TO DAPHNE CIVIC CENTER \
+-DAPHNE HIGH SCHOOL 1, DAPHNE HIGH SCHOOL 2 TO DAPHNE HIGH SCHOOL \
+-EAST POINTE BAPTIST CHURCH 1, EAST POINTE BAPTIST CHURCH 2, EAST POINTE BAPTIST CHURCH 3 TO Spanish Fort Eastpointe Baptist\
+-FAIRHOPE CIVIC CENTER 1, 2, 3, 4, 5 TO FAIRHOPE CIVIC CENTER \
+-FOLEY CIVIC CENTER 1, 2, 3 TO FOLEY CIVIC CENTER \
+-GULF SHORES ACTIVITY 1, 2, 3 TO GULF SHORES ADULT ACTIVITY CENTER\
+-LILLIAN COMM 1, 2 TO LILLIAN COMMUNITY CLUB\
+-MAGNOLIA SPRINGS WESLEYAN 1, 2 TO MAGNOLIA SPRINGS WESLEYAN CHURCH\
+-ORANGE BEACH COMMUNITY CENTER 1, 2, 3 TO ORANGE BEACH COMMUNITY CENTER \
+-ROBERTSDALE CITY HALL 1, 2 TO ROBERTSDALE CITY HALL \
+\
+\
+BARBOUR: \
+-BEVILL CENTER, CHATTS CTS COMMUNITY CENTER, EFAULA COMMUNITY CENTER, EFAULA WATER BOARD, FELLOWSHIP BAPTIST CHURCH, SANFORD AVE GYM TO Bevill Center/Chatthoochee Cts Com Ctr/Eufaula Com Ctr/Eufaula WB/Fellowship BC/Sanford AG\
+-ELAMVILLE VOLUNTEER FIRE, SUTTONS RESTAURANT\
+TO Sutton's Restaurant/Elamville Volunteer Fire Department\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 -GREENS CROSS ROADS, MOUNT ANDREWS COMMUNITY CENTER \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 TO Green's Cross Roads/ Mt. Andrew Community Ctr.\
+-NO MATCH FOR TEXASVILLE CC\
+\
+BIBB: \
+ALTERNATIVE SCHOOL TO ALTERNATIVE 2, 10, 11\
+BRENT CITY HALL TO BRENT CITY HALL 4, 13\
+CENTREVILLE ROCK BLDG TO ROCK BUILDING 5, 14\
+EOLINE FIRE DEPARTMENT TO EOLINE FIRE DEPT 3, 12\
+GREENPOND FIRE DEPT TO GREENPOND FIRE DEPT 1, 11.01\
+LAWLEY CC TO LAWLEY CC 7, 8 \
+Brierfield fire department to six mile comma center -6 and six mile comm center -10\
+\
+BLOUNT: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 HAYDEN, HAYDEN 1, 2 TO HAYDEN \
+ONEONTA 1, 2 TO ONEONTA \
+\
+BULLOCK: \
+UNION SPGS ARMORY 1, 2 TO UNION SPGS ARMORY \
+\
+BUTLER: \
+DUNBAR COMMUNITY CENTER 1, 2 TO DUNBAR COMMUNITY CENTER \
+GEORGIANA ARMORY 1, 2 TO GEORGIANA NATIONAL GUARD ARMORY\
+HEALTH DEPARTMENT 1, 2 TO HEALTH DEPARTMENT \
+NEW ARMORY 1, 2 TO GREENVILLE NATIONAL GUARD ARMORY\
+\
+\
+CALHOUN: \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 I used this correspondence to match (http://www.calhouncounty.org/vote/pollingplaces.html). The first column provides wards and precincts.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \
+1ST UNITED METHODIST WEAVER 1, 2, ANGEL FIRE STATION TO Weaver First United Methodist/Angel Fire Dept. Voting District\
+ANNISTON FIRST PRESBYTERIAN, ANNISTON MENTAL HEALTH CNTR, ANNISTON GOLDEN SPRINGS COMM 1, ANNISTON GOLDEN SPRINGS COMM 2, THE DONOHO SCHOOL TO 1st Presby/Mental Health/Golden Springs/Donoho Voting District\
+EULATON UNITED METHODIST, BYNUM SCHOOL, WEST PARK HEIGHTS BAPTIST, BETTA VIEW CHURCH OF CHRIST 1, 2 TO Eulaton/Bynum/West Park Heights Bapt. Voting District\
+DEARMANVILLE UNITED METHODIST, CHOCCOLOCCO COMMUNITY CENTER TO DeArmanville United Methodist/Choccolocco Voting District\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 LEATHERWOOD RD CIVIL DEFENSE, SAKS HIGH SCHOOL 1, SAKS HIGH SCHOOL 2 TO Saks High/ Leatherwood Civil Defence Voting District\
+OXFORD CHEAHA CLUBHOUSE CC, OXFORD OXFORD LAKE PARK CC, OXFORD POLICE DEPARTMENT TO Oxford Lake Park/Cheaha Club Voting District\
+PIEDMONT COMMUNITY BUILDING, PIEDMONT FIRE STATION, PIEDMONT NATIONAL GUARD ARMORY, PIEDMONT NATIONAL GUARD ARMORY TO PIEDMONT\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 JACKSONVILLE FIRST BAPTIST, JACKSONVILLE NATL GUARD ARMORY, JACKSONVILLE WESTSIDE BAPTIST, GLENWOOD MEADOWS MEETING ROOM TO JACKSONVILLE\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 ANNISTON CARVER CENTER, CALHOUN COUNTY HEALTH DEPARTMENT, CHURCH OF THE COVENANT, GODS COVENANT MINISTRY, HOBSON CITY CITY HALL, MOORE AVENUE CHURCH OF CHRIST, SOUTH HIGHLAND COMMUNITY CENTER, WIGGINS COMMUNITY CENTER, ANNISTON THANKFUL BAPTIST, ANNISTON MEETING CENTER TO ANNISTON\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\
+CHAMBERS: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 BUFFALO, FIVE POINTS, PENTON TO Buffalo-Lebanon /Five Points /Penton Voting District\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 FAIRFAX, LANGDALE, RIVERVIEW, SHAWMUT, HUGULEY TO Fairfax/Langsdale/Riverview/Shawmut/ Hughley Voting District\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 LAKEVIEW, LANETT, RESCUE SQUAD TO Lakeview/Lanett/Huguley Rescue Voting District\
+MILLTOWN, SPARKLING SPRINGS TO Milltown-Sparkling Springs Voting District\
+STANDING ROCK, STROUD TO Stroud/Standing Rock Voting District\
+-WAVERLY, WEST CHAMBERS TO CULEBRA \
+\
+CHEROKEE: \
+FRIENDSHIP BAPTIST, FRIENDSHIP BAPTIST TO Friendship Baptist Church/Mt. Calvery Baptist Church\
+MCCORDS CROSSROADS FIRE HALL, ROCK RUN CHURCH TO McCord's Crossroad Volunteer Fire Dept./ Rock Run Church\
+MOUNT WEISNER FIRE HALL, MELROSE BAPTIST CHURCH TO Mt. Weisner Volunteer Fire Dept./Melrose Baptist Church\
+THE ROC 1, 2 TO RECREATIONAL OUTREACH CENTER\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\
+CHOCTAW: \
+ARARAT, LUSK, PLEASANT VALLEY TO Lusk-Pleasant Valley-Ararat Voting District\
+BARRYTOWN, WOMACK HILL, CHAPPEL HILL TO Barrytown-Womack Hill-Chappell Hill\
+BRANCH, BLADON SPINGS, CULLOMBURG TO Branch-Bladon Springs-Cullomburg\
+BUTLER, LAVACA, MOUNT STERLING TO Butler-Lavaca-Mt. Sterling Voting District\
+CROMWELL, YANTLEY TO Yantley-Cromwell\
+CROSSROADS, INTERSECTION, HALSELL TO Crossroads-Intersection-Halsell Voting District\
+TOXEY, GILBERTOWN, MELVIN, HURRICANE TO Toxey-Gilbertown-Melvin-Hurricane Voting District\
+ISNEY, SILAS, SOUWILPA, TOOMEY TO Silas-Souwilpa-Isney-Toomey Voting District\
+LISMAN, PUSHMATAHA TO Lisman-Pushmataha\
+PENNINGTON, PELHAM TO Pennington-Pelham\
+RIDERWOOD, ROCK SPRINGS TO Riderwood-Rock Springs\
+\
+\
+CLARKE: \
+Correspondence for the county (http://www.clarkecountyal.com/probate/pdf/precincts_districts.pdf)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 CHOCTAW BLUFF FIRE STA, GOOD HOPE AME CHURCH GAINSTOWN TO GOODHOPE AME/0012 ALMA\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 ANTIOCH FIRE STATION, GROVE HILL OLD ENGINEERS OFF, HELLWESTERN FIRE STA, GROVE HILL CITY HALL, TO Old Engineers Building/Antioch Fire Station/Hellwestern Fire Dept/Grove Hill City Hall/Old Engineers\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 FULTON CITY HALL TO FULTON CITY HALL (2)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 GROVE HILL NATIONAL GUARD, WHATLEY TIMBER CO. TO Whatley Timber Company/Grove Hill National Guard\
+JACKSON FIRE STATION NO 2, JACKSON SKIPPERS FIRE STA, JACKSON NATIONAL GUARD ARM TO Skipper Fire Station-Jackson National Guard-Jackson Fire Dept.\
+THOMASVILLE FIRE STATION 3, THOMASVILLE NEW CITY HALL, SPRINGFIELD UNITED METH TO Thomasville Fire Dept#3/Thomasville City Hall/Springfield Methodist Church/Thomasville National Guar\
+Thomasville National Guard and Bashi to Thomasville and Bashi\
+Fulton City Hall to Fulton City Hall and Walnut Grove\
+\
+\
+\
+Cleburne: \
+Chulafinnie, ABEL TO  Chulafinnee/Abel\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 HEFLIN RECREATIONAL CENTER 1, 2 TO HEFLIN REC CENTER\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 Micaville to Bud Blake's\
+Turkey Heaven VFD to Bells Mills\
+\
+\
+Coffee: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 ENTERPRISE RECREATION CENTER 1, 2 TO ENTERPRISE RECREATION CENTER \
+ENTERPRISE YMCA 1, 2 to YMCA\
+JOHNS CHAPEL AME CHURCH 1, 2 to john's chapel church\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+Colbert: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 CHEROKEE LIONS DEN, CHEROKEE LIONS DEN, Mynot Church of Christ to CHEROKEE\
+LEIGHTON CITY HALL, LEIGHTON CITY HALL TO LEIGHTON\
+SHEFF BOARD OF ED BLDG, SHEFF BOARD OF ED BLDG, SHEFFIELD FIRE MONTGOMERY, SHEFFIELD FIRE STN 2ND ST, SHEFFIELD MICHAEL CENTER, Park Terrace Cumberland TO SHEFFIELD\
+TUSCUMB CALVARY BAPTIST, TUSCUMB CALVARY BAPTIST, TUSCUMBIA UTILITIES BLDG, Hope Haven School, Cave Springs Miss Baptist, RE Thompson School, Whorton Diesel Repair TO TUSCUMBIA - I used Google Maps for this\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 First Southern Baptist Church, Grace Life Church, Muscle Shoals Fire St., Plumbers and Steamfitters union, Woodward Ave Baptist Church, East Colbert Senior Center, Muscle Shoals First St. TO Muscle Shoals  - I used Google Maps for this\
+County Highway Department to Locust Shores\
+Highway 247 Fire to HWY 247 Fire Rock Creek \
+\
+\
+Conecuh: \
+-Wooten voting house to Wooten 1, 2\
+-David Burt Building to David Burt 1, 2\
+-Castleberry Fire Department TO Castleberry Fire Dept 1, 2\
+-Mount Union Church to Hebert FD\
+-National Guard Armory to Carver Rec Center\
+-Flat Rock and Herbert FD to beat 8, Flat Rock and Herbert\
+\
+\
+Coosa: \
+-Courthouse to pct 712, 721\
+-Equality fire department to pct 0108, 0111\
+-Hanover to pct 614, 625, 710\
+-Kellyton FD to pct 302, 306\
+-marble valley FD to pct 1318, 1513\
+-Mt. Olive Community Center to pct 420, 603\
+-Old Railroad Depot to pct 401, 404\
+-Richville FD to pct 1519, 1522\
+-West Coosa Senior Center to pct 1205, 1215, 1216, 1223, 1224\
+\
+\
+Covington:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 OPP SEN CITIZENS BLDG 1, 2 TO Opp\
+KIWANIS FAIR BLDG 1, 2, 3 to Andalusia\
+HEATH CITY HALL & STRAUGHN AG BLDG TO Straughn School -Heath Health\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\
+Cullman: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 Courthouse, CULLMAN CITY HALL, CULLMAN CIVIC CENTER MA 1, 2,CULLMAN CO OFFICE BLDG BSMNT TO Cullman \
+EAST POINT COMMUNITY CENTER to EAST POINT COMMUNITY CENTER (2)\
+Mount Zion to Welti Fire Station \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+Dale: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 DALEVILLE CULT & CON CENTER 1, 2 TO Daleville\
+OZARK CIVIC CENTER 1, 2 to Ozark Civic Center \
+ROCKY HEAD COMMUNITY HOUSE, ROCKY HEAD FT RUCKER ELEM TO Rocky Head\
+Fort Rucker is a military base and has not been matched. There are likely a lot of residents in the VTD who cast absentee ballots. \
+\
+Dallas:\
+UNION OLD NATL GUARD ARMORY (2) to Old NG Armory\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+Dekalb:\
+-There are four commission districts in VTD and 40+ polling places listed in the vote file\
+-Board of Registrars official faxed correspondence file. \
+\
+Elmore: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 COOSADA CITY HALL TO COOSADA A, B, CITY HALL\
+FITZPATRICK COMMUNITY HOUSE TO FITZPATRICK COMMUNITY HOUSE, FITZPATRICK COMM HOUSE\
+MILLBROOK CIVIC CENTER 1, 2 to Millbrook Civic Center (3)\
+MULDER MEM METHODIST CHURCH 1, 2 to Mulder Memorial Church (2)\
+NATIONAL GUARD ARMORY 1, 2 TO Tallassee National Guard Armory (2) \
+SANTUCK COMMUNITY CENTER TO SANTUCK CC (3)\
+VICTORY BAPTIST SCHOOL 1, 2, 3 TO VICTORY BAPTIST SCHOOL (2) \
+WALLSBORO COMM CLUB TO WALLSBORO (2) \
+WETUMPKA CIVIC CENTER TO WETUMPKA (5) \
+FAIN PARK WETUMPKA to Fair Park, Fain Park Community Center, and Wetumpka Fain Park \
+No match for blue ridge, wetumpka national guard army, wetumpka national guard armory (low VAP)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+ESCAMBIA: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 ATMORE CITY HALL 1, 2 TO ATMORE CITY HALL\
+ATMORE PUBLIC LIBRARY 1, 2 TO ATMORE PUBLIC LIBRARY\
+BREWTON COMMUNITY CENTER 1, 2 TO BREWTON CC\
+Senior citizens center to New Order Baptist Church\
+Pleasant Hill to East Brewton Sail Center \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+ETOWAH: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 1ST UNITED METHODIST CHURCH ATTALLA 1, 2 TO 1ST UNITED METHODIST CHURCH\
+ATTALLA RECREATION CENTER 1, 2 TO ATALLA RECREATIONAL CENTER\
+CARVER COMMUNITY CENTER 1, 2 TO CARVER COMMUNITY CENTER\
+EAST GADSDEN RECREATION CENTER 1, 2 EAST GADSDEN REC CENTER\
+ELLIOTT COMMUNITY CENTER 1, 2 TO ELLIOTT CC\
+GADSDEN CONVENTION HALL 1, 2 TO GADSDEN CONVENTION HALL \
+GEORGE WALLACE SENIOR CNTR 1, 2 TO GEORGE WALLACE SENIOR CENTER \
+HOKES BLUFF COMMUNITY CNTR 1, 2 TO HOKES BLUFF COMMUNITY CNTR \
+NOCCALULA KIWANIS PVLN 1, 2 TO NOCCALULA KIWANIS PAVILION\
+NORTHEAST ETOWAH COMMUNITY CENTER 1, 2 TO NE ETOWAH CC\
+RAINBOW CITY COMMUNITY CNTR 1, 2, 3 TO RAINBOW CITY CC\
+SOUTHSIDE HS OLD LUNCH ROOM 1, 2, 3 SOUTHSIDE HS OLD LUNCHROOM\
+WALLACE HALL COMM COLLEGE 1, 2 TO WALLACE HALL \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+FAYETTE: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 BROWNS GLEN ALLEN COMM CNT, BROWNS GLEN ALLEN COMM CNT TO BROWNS\
+COLES NEW RIVER CHURCH OF CHRIST, COLES NEW RIVER CHURCH OF CHRIST TO COLE\
+FAYETTE CIVIC CENTER, FAYETTE CIVIC CENTER, FAYETTE YOUTH CENTER TO TOWN \
+LEE BELK COMMUNITY CENTER, LEE BELK COMMUNITY CENTER TO LEE\
+Pleasant Grove and Studdards To North River\
+\
+FRANKLIN: \
+RUSSELLVILLE ELECENTERIC WRHS, RUSSELLVILLE ELECENTERIC WRHS TO RUSSELLVILLE \
+\
+GENEVA: \
+BELLWOOD VOTING HOUSE, CHANCELLOR VOTING HOUSE TO BELLWOOD-CHANCELLOR\
+GENEVA ARMORY, GENEVA CITY HALL, GENEVA CITY HALL, GENEVA COUNTY COURTHOUSE TO Geneva-Courthouse-Armory-Community Center\
+HACODA, FLAT CREEK TO HACODA-FLAT CREEK\
+HUGHES COMMUNITY CENTER 1, 2, HUGHES COMMUNITY CENTER 1, MALVERN, FARM CENTER, SLOCOMB, TATE TO MALVERY-HUGHES CC, Tate-Slocomb Community Room, DUNDEE, HARTFORD NG Armory\
+\
+LOWERY, REVELS GROCERY TO LOWERY-REVELS STORE\
+PINEY GROVE, SAMSON AMERICAN LEGION HALL, SAMSON COMMUNITY CENTER TO Piney Grove-Samson Legion Hall-Samson Comm Center Voting District\
+\
+GREENe: \
+MORROW BROWN TO MORROW BROWN RC KING VILLAGE, MORROW BROWN RC SANDERS BLACK\
+Mantua Fire Department to Lewiston Comm. Center \
+Knoxville Fire Station to Montgomery Rec Center \
+National Guard Armory with National Guard Armory and Eutaw Pre-School \
+Union City Hall to Union City Hall and Eatman School \
+South Fork Rest to South Fork and Greene County Courthouse \
+Morris Brown to Morrow Brown, Carver School and Law library, Dollarhide Rec Center\
+Clinton Comm to Clinton and  West Greene \
+\
+HALE: \
+GREENSBORO ARMORY 1, 2 TO NATIONAL ARMORY 1, 2, 3, 1-A, 2-A, 3-A, 4-A, 5-A\
+AKRON CITY HALL TO AKRON CITY HALL, AKRON CITY HALL A, B, C\
+BUCKSNORT TO BUCKSNORT, BUCKSNORT A\
+CEDARVILLE TO CEDARVILLE, CEDARVILLE B\
+HAVANNA TO HAVANNA, HAVANNA A, B, C\
+MOUNDVILLE CITY HALL TO MOUNDVILLE CITY HALL, MOUNDVILLE CITY HALL 1\
+MOUNT HERMAN TO MOUNT HERMAN, MOUNT HERMAN A\
+NEWBERN OLD BANK BLDG TO NEWBERN, NEWBERN A\
+SAWYERVILLE HEAD START SCHOOL TO SAWYERVILLE, SAWYERVILLE B\
+STEWART TO STEWART, STEWART A\
+VALLEY TO VALLEY, VALLEY A, B, C, D, E \
+SUNSHINE HS to Laneville\
+\
+HENRY: \
+ABBEVILLE VOTING CENTER 1, 2 TO ABBEVILLE ARMORY\
+EDWIN VOTING CENTER TO EDWIN CLUBHOUSE (2)\
+HEADLAND VOTING CENTER 1, 2 TO HEADLAND ARMORY\
+\
+HOUSTON: \
+Walton Park 1, 2 to Johnson Homes, Lincoln Community Center\
+DOUG TEW COMMUNITY CENTER 1, 2 TO DOUG TEW CC\
+FARM CENTER 1, 2 TO FARM CENTER\
+LIBRARY 1, 2 TO LIBRARY\
+WATER AND ELECENTERIC 1, 2 TO WATER & ELECTRIC\
+WESTGATE 1, 2, 3 TO WESTGATE RECREATIONAL CENTER\
+WIREGRASS PARK 1, 2 TO WIREGRASS PARK \
+\
+JACKSON: \
+BRIDGEPORT COMMUNITY CENTER 1, 2 TO BRIDGEPORT CC\
+SCOTTSBORO RECREATION COM BLDG 1, 2, 3 TO SCOTTSBORO ARMORY-CITY HALL\
+STEVENSON CITY PARK 1, 2 TO STEVENSON CITY PARK\
+\
+JEFFERSON: \
+MATCHED ON VTD\
+\
+LAMAR: \
+SULLIGENT CITY HALL NOR, SULLIGENT CITY HALL SOU TO SULLIGENT-MOSCOW-CITY HALL and Moscow South\
+\
+\
+LAUDERDALE: \
+CENTER STAR FIRST BAPTIST CHURCH 1, 2 TO CENTER STAR FIRST BAPTIST\
+FLORENCE FOREST HILLS SCHOOL 1, 2 TO FOREST HILLS SCHOOL\
+FLORENCE MARS HILL SCHOOL 1, 2 TO MARS HILL SCHOOL\
+FLORENCE UNDERWOOD COMMUNITY CENTER 1, 2 TO UNDERWOOD CC\
+GREENHILL SRCITIZEN CENTER 1, 2 TO GREENHILL FD\
+HIGHLAND BAPTIST CHURCH 1, 2 TO HIGHLAND BAPTIST CHURCH\
+KILLEN BAPTIST CHURCH 1, 2 TO KILLEN FIRST BAPTIST CHURCH \
+ROGERSVILLE SR CIT BLDG 1, 2 TO ROGERSVILLE SEN CITZ CENTER \
+No match for Lauderdale County board of education\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+LAWRENCE: \
+Pleasant Grove to Pleasant Grove ABC, Pinhook \
+\
+LEE: \
+Glenwood School to Glenwood Elem School\
+City Hall building Loachapoka to Loachapoka\
+Downtown Marvyn to Marvyn \
+Waverly Town Hall to Waverly\
+Pine Grove United Methodist to Pine Grove UMC\
+Beauregard School to Beauregard School\
+Old Salem School to Old School Salem\
+Senior Center Smith Station\
+Smith School 1 to Smiths High School\
+Lee Chambers FD 3 to Lee County VFD\
+Lee County Snacks to Lee County Snacks\
+Farmville VFD to Farmville \
+\
+in Auburn\
+-Best Western 1, 2, 3\
+-Boykin CC 1, 2, 3\
+-Brown Rec Center\
+-dean road rec auburn 1, 2\
+-national guard armory 1, 2\
+\
+in Opelika A and B\
+-Beulah\
+-EAMC 1, 2\
+-Opelika Learning 1, 2\
+-Opelika Rec 1, 2\
+-ala army ntl guard cons 1, 2\
+-covington rec center 1,2\
+\
+\
+ \
+Limestone: \
+This correspondence (http://probate.limestonecounty.net/precincts.htm)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 CREEKSIDE ELEMENTARY SCHOOL 1, 2, 3 ISOMS CHAPEL UMC TO ISOM'S UMC-CREEKSIDE \
+GOODSPRINGS COMMUNITY CENTER, LESTER PO, WEST LIMESTONE FIRE DEPARTMENT TO GOODSPRINGS CENTER- W. LIMESTIME FD - LESTER PO\
+OWENS SR CENTER 1, 2 TO OWENS COMM BLDG\
+ARDMORE TOWN HALL, JOHNSON ELEMENTARY SCH, OAK GROVE FIRE DEPARTMENT TO Ardmore Town Hall-Johnson Elem--Oak Grove FD\
+CLEMENTS BAPTIST CH, RIPLEY WOW HALL TO Clements Bapt-Ripley WOW Hall\
+BLACKBURN RD BAPTIST CH, REID ELEMENTARY SCH TO Reid Elem School-Blackburn Club House\
+ATHENS RECREATION CENTER 1, 2, FRIENDSHIP UNITED METHODIST CHURCH 1, 2, NATIONAL GD ARM 1, 2, SR CIT CENTER 1, 2, ST MARK PRIM BAPTIST CHURCH 1, 2, PINEY CHAPEL FIRE DEPARTMENT TO ATHENS RECREATION CENTER\
+\
+Lowndes: \
+Hayneville Courthouse to Hayneville and New Pleasant Valley Chruch \
+GE Community Center and Sandy Ridge Comm to Community Center\
+Letohatchee Old store to new hope and lily baptist\
+benevolent hall to burkville\
+-No match for New Hope Church\
+\
+Macon: \
+NATL GRD ARM 1, 2 TO NATIONAL GUARD ARMORY\
+SEASHA 1, 2 TO SEASHA OFFICE BLDG\
+TUSKEGEE MUNI COMPLEX 1, 2 TO TUSKEGEE MUNICIPAL\
+TUSKEGEE UNIV TO TUSKEGGE THOMPKINS HALL A, B\
+\
+MADISON: \
+A & M UNIVERSITY NEW GYM 1, 2, 3, 4 TO A&M University New Gym\
+ALDERSGATE UNITED METHODIST 1, 2 TO ALDERSGATE UMC\
+CHAPMAN MIDDLE SCHOOL 1, 2 TO CHAPMAN MIDDLE SCHOOL\
+COVE UNITED METHODIST CHURCH 1, 2 TO COVE UMC\
+HILLWOOD BAPTIST CHURCH 1, 2 TO HILLWOOD BAPTIST CHURCH\
+MADISON CHURCH OF CHRIST 1, 2 TO MADISON CHURCH OF CHRIST\
+MADISON CITY HALL 1, 2 TO MADISON CITY HALL\
+MADISON CO TEACHER CENTER 1, 2 TO MAD COUNTY TEACHER RESOURCE CENTER \
+MONROVIA CHURCH OF CHRIST 1, 2 TO MONROVIA CHURCH OF CHRIST\
+PINEVIEW BAPTIST CHURCH 1, 2 TO PINEVIEW\
+THE DWELLING PLACE 1, 2 TO THE DWELLING PLACE\
+WEATHERLY HGTS BAPTIST 1, 2 TO WEATHERLY HGTS\
+WILLOWBROOK BAPTIST CHURCH 1, 2 TO WILLOWBROOK\
+OLD NAVAL RESERVE TO FIRE AND RESCUE ACADEMY\
+VISITATION PARISH to Eastside CC\
+\
+\
+MARION: \
+ET SIMS 1 TO NEIGHBORHOOD FACILITIES BLDG\
+ET SIMS BLDG 2 TO HAMILTON NEIGHBORHOOD FACILITIES\
+Pearces Mill to Pea Ridge Fire Station \
+Kimbrough 1 to Kimbrough Craft and Craft Comm building \
+Rye to Piney Grove church\
+Howell to Sullins Church\
+BARNSVILLE, CLARK to barnsville church and byrd FD\
+\
+\
+MARSHALL: \
+ALBERTVILLE RECREATION CENTER 1, 2, 3 TO NINE ALBERTVILLE REC CENTER VTDS and 1st baptist\
+ARAB COMMUNITY CENTER 1, 2, arab rec center 1,2 TO ARAB COMMUNITY CENTER (2)\
+BOAZ RECREATION CENTER 1, 2 to SEVEN BOAZ REC CENTER VTDS\
+Bucksnort and Honeycomb to Bucksnort Comm Ctr\
+Hooper Alder Springs to Brasher's Chapel Church (2) \
+N Marshall Utility Bldg to Mt Shade Church\
+Sims community center to tom lawson's store\
+Waterfront VFD to prospect cemetery\
+GUNTERSVILLE RECREATION CENTER 1, 2 TO FIVE GUNTERSVILLE REC CENTER VTDS\
+Georgia Mountain and Warrenton to Warrenton and hwy 70\
+Mount Pisgah to Kennamer Cove Cir\
+\
+Mobile: \
+In the vote total file, each precinct had two observations for a given VTD. The rows were summed\
+Living Word 1, 2 to Causey Middle School \
+Georgetown Baptist, Havenwood Baptist, Fellowship Baptist, Semmes Community and Tanner Williams Historical Society to First Baptist Ch/Wilmer, Georgetown, Havenowood, Fellowship, Semmes, Tanner\
+\
+\
+MONROE: \
+COLEMAN ASSEMBLY OF GOD, EXCEL BAPTIST CHURCH TO EXCEL/COLEMAN\
+ELISKA CHRYSLER FIRE, MCGILL TO Chrysler/Eliska/McGill\
+MONROEVILLE ARMORY 1, 2 TO MONROEVILLE ARMORY\
+MONROEVILLE FIRE STATION TO MONROEVILLE FD, MONROEVILLE FIRE STATION \
+PETERMAN WATER DEPARTMENT, TUNNEL SPRINGS TO Philadelphia Bapt.Church/Tunnel Springs/Peterman Water Dept.Voting District\
+PERDUE HILL MASONIC HALL TO PERDUE HILL MASONIC HALL, PERDUE HILL \
+\
+MONTGOMERY: \
+In the vote total file, each precinct had two or three observations for a given VTD. The rows were summed\
+Sheridan Heights 1, 2 to 4H North Montgomery \
+Pintala VFD 1,2 to 2L southern baptist, Pintala VFD\
+\
+MORGAN: \
+AMERICAN LEGION HARTSELLE 1, 2, AMERICAN LEGION DECATUR TO AMERICAN LEGION BLDG (2)\
+AUSTINVILLE ELEMENTARY 1, 2 TO AUSTINVILLE ELEM SCHOOL \
+BENJAMIN DAVIS ELEMENTARY 1, 2 TO BENJAMIN DAVIS ELEM SCHOOL \
+DECATUR FIRE & RESCUE, DECATUR FIRE & RESCUE 8 TO DECATUR FIRE & RESCUE (3) \
+EASTWOOD ELEMENTARY 1, 2 TO EASTWOOD ELEM SCHOOL \
+JULIAN HARRIS ELEMENTARY 1, 2, 3 TO JULIAN HARRIS ELEM SCHOOL \
+NUNGESTER ELEMENTARY 1, 2 TO FRANCES NUNGESTER ELEM SCHOOL \
+PRICEVILLE MUNICIPAL BLDG 1, 2 TO PRICEVILLE FIRE STATION\
+SOMERVILLE RD ELEMENTARY 1, 2 TO SOMERVILLE RD ELEM SCHOOL\
+SPARKMAN CIVIC CENTER 1, 2, 3 TO SPARKMAN ELEM SCHOOL \
+UNION HILL JR HIGH 1, 2 TO UNION HILL JR HIGH\
+WOODMEADE ELEMENTARY 1, 2 TO WOODMEADE ELEM SCHOOL \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 Perry: \
+-Fire Station HWY 219 TO Ocmulgee Fire Station\
+-airport, nag 1, 2, 3, uniontown hall 1, 2 TO national guard armory, uch-airport-armory, and uniontown city hall-airport\
+-east perry to pinetucky \
+\
+\
+PICKENS: \
+Gorado 3 to Gordo 3 and GORDO CITY HALL\
+\
+Pike: \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 DUNNS VOTING CENTER (2) to Dunn voting Center\
+Antioch Church of Christ to Shellhorn\
+No match for Needsmore Childs Grocery\
+\
+\
+Randolph: \
+Beats 1-14 in raw file deleted. \
+Bethel, Moore's Store, Woodland Fire Department combined to Bethel, Moore's Store, Woodland\
+Cavers Grove, Swagg combined to Cavers Grove, Swagg\
+Cedron and corinth combined to Cedron , Corinth\
+Midway, New Hope, Wedowee City Hall 1, Wedowee City Hall 2 to Midway, New Hope,Wedowee\
+NATIONAL GUARD ARMORY 1, NATIONAL GUARD ARMORY 2, NATIONAL GUARD ARMORY 3 combined to National Guard Armory\
+Omaha, potash, wehadkee combined to Omaha,Potash ,Wehadkee\
+Rock Mills and Wilson Store combined to Rock Mills, Wilson's Store\
+\
+Russell: \
+CENTRAL ACTIVITIES CENTER 1, CENTRAL ACTIVITIES CENTER 2 combined to CENTRAL ACTIVITIES CENTER \
+Hurtsboro Fire to Hurtsboro City Hall, Hurtsboro Fire Dept.\
+LADONIA FIRE STATION 1, LADONIA FIRE STATION 2 to Ladonia Fire\
+ROY MARTIN CENTER 1, ROY MARTIN CENTER 2 combined to ROY MARTIN CENTER \
+SPENCER RECREATION CENTER to SPENCER RECREATION CENTER, SPENCER RECREATION CENTER-b\
+\
+Shelby: \
+ASBURY UNITED METHODIST CHURCH 1, ASBURY UNITED METHODIST CHURCH 2 to asbury UMC\
+CALERA COMMUNITY CENTER 1, CALERA COMMUNITY CENTER 2 combined to CALERA COMMUNITY CENTER\
+CHRIST UNITED METHODIST 1, CHRIST UNITED METHODIST 2 combined to CHRIST UNITED METHODIST 1\
+COLUMBIANA RECREATION BLD 1, COLUMBIANA RECREATION BLD 2 combined to COLUMBIANA RECREATION BLD 1\
+CONCORD BAPTIST CHURCH 1, CONCORD BAPTIST CHURCH 2 combined to CONCORD BAPTIST CHURCH\
+COVENANT LIFE CHURCH 1, COVENANT LIFE CHURCH 2 combined to COVENANT LIFE CHURCH \
+EVANGEL PRESBYTERIAN 1, EVANGEL PRESBYTERIAN 2 combined to EVANGEL PRESBYTERIAN \
+FAITH PRESBYTERIAN 1, FAITH PRESBYTERIAN 2 combined to FAITH PRESBYTERIAN \
+FIRST CHRISTIAN CHURCH 1, FIRST CHRISTIAN CHURCH 2 combined to FIRST CHRISTIAN CHURCH \
+FIRST PRESBYTERIAN CHURCH 1, FIRST PRESBYTERIAN CHURCH 2 combined to FIRST PRESBYTERIAN CHURCH \
+HELENA UNITED METHODIST CHURCH 1, HELENA UNITED METHODIST CHURCH 2, HELENA UNITED METHODIST CHURCH 3, HELENA UNITED METHODIST CHURCH 4 combined to HELENA UNITED METHODIST CHURCH \
+HOOVER FIRE STATION 8 1, HOOVER FIRE STATION 8 2 combined to HOOVER FIRE STATION \
+MEADOWBROOK BAPTIST CHURCH 1, MEADOWBROOK BAPTIST CHURCH 2 combined to MEADOWBROOK BAPTIST CHURCH \
+NEW HOPE PRESBYTERIAN CHURCH 1, NEW HOPE PRESBYTERIAN CHURCH 2 combined to NEW HOPE PRESBYTERIAN CHURCH \
+PELHAM CIVIC COMPLEX 1, PELHAM CIVIC COMPLEX 2, PELHAM CIVIC COMPLEX 3 combined to PELHAM CIVIC COMPLEX \
+RIVERCHASE CHURCH OF CHRIST 1, RIVERCHASE CHURCH OF CHRIST 2 to RIVERCHASE CHURCH OF CHRIST \
+RIVERCHASE UNITED METHODIST 1, RIVERCHASE UNITED METHODIST 2 combined to RIVERCHASE UNITED METHODIST \
+SILURIA BAPTIST 1, SILURIA BAPTIST 2 combined to SILURIA BAPTIST Church\
+SOUTHCREST BAPTIST CHURCH 1, SOUTHCREST BAPTIST CHURCH 2 combined to SOUTHCREST BAPTIST CHURCH \
+SOUTHSIDE BAPTIST CHURCH 1, SOUTHSIDE BAPTIST CHURCH 2 combined to SOUTHSIDE BAPTIST CHURCH \
+SPORTS BLAST SHELBY 1, SPORTS BLAST SHELBY 2 combined to SPORTS BLAST SHELBY\
+THE CHURCH AT BROOK HILLS 1,THE CHURCH AT BROOK HILLS 2 combined to THE CHURCH AT BROOK HILLS \
+UNITED METHODIST OF ALABASTER 1, UNITED METHODIST OF ALABASTER 2 combined to UNITED METHODIST OF ALABASTER \
+VALLEYDALE BAPTIST CHURCH 1, VALLEYDALE BAPTIST CHURCH 2 combined to VALLEYDALE BAPTIST CHURCH \
+\
+St. Clair: \
+ASHVILLE NEW TOWN HALL, FRIENDSHIP VOLUNTEER FIRE DEPARTMENT combined to Ash Civic Center/Friendship Fire Dept. Voting District\
+BRANCHVILLE CUMBERLAND PRESBYTERIAN, ODENVILLE AGING CENTER combined to Branchville Church/ Odenville Civic Center Voting District\
+CHANDLER MOUNTN COMMUNITY HOUSE, GALLANT VFD GREASY COVE, SLATE UNION CHURCH combined to Chandler Mt.Comm/Gallant Fire Dept./Slate Union Voting District\
+CROPWELL CIVIC CENTER 1. CROPWELL CIVIC CENTER 2 combined to Cropwell PC\
+EASONVILLE COOSA VALLEY SCHOOL 1, EASONVILLE COOSA VALLEY SCHOOL 2 combined to Coosa Valley\
+EDEN OLD CITY HALL, PELL CITY COMMUNITY CENTER 1, PELL CITY COMMUNITY CENTER 2 combined to Eden Old City Hall/Pell City Comm Center Voting District\
+GUM SPRINGS CHURCH, POPLAR SPRINGS CHURCH, OLDHAM CHAPEL CHURCH ED BUILDING combined to Poplar Springs/Gum Springs Church/Oldham Chapel Voting District\
+MOODY CITY HALL 1, MOODY CITY HALL 2, MOODY CITY HALL 3 combined to Moody Civic Center\
+SPRINGVILLE FIRST UNITED METHODIST CHURCH 1, SPRINGVILLE FIRST UNITED METHODIST CHURCH 2 combined to springville Me C\
+Shoal Creek to greensport\
+\
+\
+\
+\
+Talladega: \
+BEMISTON RECREATION CENTER, NATIONAL GUARD ARMORY 1, NATIONAL GUARD ARMORY 2, SPRING ST COMMUNITY CENTER 1, SPRING ST COMMUNITY CENTER 2 combined to Talladega National Guard Armory-Spring St Comm Center-Bemiston\
+BN MABRA CENTER 1, BN MABRA CENTER 2, KINGSTON BAPTIST, TALLADEGA COUNTY CENTRAL HS combined to Mabra-Kingston Bapt-Talla Co Central High\
+CITY HALL BON AIR, CITY HALL OAK GROVE, RS LIMBAUGH COMMUNITY CENTER 1, RS LIMBAUGH COMMUNITY CENTER 2 combined to Limbaugh Comm Center-Bon Air- Oak Grove\
+COUNTY LINE VOLUNTEER FIRE DEPARTMENT, FIRE DEPARTMENT FAYETTEVILLE combined to Fayettville -Co Line\
+EASTABOGA CLUB HOUSE, OLD HIGH SCHOOL GYM combined to Eastaboga Comm Center/Old Lincoln High Gym\
+FIRE STATION STEMLEY, RENFROE FIRE HALL combined to Renfroe Fire Hall -Stemley Fire Hall\
+GABLES CORNER TALLADEGA, WINTERBORO VOLUNTEER FIRE DEPARTMENT combined to Winterboro Vol Fire-Gable's Corner Vol Fire\
+J CRAIG SMITH CMNTY CNTR 1, J CRAIG SMITH CMNTY CNTR 2, J CRAIG SMITH CMNTY CNTR 3 combined to Craig Smith Comm Center\
+ST ANDREWS METHODIST CHURCH, VOLUNTEER FIRE DEPARTMENT LAY LAKE combined to Lay Lake Vol Fire-St. Andrew's Church\
+\
+Tallapoosa: \
+ALEX CITY NTL GUARD ARMORY 1, ALEX CITY NTL GUARD ARMORY 2 combined to Alex City Natl Guard Armory\
+DADEVILLE NATIONAL GUARD 1, DADEVILLE NATIONAL GUARD 2 combined to Dadeville National Guard Armory\
+MOUNT LOVELY BAPTIST CHURCH 1, MOUNT LOVELY BAPTIST CHURCH 2 to Mt. Lovely Baptist Church (2)\
+NEW PACES PT VOLUNTEER FIRE DEPARTMENT 1, NEW PACES PT VOLUNTEER FIRE DEPARTMENT 2 combined to New Paces Point Vol. Fire 901, 902\
+\
+Tuscaloosa: \
+There are 104 vote totals but only 41 voting districts. I spoke with the county courthouse and received a list of 2010 polling places (54 total). \
+\
+Abernant and Tannehill Valley Baptist (2) - TVB is on Bucksville road, lakeview fire 1, 2  TO Abernant - Masonic - Bucksville \
+\
+BIG SANDY BAPTIST 1, BIG SANDY BAPTIST 2 combined to Frierson-Big Sandy Baptist Church\
+\
+Bobby Miller Activity 1, 2, 3 TO Hillcrest high school\
+\
+BUHL VFD STATION, COKER VFD, ROMULUS VFD combined to Coker-Buhl-Romulas Masonic Lodge\
+\
+CARROLLS CREEK BAPTIST 1, CARROLLS CREEK BAPTIST 2 combined to Carrolls Creek Fire Station\
+\
+CHAPEL HILL BAPTIST 1, CHAPEL HILL BAPTIST 2 combined to Chapel Hill Baptist Church\
+\
+COALING TOWN HALL combined to Coaling Community Center\
+\
+COTTONDALE COMMUNITY CHURCH 1, COTTONDALE COMMUNITY CHURCH 2, COTTONDALE METHODIST CHURCH 1, COTTONDALE METHODIST CHURCH 2 combined to Cottondale Methodist\
+\
+DUNCANVILLE VFD 1, DUNCANVILLE VFD 2 combined to Duncanville Fire Dept (we should also add Hagler VFD, as it is in Duncanville)\
+\
+Echola and Elrod to Echola Community Center \
+\
+FLATWOODS ELEMENTARY SCHOOL 1, FLATWOODS ELEMENTARY SCHOOL 2 combined to Flatwoods Elementary School\
+\
+FORREST LAKE METHODIST 1, FORREST LAKE METHODIST 2 combined to Forest Lake Methodist Church (very low votes to VAP ratio)\
+\
+ANTIOCH BAPTIST CHURCH, G G HARDIN COMMUNITY CENTER, station 2 carrolls creek, Windham Springs Baptist combined to Brookwood City Hall-Kellerman (GG hardin is located in brookwood)\
+\
+Holt Elem 1 & 2 - Holt Armory\
+\
+JAYCEE PARK 1, JAYCEE PARK 2, JAYCEE PARK 3 combined to Jayces Park\
+\
+Mayfield Fire and Northside Fire Dept to Samantha Fire Dept - New Lexington \
+\
+MCDONALD HUGHES CC 1, MCDONALD HUGHES CC 2, MCDONALD HUGHES CC 3 combined to McDonald Hughes Center\
+\
+MCABEE CENTER 1, 2, 3, MCFARLAND MALL 1, MCFARLAND MALL 2, MCFARLAND MALL 3, MCFARLAND MALL 4 combined to McFaland Mall  \
+\
+Montgomery VFD to montgomery fire and old samantha school\
+\
+NORTHPORT CITY HALL 1, NORTHPORT CITY HALL 2, NORTHPORT CITY HALL 3 combined to Northport Civic Center\
+\
+NORTHPORT COM CENTER 1, NORTHPORT COM CENTER 2 combined to Northport Community Center (low votes to VAP) - possible add Northside Fire?\
+\
+PETERSON METHODIST 1 to Peterson Methodist Church (low votes to VAP ratio) - \
+ \
+Phelps Center 1, 2 to Wood Village Comm Center \
+\
+Skyland Elementary 1, 2, 3 TO Bama Mall \
+\
+SKYLAND OAKS RETIREMENT 1, SKYLAND OAKS RETIREMENT 2 combined to Skyland Oaks Retirement Center\
+\
+SOUTHSIDE CC 1, SOUTHSIDE CC 2 combined to Southside Community Center (low votes to VAP)\
+\
+SPRAYBERRY REGIONAL ED CENTER 1, SPRAYBERRY REGIONAL ED CENTER 2 combined to Reg Education Center (votes to VAP kind of low)\
+\
+STILLMAN COLLEGE 1, STILLMAN COLLEGE 2, STILLMAN COLLEGE 3, STILLMAN COLLEGE 4 combined to Stillman College\
+\
+TUSCALOOSA ACADEMY 1, TUSCALOOSA ACADEMY 2, TUSCALOOSA ACADEMY 3, TUSCALOOSA ACADEMY 4 combined to Tuscaloosa Academy-Wood Village\
+\
+TUSCALOOSA COURTHOUSE ANNEX 1, TUSCALOOSA COURTHOUSE ANNEX 2, TUSCALOOSA COURTHOUSE ANNEX 3 combined to County Courthouse (low votes to vap ratio)\
+\
+Unity Baptist to Goodrich Union Hall\
+\
+UNIV MALL 1, UNIV MALL 2, UNIV MALL 3 combined to University Mall (2) (low votes to VAP ratio)\
+\
+Univ Presid 1, 2, and 3 to Clara Verner Towers (low ratio)\
+\
+VESTAVIA HILLS ELEMENTARY 1, VESTAVIA HILLS ELEMENTARY 2 combined to Vestavia Hills Elementary School\
+\
+\
+Washington: \
+BIGBEE VOTING HOUSE, SPRINGHILL BAPTIST CHURCH combined to Springfield Bapt/Bigbee Voting District\
+CHARITY CHAPEL FIRE HOUSE, DEES COMM (COMM FELLOW CHURCH), SIMS CHAPEL (SC HOLINESS CHURCH) combined to Dees Comm/SimsChapel/Charity Chapel Voting District\
+CHATOM COURTHOUSE BOX, CHATOM COURTHOUSE BOX  1 (A K), CHATOM COURTHOUSE BOX  2 (L Z) combined to Dees Comm/SimsChapel/Charity Chapel Voting District\
+DEER PARK FIRE HOUSE, EPWORTH FIRE HOUSE combined to Deer Park/Epworth Fire House\
+FRANKVILLE FIRE HOUSE, KOENTON VOTING HOUSE combined to Frankville/Koenton Voting District\
+MCINTOSH VOTING HOUSE BOX, MCINTOSH VOTING HOUSE BOX  1 (A O), MCINTOSH VOTING HOUSE BOX  2 (P Z) to McIntosh Voting House Voting District\
+MILLRY FIRE HOUSE BOX 1 (A K), MILLRY FIRE HOUSE BOX  2 (L Z) combined to Millry Fire House/Millry City Hall Voting District\
+YELLOW PINE BOX 2 (LATON HILL FIRE HOUSE), YELLOW PINE VOTING HOUSE BOX 1 combined to Yellow Pine Voting House District\
+\
+Wilcox: \
+ARLINGTON COMMUNITY CENTER to Lamison/Arlington 6001 6006\
+CALEDONIA EM JONES to E M Jones Store\
+NATL GUARD ARMORY CAMDEN to National Guard Armory 1001 1002 1003\
+PINE HILL CITY HALL, PINE HILL MIDDLE SCHOOL combined to Pine Hill and Pine Hill 6002 6003\
+SE CAMDEN COURTHOUSE ANX, SE CAMDEN COURTHOUSE ANNEX combined \
+Hwy 10/28 and Magnolia/Pebble hill to Magnolia\
+Southeast CAmden to Camden Courthouse, courthouse annex, and shady acres\
+Grocery Store to alberta\
+Portable Bldg to Canton Bend \
+Furman to Furman and Allenton \
+Millers Ferry to millers ferry and holy cross lutheran\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 Winston: \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 DELMAR, NATURAL BRIDGE combined to Delmar-Natural Bridges\
+ARC BUILDING HALEYVILLE, HALEYVILLE CITY HALL, HALEYVILLE HOUSING AUTHOUITY, S HALEYVILLE SCOUT HEADQUARTER combined to Haleyville-City Hall-VFW-National Guard Arm\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 Five vote totals not matched\
+\
+\
+\
+\
+\
+}

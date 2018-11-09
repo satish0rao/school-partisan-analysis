@@ -6,16 +6,28 @@ subgroup_id = 220
 
 argv = sys.argv
 
+year = '2013'
+
 if len(argv) > 1:
     out_file = argv[1]
     print argv
     subgroup_id = int(argv[2])
+    if len(argv)>3:
+        year = argv[3]
 
 chunksize = 10 ** 5
 first = True
-infile = 'ca2012_all_csv_v3.txt'
+
+infile = 'ca%s_all_csv_v3.txt' % year
 if subgroup_id == 1:
-    infile = 'ca2012_1_csv_v3.txt'
+    infile = 'ca%s_1_csv_v3.txt' % year
+
+if year=='2017':
+    if subgroup_id !=1:
+        infile = 'sb_ca2017_all_csv_v2.txt'
+    else:
+        infile = 'sb_ca2017_1_csv_v2.txt'
+
 
 for chunk in pd.read_csv(infile, chunksize=chunksize):
     this_one = chunk[chunk['Subgroup ID'] == subgroup_id]
