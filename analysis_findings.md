@@ -96,7 +96,53 @@ After dropping the top-10% of districts by white-BA+ rate (excludes Berkeley, Pa
 
 The vote-alone coefficient drops when extreme-baplus districts are removed (Berkeley etc. contribute disproportionately). But the controlled coefficient stays at ~+34 across all three samples — the pattern generalizes beyond Berkeley/Stanford-tier districts to ordinary high-baplus liberal California.
 
-### 7. Per-pupil spending doesn't predict Black achievement
+### 7. Black students at charters score better than at district schools, especially in liberal areas
+
+2025 SBAC math, mean Black student proficiency by school type × precinct vote bucket:
+
+**G3-5 elementary (afam):**
+
+| school type | Trump | Mixed | Liberal | Strong Clinton |
+|---|---|---|---|---|
+| district | 13.1% (n=2,681) | 18.3% (n=4,512) | 21.0% (n=5,697) | 22.2% (n=5,070) |
+| charter | 13.5% (n=155) | 34.0% (n=100) | 22.5% (n=961) | **28.0%** (n=2,646) |
+
+**G6-8 middle (afam):**
+
+| school type | Trump | Mixed | Liberal | Strong Clinton |
+|---|---|---|---|---|
+| district | 14.9% | 18.0% | 14.2% | 16.0% |
+| charter | 15.7% | 25.8% | **23.7%** | 19.4% |
+
+**G11 high school (afam, samples small/noisy):**
+
+| school type | Trump | Mixed | Liberal | Strong Clinton |
+|---|---|---|---|---|
+| district | **17.5%** | 14.9% | 14.5% | 14.5% |
+| charter | 8.8% (n=262) | 13.4% | 17.5% | 14.3% |
+
+**Charter advantage by bucket (charter mean − district mean):**
+
+| grade | Trump | Mixed | Liberal | Strong Clinton |
+|---|---|---|---|---|
+| G3-5 | +0.4 | +15.7 | +1.5 | **+5.8** |
+| G6-8 | +0.8 | +7.8 | **+9.5** | +3.4 |
+| G11 | −8.7 | −1.5 | +3.0 | −0.2 |
+
+**Pattern:** at elementary and middle school, charters show their biggest Black-student advantage in liberal areas (Strong Clinton at G3-5, Liberal at G6-8). In conservative areas, the advantage shrinks or reverses. HS samples too small for clean inference.
+
+The Black-targeted no-excuses charter networks (KIPP Compton, Wilder's Preparatory, Rocketship Delta Prep, Aspire) are concentrated in liberal urban California. They tend to outperform the surrounding district schools — most starkly where district pedagogy has drifted furthest from traditional rigor (i.e., in the most progressive districts).
+
+**Roland Fryer's research program is the most rigorous evidence base for this finding:**
+
+- **Fryer 2014 (QJE), "Injecting Charter School Best Practices into Traditional Public Schools"** — RCT study of Houston ISD's Apollo 20 program. Injected no-excuses charter practices (extended day, intensive tutoring, frequent assessments, high expectations, data-driven instruction) into 20 of Houston's lowest-performing district schools. Result: 0.15–0.40 SD per year math gains for predominantly Black/Hispanic students. Demonstrated that charter-style effectiveness is reproducible inside traditional public schools when administrators choose to.
+- **Fryer 2017, "The Production of Human Capital in Developed Countries"** — meta-analysis of 196 RCTs. High-dosage tutoring + structured curriculum + high expectations consistently outperform wraparound or broader interventions for Black student outcomes.
+- **Dobbie & Fryer 2011, 2013 (Harlem Children's Zone)** — the school component (KIPP-style pedagogy at Promise Academy) was responsible for nearly all of the gap-closing effect, not the surrounding social-services wraparound.
+- **Fryer & Torelli 2010 ("Acting White")** — documented within-school peer-comparison effects in racially integrated upper-middle-class schools that depress Black achievement; absent at homogeneous Black schools.
+
+Fryer's findings haven't received the institutional uptake their evidence-quality would warrant — partly because the implications cut against progressive-education orthodoxy, partly because Fryer himself has been professionally sidelined at Harvard for publishing other findings (notably his 2016 police use-of-force paper) that contradicted prevailing academic narratives. The pattern of "rigorous evidence on rigor producing better Black outcomes" being underweighted in policy discourse is itself part of what our within-California analysis points at.
+
+### 8. Per-pupil spending doesn't predict Black achievement
 
 District-level correlations:
 

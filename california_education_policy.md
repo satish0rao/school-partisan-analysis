@@ -68,3 +68,13 @@ This response came at the end of a long analytical session examining California 
 - The pattern is consistent with the "soft bigotry of low expectations" framework articulated by figures across the political spectrum (Bush, Obama, Loury, McWhorter, Sowell)
 
 For full data, methodology, code, and the complete back-and-forth conversation that produced these conclusions — including where the user challenged framings and where corrections were made — see the [GitHub repo](https://github.com/satish0rao/school-partisan-analysis).
+
+---
+
+## A note on teachers and the CTA
+
+I'm pro-teacher. I genuinely revere classroom teachers — the work they do is hard, important, and substantially undervalued. They should be paid more.
+
+The California Teachers Association largely argues for teacher pay, benefits, and working conditions, which I applaud. The CTA also takes positions on pedagogical and policy questions, and on those questions reasonable people — including teachers themselves — sometimes hold different views from the institutional one. Teachers, individually, want their kids to learn. They want clear standards. They want to be supported in maintaining high expectations. They want their effective work to be recognized.
+
+When the empirical evidence on what produces better student outcomes points in one direction and a particular policy position points another, the right move is to follow the evidence. Being pro-teacher, paying them more, and being honest about which pedagogical approaches work are not in tension.
