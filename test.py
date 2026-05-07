@@ -18,36 +18,35 @@ Y = [0.5,2.0,2.0,6.0,3.0,8.0,6.0,7.0,10.0,11.0]
 #print pearsonr(a,b)
 
 
-print "Scipy"
-print scipy.stats.linregress(X,Y)
+print("Scipy")
+print(scipy.stats.linregress(X,Y))
 
-print "Numpy"
-print np.corrcoef(X,Y)
+print("Numpy")
+print(np.corrcoef(X,Y))
 
 #import pdb; pdb.set_trace
-print "Numpy LEast Squares"
+print("Numpy LEast Squares")
 a = np.array([X])
-print a.shape
+print(a.shape)
 b = np.array(Y)
-print b.shape
-print np.linalg.lstsq(a.T,b)
+print(b.shape)
+print(np.linalg.lstsq(a.T,b))
 
 df = pd.DataFrame({'X':X,'Y':Y})
 
-print "Correlation"
-print df.corr()
+print("Correlation")
+print(df.corr())
 
-print "OLS"
+print("OLS")
 
 
 model = sm.OLS(Y,sm.add_constant(X)).fit()
-print "Raw"
-print model.summary()
+print("Raw")
+print(model.summary())
 
 Y = df['Y']
 X = df['X']
 
 model = sm.OLS(Y,sm.add_constant(X)).fit()
-print "Pandas"
-print model.summary()
-
+print("Pandas")
+print(model.summary())

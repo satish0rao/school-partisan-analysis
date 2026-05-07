@@ -42,15 +42,21 @@ non_urban = True
 if urban == False:
     root_for_outfiles = 'non-urban-kahuna-files'
     param_file = 'params_non_urban.py'
+    output_suffix = '.non-urban'
 elif non_urban == False:
     root_for_outfiles = 'urban-kahuna-files'
     param_file = 'params_urban.py'
+    output_suffix = '.urban'
 else:
     root_for_outfiles = 'kahuna-files'
     param_file = 'params_all.py'
+    output_suffix = ''
+
+output_dir = 'results'
+os.makedirs(output_dir, exist_ok=True)
 
 cmd = "cp %s params.py" % param_file
-print "Running ", cmd
+print("Running ", cmd)
 os.system(cmd)
 
 year = '2013'
@@ -68,15 +74,15 @@ def ts_name(test_set):
 for (prefix,code,test_set) in tests:
     if not os.path.isfile("%s/%s.%s.%s.csv" % (root_for_outfiles,prefix,year,ts_name(test_set))):
         if not os.path.isfile("school-data/%s.%s.txt" % (prefix,year)):
-            cmd = "cd school-data; python split_by_demo.py %s.%s.txt %d %s; cd .." % (prefix,year, code,year)
-            print "Running ", cmd
+            cmd = "cd school-data; python3 split_by_demo.py %s.%s.txt %d %s; cd .." % (prefix,year, code,year)
+            print("Running ", cmd)
             os.system(cmd)
-        cmd = "python join_precinct_school_method2.py school-data/%s.%s.txt %s %s" % (prefix,year,year,test_set)
-        print "Running ", cmd
+        cmd = "python3 join_precinct_school_method2.py school-data/%s.%s.txt %s %s" % (prefix,year,year,test_set)
+        print("Running ", cmd)
         os.system(cmd)
         test_set_name = ts_name(test_set)
         cmd = "mv kahuna.csv \"%s/%s.%s.%s.csv\"" % (root_for_outfiles, prefix, year, test_set_name)
-        print "Running ", cmd
+        print("Running ", cmd)
         os.system(cmd)
 
 
@@ -132,24 +138,21 @@ def short_float(f):
     return x
 
 for key in table.keys():
-    print key
-    titles = table[key][table[key].keys()[0]].keys()
-    titles.sort()
-    print '\t'
+    print(key)
+    titles = sorted(table[key][next(iter(table[key]))].keys())
+    print('\t')
     for t in titles:
-        print t, '\t',
-    print '\n'
+        print(t, '\t', end=' ')
+    print('\n')
 
-    prefixes1 = table[key].keys()
-    prefixes1.sort()
+    prefixes1 = sorted(table[key].keys())
     for prefix in prefixes1:
-        print prefix,
-        prefixes = table[key][prefix].keys()
-        prefixes.sort()
+        print(prefix, end=' ')
+        prefixes = sorted(table[key][prefix].keys())
         for t in prefixes:
             entry = table[key][prefix][t]
             #print "(%.3f %d)\t" % (entry[0],entry[1])
-            print "%.3f \t" % entry[0],
+            print("%.3f \t" % entry[0], end=' ')
             groups1.append(prefix)
             groups2.append(t)
             if key == ela:
@@ -161,12 +164,12 @@ for key in table.keys():
             means.append(short_float(entry[2]))
             stds.append(short_float(entry[3]))
             corr_xs.append(short_float(entry[4]))
-            
-        print '\n'
+
+        print('\n')
 
 output = pd.DataFrame({'A:group1': groups1, 'B:group2': groups2, 'C:test':which_tests, 'D:corr': corrs, 'E:counts': counts, 'F:mean':means, 'G:std': stds, 'H:corr_w_1':corr_xs})
 
-output.to_csv("vote_achievement_correlations.csv", index = False)
+output.to_csv("%s/vote_achievement_correlations.big%s.csv" % (output_dir, output_suffix), index = False)
 
 
 
@@ -190,7 +193,7 @@ number = 0
 def dup_data_frame(df,dup_level, dup_field):
     row_lst = []
     for idx,row in df.iterrows():
-        for i in xrange(0,row[dup_field],dup_level):
+        for i in range(0,row[dup_field],dup_level):
             row_lst.append(row.to_dict())
     #print row_lst
     result = pd.DataFrame(row_lst)
@@ -221,27 +224,27 @@ for i in range(len(tests)):
 
         combined = combined[relevant_columns]
         combined = combined.merge(seda,left_on='District_x',right_on='leaname')[relevant_columns +  seda_columns]
-        print prefix1, test_set1, prefix2, test_set2
-        print combined.corr()
-        combined.to_csv("%s/%s.%s.%s.%s.csv" %(root_for_outfiles,prefix1,prefix2,test_set1,test_set2),index=False)
+        print(prefix1, test_set1, prefix2, test_set2)
+        print(combined.corr(numeric_only=True))
+        combined.to_csv("%s/%s.%s.%s.%s%s.csv" % (output_dir,prefix1,prefix2,ts_name(test_set1),ts_name(test_set2),output_suffix),index=False)
 
 
         combined = combined.dropna()
-        print "Number of students", combined['number_x'].sum()
+        print("Number of students", combined['number_x'].sum())
         #combined = dup_data_frame(combined,10,'number_x')
 
-        print "Correlation Again"
-        print combined.corr()
+        print("Correlation Again")
+        print(combined.corr(numeric_only=True))
 
         Y = combined['diff']
         covariates = covariates+ ['number_x']
         covariates = ['number_x','paredVblkwht','occsales_fem']
         X = combined[covariates]
 
-    
+
         model = sm.OLS(Y,sm.add_constant(X)).fit()
-        print "Covariates", covariates
-        print model.summary()
+        print("Covariates", covariates)
+        print(model.summary())
 
         Y = combined['diff']
         #covariates1 = ['baplus_wht']
@@ -250,8 +253,8 @@ for i in range(len(tests)):
         X = combined[covariates1 + ['vote_x']]
 
         model = sm.OLS(Y,sm.add_constant(X)).fit()
-        print "Covariates and vote", covariates1
-        print model.summary()
+        print("Covariates and vote", covariates1)
+        print(model.summary())
 
         Y = combined['diff']
         #covariates1 = ['baplus_wht']
@@ -260,8 +263,8 @@ for i in range(len(tests)):
         X = combined[covariates1 + ['paredVblkwht','number_x','paredVhspwht']]
 
         model = sm.OLS(Y,sm.add_constant(X)).fit()
-        print "Covariates and ", covariates1, X.columns[-1]
-        print model.summary()
+        print("Covariates and ", covariates1, X.columns[-1])
+        print(model.summary())
 
         Y = combined['diff']
         #covariates1 = ['baplus_wht']
@@ -270,6 +273,6 @@ for i in range(len(tests)):
         combined['random'] = pd.Series(np.random.randint(2,size = combined['diff'].count()),index=combined.index)
         X = combined[covariates1 + ['random']]
 
-        print "Covariates and ", covariates1, 'random'
+        print("Covariates and ", covariates1, 'random')
         model = sm.OLS(Y,sm.add_constant(X)).fit()
-        print model.summary()
+        print(model.summary())

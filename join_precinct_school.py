@@ -77,19 +77,19 @@ if (not os.path.isfile("precincts_zipcodes.csv")):
 
     for fname in shapefiles:
         parts = fname.split('.')
-        print "processing ", fname
-        print parts
+        print("processing ", fname)
+        print(parts)
         sf = shp.Reader(parts[0])
-        fields = sf.fields[1:] 
-        field_names = [field[0] for field in fields] 
-        print fields
+        fields = sf.fields[1:]
+        field_names = [field[0] for field in fields]
+        print(fields)
         for shape in sf.shapeRecords():
             if len(shape.shape.points) > 1:
                 zipcode = lookup(shape.shape.points[0])
                 lat = shape.shape.points[0][1]
                 lng = shape.shape.points[0][0]
             else:
-                print "reusing zipcode for" , atr
+                print("reusing zipcode for", atr)
             atr = dict(zip(field_names, shape.record))  
             zips.append(zipcode)
             lats.append(lat)
@@ -228,9 +228,9 @@ kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': dis
 kahuna.to_csv("kahuna.csv")
 
 
-print kahuna.corr()
+print(kahuna.corr(numeric_only=True))
 
-print kahuna.describe()
+print(kahuna.describe())
 
 #print scipy.stats.pearsonr(kahuna['vote'],kahuna['score'])
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Language and runtime
 
-This is **Python 2** code (`print` as a statement, `xrange`, `dict.keys()` returning lists, `dict[key].sort()` mutating). When editing, preserve Python 2 syntax — do not modernize to Python 3 unless explicitly asked.
+Python 3. The drivers shell out to workers via `python3 ...` in `os.system` calls.
 
 Dependencies: `pandas`, `pyshp` (imported as `shapefile`), `scipy`, `statsmodels`, `numpy`.
 

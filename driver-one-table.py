@@ -7,12 +7,27 @@ import scipy.stats
 import os
 import numpy as np
 
-math = "9 10 11 12 13 14 15"
-ela = "7"
+# year
+year = '2025'
+
+# Test IDs differ by test regime: STAR (≤2013) vs SBAC (≥2017)
+if year in ('2017', '2018', '2022', '2025'):
+    math = "2"
+    ela = "1"
+    score_measure = "Percentage Standard Met and Above"
+else:
+    math = "9 10 11 12 13 14 15"
+    ela = "7"
+    score_measure = "Percentage At Or Above Proficient"
 
 tests = [("male_math",3,math),("female_math",4,math),("male_ela",3,ela),("female_ela",4,ela),
          ("afam",74, math),("afam_econ_dis",200,math),("afam_econ_ok",220,math),
-         ("white",80, math),("white_econ_dis",206,math),("white_econ_ok",226,math)]
+         ("white",80, math),("white_econ_dis",206,math),("white_econ_ok",226,math),
+         ("afam",74, ela),("afam_econ_dis",200, ela),("afam_econ_ok",220, ela),
+         ("white",80, ela),("white_econ_dis",206, ela),("white_econ_ok",226, ela),
+         ("hispanic",78, math),("hispanic_econ_dis",204, math),("hispanic_econ_ok",224, math),
+         ("hispanic",78, ela),("hispanic_econ_dis",204, ela),("hispanic_econ_ok",224, ela),
+         ("all_students", 1, math), ("all_students", 1, ela)]
 
 not_used_tests = [("econ_dis",31, ela),("econ_ok",111,ela),("all",1,ela),
          ("econ_dis",31, math),("econ_ok",111,math),("all",1,math),
@@ -36,32 +51,65 @@ non_urban = True
 if urban == False:
     root_for_outfiles = 'non-urban-kahuna-files'
     param_file = 'params_non_urban.py'
+    output_suffix = '.non-urban'
 elif non_urban == False:
     root_for_outfiles = 'urban-kahuna-files'
     param_file = 'params_urban.py'
+    output_suffix = '.urban'
 else:
     root_for_outfiles = 'kahuna-files'
     param_file = 'params_all.py'
+    output_suffix = ''
+
+output_dir = 'results'
+os.makedirs(output_dir, exist_ok=True)
 
 cmd = "cp %s params.py" % param_file
-print "Running ", cmd
+print("Running ", cmd)
 os.system(cmd)
 
-# year
-year = '2013'
 
 for (prefix,code,test_set) in tests:
     if not os.path.isfile("%s/%s.%s.%s.csv" % (root_for_outfiles,prefix,year,test_set)):
-        if not os.path.isfile("school-data/%s.txt" % prefix):
-            cmd = "cd school-data; python split_by_demo.py %s.txt %d; cd .." % (prefix, code)
-            print "Running ", cmd
+        if not os.path.isfile("school-data/%s.%s.txt" % (prefix, year)):
+            cmd = "cd school-data; python3 split_by_demo.py %s.%s.txt %d %s; cd .." % (prefix, year, code, year)
+            print("Running ", cmd)
             os.system(cmd)
-        cmd = "python join_precinct_school_method2.py school-data/%s.txt %s %s" % (prefix,year,test_set)
-        print "Running ", cmd
+        cmd = "python3 join_precinct_school_method2.py school-data/%s.%s.txt %s %s" % (prefix, year, year, test_set)
+        print("Running ", cmd)
         os.system(cmd)
         cmd = "mv kahuna.csv \"%s/%s.%s.%s.csv\"" % (root_for_outfiles, prefix, year, test_set)
-        print "Running ", cmd
+        print("Running ", cmd)
         os.system(cmd)
+
+
+# --- Cache skip: if both result files exist and are newer than every kahuna
+# input used in this run, skip the analysis phases entirely.
+_output_files = [
+    "%s/vote_achievement_correlations.one-table.%s%s.csv" % (output_dir, year, output_suffix),
+    "%s/covariates_achievement_correlations.%s%s.csv" % (output_dir, year, output_suffix),
+]
+_kahuna_files_in_use = [
+    "%s/%s.%s.%s.csv" % (root_for_outfiles, prefix, year, test_set)
+    for (prefix, _code, test_set) in tests
+]
+_existing_kahuna = [p for p in _kahuna_files_in_use if os.path.isfile(p)]
+if _existing_kahuna and all(os.path.isfile(p) for p in _output_files):
+    _out_mtime = min(os.path.getmtime(p) for p in _output_files)
+    _in_mtime = max(os.path.getmtime(p) for p in _existing_kahuna)
+    if _out_mtime >= _in_mtime:
+        print("Skipping analysis: %s and %s are newer than all kahuna inputs." %
+              tuple(_output_files))
+        sys.exit(0)
+
+# In-memory cache of kahuna DataFrames (read each file only once across phases).
+_kahuna_cache = {}
+def _read_kahuna(prefix, year_, test_set):
+    key = (prefix, year_, test_set)
+    if key not in _kahuna_cache:
+        _kahuna_cache[key] = pd.read_csv(
+            "%s/%s.%s.%s.csv" % (root_for_outfiles, prefix, year_, test_set))
+    return _kahuna_cache[key]
 
 
 table = {}
@@ -73,10 +121,10 @@ for i in range(len(tests)):
         (prefix2,code2,test_set2) = tests[j]
         if (test_set1 != test_set2):
             continue
-        file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,test_set1)
-        file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,test_set2)
-        a = pd.read_csv(file1)
-        b = pd.read_csv(file2)
+        if prefix1 == prefix2:
+            continue
+        a = _read_kahuna(prefix1, year, test_set1)
+        b = _read_kahuna(prefix2, year, test_set2)
         columns = ['number_x','score_x','score_y','vote_y']
         num_x = 0
         num_y = 0
@@ -113,24 +161,21 @@ def short_float(f):
     return x
 
 for key in table.keys():
-    print key
-    titles = table[key][table[key].keys()[0]].keys()
-    titles.sort()
-    print '\t'
+    print(key)
+    titles = sorted(table[key][next(iter(table[key]))].keys())
+    print('\t')
     for t in titles:
-        print t, '\t',
-    print '\n'
+        print(t, '\t', end=' ')
+    print('\n')
 
-    prefixes1 = table[key].keys()
-    prefixes1.sort()
+    prefixes1 = sorted(table[key].keys())
     for prefix in prefixes1:
-        print prefix,
-        prefixes = table[key][prefix].keys()
-        prefixes.sort()
+        print(prefix, end=' ')
+        prefixes = sorted(table[key][prefix].keys())
         for t in prefixes:
             entry = table[key][prefix][t]
             #print "(%.3f %d)\t" % (entry[0],entry[1])
-            print "%.3f \t" % entry[0],
+            print("%.3f \t" % entry[0], end=' ')
             groups1.append(prefix)
             groups2.append(t)
             if key == ela:
@@ -142,80 +187,68 @@ for key in table.keys():
             means.append(short_float(entry[2]))
             stds.append(short_float(entry[3]))
             corr_xs.append(short_float(entry[4]))
-            
-        print '\n'
+
+        print('\n')
 
 output = pd.DataFrame({'A:group1': groups1, 'B:group2': groups2, 'C:test':which_tests, 'D:corr': corrs, 'E:counts': counts, 'F:mean':means, 'G:std': stds, 'H:corr_w_1':corr_xs})
+output['I:measure'] = score_measure
 
-output.to_csv("vote_achievement_correlations.csv", index = False)
+output.to_csv("%s/vote_achievement_correlations.one-table.%s%s.csv" % (output_dir, year, output_suffix), index = False)
 
 
 
 table = {}
-nces = pd.read_csv("nces/ccd_lea_052_1516_w_1a_011717.csv")
-seda = pd.read_csv("seda/SEDA_cov_geodist_pool_v20.csv")
+nces = pd.read_csv("nces/ccd_lea_052_1516_w_1a_011717.csv", encoding='latin1', low_memory=False)
+seda = pd.read_csv("seda/SEDA_cov_geodist_pool_v20.csv", encoding='latin1', low_memory=False)
 
 schools_precincts = pd.read_csv('school_to_precinct.csv')
 
 nces_seda = nces.merge(seda,left_on='LEAID',right_on='leaidC')
 #nces_seda['ST_LEAID'] = nces_seda['ST_LEAID'].astype(str)
 
-number = 0
-
-for x in seda.columns:
+# Pre-filter SEDA covariates to numeric, non-constant columns. Doing this once
+# avoids the same dtype/nunique check inside the inner loop.
+_seda_cols = [
+    x for x in seda.columns
+    if np.issubdtype(seda[x].dtype, np.number) and seda[x].nunique(dropna=True) > 1
+]
+for x in _seda_cols:
     table[x] = {}
-    if not np.issubdtype(seda[x].dtype, np.number):
-        continue
-    # if number > 0:
-    #     break
-    # number+=1
-    for i in range(len(tests)):
-        for j in range(len(tests)):
-            (prefix1,code1,test_set1) = tests[i]
-            (prefix2,code2,test_set2) = tests[j]
-            if (test_set1 != test_set2):
-                continue
-            file1 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix1,year,test_set1)
-            file2 = "%s/%s.%s.%s.csv" % (root_for_outfiles,prefix2,year,test_set2)
-            a = pd.read_csv(file1)
-            b = pd.read_csv(file2)
-            num_x = 0
-            num_y = 0
-            combined = a.merge(b,on='School Code')
-            #combined['District Code_x'] = (combined['District Code_x']+100000).astype(str)
-            #print combined['School Code']
-            # print 'nces seda' , ' Berkeley'
-            # print nces_seda[nces_seda['leaname'].notnull() & nces_seda['leaname'].str.contains('Berkeley')]['ST_LEAID']
-            # print 'combined columns'
-            # print combined.columns
-            # print 'combined school code'
-            # print combined[combined['School Name_x'].notnull() & combined['School Name_x'].str.contains('Berkeley')]['School Code']
-            # print combined.count()['District Code_x']
-            combined = combined.merge(nces_seda,left_on='District_x',right_on='leaname')
 
-            
+# Loop order swapped: outer (i, j) pair, inner covariate. This lets each
+# kahuna→kahuna→nces_seda merge happen once per pair instead of once per
+# (pair × covariate), turning the analysis from ~10 min into seconds.
+num_x = 0
+num_y = 0
+for i in range(len(tests)):
+    for j in range(len(tests)):
+        (prefix1,code1,test_set1) = tests[i]
+        (prefix2,code2,test_set2) = tests[j]
+        if (test_set1 != test_set2):
+            continue
+        if prefix1 == prefix2:
+            continue
+        a = _read_kahuna(prefix1, year, test_set1)
+        b = _read_kahuna(prefix2, year, test_set2)
+        combined = a.merge(b, on='School Code')
+        combined = combined.merge(nces_seda, left_on='District_x', right_on='leaname')
+        nrows = combined['School Code'].count()
+        filtered = combined[(combined['number_x'] > num_x) & (combined['number_y'] > num_y)]
+        diff = filtered['score_y'] - filtered['score_x']
+        score_x = filtered['score_x']
+        description = diff.describe()
 
-
-
-            columns = ['number_x','score_x','score_y',x]
-
-            report = combined[(combined['number_x'] > num_x) & (combined['number_y'] > num_y)][columns]
-            report['diff'] = report['score_y'] - report['score_x']
-            description = report['diff'].describe()
-
-            correlations = report.corr()
-            # print "(%s,%s)" % (prefix1, prefix2) , test_set1, test_set2
-            # print correlations
-
-            if not test_set1 in table[x].keys():
-                table[x][test_set1] = {}
-
-            if not prefix1 in table[x][test_set1]:
-                table[x][test_set1][prefix1] = {}
-            
-                #table[test_set1][prefix1][prefix2] = (correlations.loc['score_x']['vote_y'] - correlations.loc['score_y']['vote_y'],combined.count().loc['School Code'])
-            #table[x][test_set1][prefix1][prefix2] = (correlations.loc['diff'][x],combined.count().loc['School Code'])
-            table[x][test_set1][prefix1][prefix2] = (correlations.loc['diff'][x],combined.count().loc['School Code'],description['mean'],description['std'],correlations.loc['score_x'][x])
+        if test_set1 not in table[_seda_cols[0]]:
+            for x in _seda_cols:
+                table[x].setdefault(test_set1, {})
+        for x in _seda_cols:
+            table[x][test_set1].setdefault(prefix1, {})
+            x_col = filtered[x]
+            corr_diff_x = diff.corr(x_col)
+            corr_score_x_x = score_x.corr(x_col)
+            table[x][test_set1][prefix1][prefix2] = (
+                corr_diff_x, nrows, description['mean'], description['std'], corr_score_x_x
+            )
 
 
 
@@ -238,24 +271,21 @@ table1 = table
 for covariate in table1.keys():
     table = table1[covariate]
     for key in table.keys():
-        print key
-        titles = table[key][table[key].keys()[0]].keys()
-        titles.sort()
-        print '\t'
+        print(key)
+        titles = sorted(table[key][next(iter(table[key]))].keys())
+        print('\t')
         for t in titles:
-            print t, '\t',
-            print '\n'
+            print(t, '\t', end=' ')
+            print('\n')
 
-        prefixes1 = table[key].keys()
-        prefixes1.sort()
+        prefixes1 = sorted(table[key].keys())
         for prefix in prefixes1:
-            print prefix,
-            prefixes = table[key][prefix].keys()
-            prefixes.sort()
+            print(prefix, end=' ')
+            prefixes = sorted(table[key][prefix].keys())
             for t in prefixes:
                 entry = table[key][prefix][t]
                 #print "(%.3f %d)\t" % (entry[0],entry[1])
-                print "%.3f \t" % entry[0],
+                print("%.3f \t" % entry[0], end=' ')
                 groups1.append(prefix)
                 groups2.append(t)
                 if key == ela:
@@ -268,10 +298,11 @@ for covariate in table1.keys():
                 stds.append(short_float(entry[3]))
                 corr_xs.append(short_float(entry[4]))
                 covariates.append(covariate)
-            
-            print '\n'
+
+            print('\n')
 
 
 output = pd.DataFrame({'A:group1': groups1, 'B:group2': groups2, 'C:test':which_tests, 'D:corr': corrs, 'E:counts': counts, 'F:mean':means, 'G:std': stds, 'H:corr_w_1':corr_xs, 'G:Covariate': covariates})
+output['I:measure'] = score_measure
 
-output.to_csv("covariates_achievement_correlations.csv", index = False)
+output.to_csv("%s/covariates_achievement_correlations.%s%s.csv" % (output_dir, year, output_suffix), index = False)

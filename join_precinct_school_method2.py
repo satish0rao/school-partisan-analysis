@@ -30,7 +30,7 @@ if len(argv) > 1:
     if len(argv)>2:
         year = argv[2]
         if len(argv) > 3:
-            testsIds = []
+            testIds = []
             for x in range(3,len(argv)):
                 testIds.append(int(argv[x]))
     # studentGroups = []
@@ -48,16 +48,32 @@ if testing:
     # TODO:  put in small test files/and globs to do speed up run.
     pass
 else:
-    schools = pd.read_csv("school-data/ca2012entities_csv.txt")
+    entities_file = "school-data/ca2012entities_csv.txt"
+    entities_kwargs = dict(encoding='latin1')
+    if year == '2013':
+        entities_file = "school-data/ca2013entities_csv.txt"
+    if year == '2018':
+        entities_file = "school-data/sb_ca2018entities_csv.txt"
+    if year == '2022':
+        entities_file = "school-data/sb_ca2022entities_csv.txt"
+        entities_kwargs = dict(encoding='latin1', sep='^')
+    if year == '2025':
+        entities_file = "school-data/sb_ca2025entities_csv.txt"
+        entities_kwargs = dict(encoding='latin1', sep='^')
+    schools = pd.read_csv(entities_file, **entities_kwargs)
     zipcodes = pd.read_csv("zipcodes/US Zip Codes from 2013 Government Data")
     shapefiles = g.glob("election-data/california-2016-election-precinct-maps/shapefiles/*.shp")
-    entities = pd.read_csv("school-data/ca2012entities_csv.txt")
+    entities = pd.read_csv(entities_file, **entities_kwargs)
+    if year in ('2022', '2025'):
+        # 2022/2025 SBAC entities file renames Type Id -> Type ID
+        schools = schools.rename(columns={'Type ID': 'Type Id'})
+        entities = entities.rename(columns={'Type ID': 'Type Id'})
     votes = pd.read_csv("election-data/california-2016-election-precinct-maps/final-results/all_precinct_results.csv")
     #scores = pd.read_csv("school-data/ca2012_1_csv_v3.txt")
-    scores = pd.read_csv("%s" % scores_file)
+    scores = pd.read_csv("%s" % scores_file, encoding='latin1', low_memory=False)
 
 
-print "Finished reading files..."
+print("Finished reading files...")
 
 #print zipHash.keys()
 
@@ -68,9 +84,9 @@ def geom_lookup(point,latsToZips):
     min = '0000'
     min_val = 10000
     min_zip = False
-    for diff in xrange(0,5):
-        for x in xrange(-diff,diff):
-            for y in xrange(-diff,diff):
+    for diff in range(0,5):
+        for x in range(-diff,diff):
+            for y in range(-diff,diff):
                 key = (int(point[0]+x),int(point[1]+y))
                 if key in latsToZips:
                     #print key, ' is in hash'
@@ -106,7 +122,7 @@ if not os.path.isfile("school_to_precinct.csv"):
     for index,row in zipcodes.iterrows():
         key = int(row['ZIP'])
         if key in zipToPos:
-            print "Zip should only appear once"
+            print("Zip should only appear once")
         else:
             zipToPos[key] = (row['LNG'],row['LAT'])
 
@@ -123,7 +139,7 @@ if not os.path.isfile("school_to_precinct.csv"):
     for index,row in schools.iterrows():
         key = int(row["Zip Code"])
         while (not key in zipToPos.keys()):
-            print "Hmmm: zipcode %d for school %s has no position?" % (key, row['School Name'])
+            print("Hmmm: zipcode %d for school %s has no position?" % (key, row['School Name']))
             key = key-1
 
         (lng,lat) = zipToPos[key]
@@ -154,12 +170,12 @@ if not os.path.isfile("school_to_precinct.csv"):
 
     for fname in shapefiles:
         parts = fname.split('.')
-        print "processing ", fname
-        print parts
+        print("processing ", fname)
+        print(parts)
         sf = shp.Reader(parts[0])
-        fields = sf.fields[1:] 
-        field_names = [field[0] for field in fields] 
-        print fields
+        fields = sf.fields[1:]
+        field_names = [field[0] for field in fields]
+        print(fields)
         
         urban_precinct = False
         if fname.split('/')[-1] in urban_shapefiles:
@@ -177,7 +193,7 @@ if not os.path.isfile("school_to_precinct.csv"):
                 lat = shape.shape.points[0][1]
                 lng = shape.shape.points[0][0]
             else:
-                print "reusing zipcode for" , atr
+                print("reusing zipcode for", atr)
 
             atr = dict(zip(field_names, shape.record))  
 
@@ -250,7 +266,7 @@ for key in schoolsPrecincts.keys():
             if urban_precincts[x]:
                 urban_count+=1
 
-    if (urban_count >= count/2):
+    if (urban_count >= count // 2):
         #print "School %s is urban", key
         schoolUrban[key] = True
     else:
@@ -269,6 +285,7 @@ grades = [9,10,11] #
 scores = scores[(scores['Test Id'].isin(testIds)) & (scores['Grade'].isin(grades))]
 
 schoolScores = {}
+schoolNearScores = {}
 schoolNumbers = {}
 
 def include_school(key):
@@ -279,9 +296,15 @@ def include_school(key):
     else:
         return params.include_non_urban()
 
+# eval_column: at-or-above proficiency (default cutoff)
+# near_extra_column: gets ADDED to eval to form "near or above proficient"
+# - STAR: at_or_above_proficient + Basic = "at-or-above Basic" (excludes Below/Far Below Basic)
+# - SBAC: standard_met_and_above + standard_nearly_met (excludes Standard Not Met)
 eval_column = "Percentage At Or Above Proficient"
-if year == '2017':
+near_extra_column = "Percentage Basic"
+if year in ('2017', '2018', '2022', '2025'):
     eval_column = 'Percentage Standard Met and Above'
+    near_extra_column = 'Percentage Standard Nearly Met'
 
 for index,row in scores.iterrows():
     key = row[school_key_column]
@@ -289,22 +312,32 @@ for index,row in scores.iterrows():
     if key == 0:
         continue
 
-    if row[eval_column] != '*':
-        if (row["Students Tested"] < 1) or (not include_school(key)):
+    if row[eval_column] != '*' and row["Students Tested"] != '*':
+        students_tested = int(row["Students Tested"])
+        if (students_tested < 1) or (not include_school(key)):
             continue
-        if not key in schoolScores.keys():
-            schoolScores[key] = float(row[eval_column])
-            schoolNumbers[key] = row["Students Tested"]
+        score_val = float(row[eval_column])
+        # near = at-or-above + the next-lower band (when reported as a number).
+        # STAR data has NaN in Percentage Basic for many rows; treat NaN/'*' as zero.
+        near_extra = row[near_extra_column]
+        if near_extra == '*' or pd.isna(near_extra):
+            near_val = score_val
         else:
-            print 'scores',schoolScores[key]
-            print "row", row
-            print 'numbers', schoolNumbers[key]
-            schoolScores[key] = (schoolScores[key]*schoolNumbers[key] + row["Students Tested"]*float(row[eval_column]))/(1.0* (schoolNumbers[key] + row["Students Tested"]))
-            schoolNumbers[key] += row["Students Tested"]
+            near_val = score_val + float(near_extra)
+        if not key in schoolScores.keys():
+            schoolScores[key] = score_val
+            schoolNearScores[key] = near_val
+            schoolNumbers[key] = students_tested
+        else:
+            n = schoolNumbers[key]
+            schoolScores[key] = (schoolScores[key]*n + students_tested*score_val) / (1.0 * (n + students_tested))
+            schoolNearScores[key] = (schoolNearScores[key]*n + students_tested*near_val) / (1.0 * (n + students_tested))
+            schoolNumbers[key] += students_tested
 
 ids = []
 votes = []
 scores = []
+near_scores = []
 names = []
 numbers = []
 district_codes = []
@@ -320,17 +353,18 @@ for key in schoolScores.keys():
             districts.append(schools[schools[school_key_column] == key]['District Name'].iloc[0])
             district_codes.append(schools[schools[school_key_column] == key]['District Code'].iloc[0])
             scores.append(schoolScores[key])
+            near_scores.append(schoolNearScores[key])
             votes.append(clinton/(clinton+trump))
             numbers.append(schoolNumbers[key])
-         
 
-kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'District Code': district_codes, 'vote': votes,'score': scores, 'number': numbers})
+
+kahuna = pd.DataFrame({'School Code': ids, 'School Name': names, 'District': districts, 'District Code': district_codes, 'vote': votes,'score': scores, 'near_score': near_scores, 'number': numbers})
 kahuna.to_csv("kahuna.csv",index=False)
 
 
-print kahuna.corr()
+print(kahuna.corr(numeric_only=True))
 
-print kahuna.describe()
+print(kahuna.describe())
 
 #print scipy.stats.pearsonr(kahuna['vote'],kahuna['score'])
 
