@@ -1,30 +1,213 @@
-#  To run.
+# California School Achievement vs Precinct Vote Share
 
-1) unzip files in school-data directory.
-2) python driver-one-table.py
+This project analyzes the relationship between California public school test scores (CAASPP/SBAC and earlier STAR) and 2016 precinct-level Clinton/Trump vote share, with focus on Black-white achievement gaps and how they correlate with the political composition of the surrounding precinct.
 
-Take a look at join_precinct_school_method2.py to 
-see what is up. Code needs cleaning, pretty ugly.
+## ⚠ Caveat
 
+The findings below come from an extended analytical session against 2012–2025 California testing data. They are **observational/associational, not causal**, and reflect what the data appears to show after substantial methodological iteration — including caching mistakes caught and corrected, sample-coverage problems identified, and multiple framing choices revisited. Read them as "this is what the data looks like, here are the caveats" rather than a peer-reviewed study. Generalizations beyond California 2025 should be made carefully. See `analysis_findings.md` for the structured detail and methodological notes.
 
-------------------
+## Findings
 
-Data Descriptions:
+### 1. Liberal California precincts have larger Black–white test score gaps in their schools than conservative precincts
 
- school-data/README  - tells sources of files.
- 
- zipcodes/   - contains zipcodes latitude/longitudes.
+The pattern holds across:
+- Years (2012, 2013, 2018, 2019, 2022, 2023, 2024, 2025)
+- Subjects (math and ELA)
+- Grade bands (G3-5, G6-8, G9-11)
+- Demographic subgroups (econ_ok and broader)
+- Methodological choices (school vs student weighting, strict vs matched cutoffs, school vs district aggregation)
 
- election-data/   - contains precinct level returns and shapfiles for precincts.
+### 2. The signal is strongest among non-economically-disadvantaged Black vs white at high school math
 
- seda/  - covariates 
- 
- nces/  nces data files for district
+For 2025 G11 econ_ok math:
+- School-weighted matched-gap-vote correlation: **+0.51**
+- Student-weighted (harmonic mean): **+0.62**
+- District-level (matching SEDA's geographic unit): **+0.66**
+- After controlling for white-parent BA+ rate, racial integration, within-district resource sorting, and charter density: β_vote = **+27** (p=0.05) at school level, **+26** (p=0.09) at district level
 
+### 3. Two-sided mechanism
 
---------------------------------
+For 2025 G11 econ_ok math, score-by-vote correlations:
+- Middle-class white students score **higher** in liberal precincts (corr +0.34 to +0.41)
+- Middle-class Black students score **lower** in liberal precincts (corr −0.31 to −0.48)
+- Both contribute to the gap-widening
+- Hispanic and Asian middle-class show much weaker score-vote correlations (mostly flat or weakly negative)
 
-1) Matching schools to precinct.
+The Hispanic-white gap-vote correlation (+0.42) is meaningful but smaller than Black-white (+0.62), driven mostly by the white-rises effect since Hispanic doesn't fall.
 
-  Method 1:  Match precinct to zipcode, only use the precincts with same zipcode of school to determine vote.
-  Method 2:  Match precincts to closest school using zipcode locations for location of school.
+### 4. Trajectory through schooling
+
+afam student score-vote correlations by grade band (2025 math):
+
+| grade | afam (all) | afam_dis | afam_OK |
+|---|---|---|---|
+| G3-5 | **+0.252** | +0.335 | (small sample) |
+| G6-8 | +0.023 | +0.100 | −0.069 |
+| G11 | −0.064 | +0.036 | **−0.311** |
+
+At elementary, Black students score *higher* in liberal precincts. By HS, middle-class Black students score lower. The within-Black econ gap **narrows** in liberal areas at both grade levels — but for opposite reasons: at G3-5 because afam_dis rises faster than afam_OK; at HS because afam_OK falls toward afam_dis.
+
+### 5. Course-tracking inflates the level of the gap but doesn't drive the political variation
+
+STAR 2013, econ_ok pair, G9-11:
+
+| course | % afam_econ_ok | % white_econ_ok |
+|---|---|---|
+| GenMath (low track) | 34% | 22% |
+| Geometry | 32% | 31% |
+| Algebra II | 24% | 28% |
+| Summative (advanced) | 9% | 19% |
+
+afam_econ_ok students are 1.6× more likely in low-track GenMath, half as likely in advanced Summative. **But the within-test gap-vote correlation is +0.30 to +0.47 in EVERY test separately.** Course-tracking inflates the LEVEL of the gap but doesn't drive the political variation.
+
+### 6. Geographic concentration
+
+Within-metro 2025 G11 econ_ok math gap-vote correlation:
+
+| metro | n schools | gap-vote corr |
+|---|---|---|
+| Bay Area (SF/Oak/Berk) | 11 | **+0.90** |
+| LA region | 10 | **+0.86** |
+| Sacramento County | 10 | +0.13 |
+| San Diego County | 4 | (too few) |
+| Rest of California | 61 | +0.30 |
+
+Pattern is concentrated in Bay Area and LA. Sacramento and San Diego show much weaker effects. Bay Area shows both Black-falls AND white-rises strong; LA shows mostly the white-rises effect (Black scores roughly flat across LA precincts).
+
+### 7. Berkeley is an outlier but not unique
+
+Dropping the top-10% of districts by white-BA+ rate (excludes Berkeley, Pasadena, Santa Monica-Malibu):
+
+| sample | β_vote alone | + baplus_wht | + all 4 covs |
+|---|---|---|---|
+| Full | +60.3 | +34.4 | +30.3 |
+| Drop top-10% baplus | +43.9 | +35.2 | +32.8 |
+| Drop top-20% baplus | +37.9 | +34.0 | +35.7 |
+
+The univariate effect drops without Berkeley-tier districts. But the controlled coefficient stays at ~+34 — the pattern generalizes to ordinary high-baplus liberal California, not just professor/PhD enclaves.
+
+### 8. Per-pupil spending doesn't predict Black achievement
+
+District-level correlations:
+
+| year | corr(ppexp, **afam** score) | corr(ppexp, **white** score) | corr(ppexp, vote) |
+|---|---|---|---|
+| 2013 | +0.06 | +0.24 | +0.59 |
+| 2018 | −0.18 | −0.01 | +0.50 |
+| 2022 | −0.08 | +0.30 | +0.62 |
+| 2025 | +0.01 | +0.31 | +0.63 |
+
+Per-pupil spending correlates strongly with vote (high-cost-of-living liberal districts spend more) and with white scores (especially 2022/2025). It does **not** correlate with Black scores in any year. Money flowing into liberal-affluent districts reaches white students but not Black students.
+
+### 9. Cross-state / cross-method evidence supports a rigor + accountability mechanism
+
+- Mississippi, Florida, Texas outperform California on Black-student NAEP despite worse demographics
+- Mississippi's Literacy-Based Promotion Act (2013, science-of-reading + accountability) produced large Black-student gains
+- Roland Fryer's Houston RCT shows charter-style "no-excuses" methods produce large Black-student gains when injected into traditional schools
+- KIPP, Wilder's Prep, Rocketship, Success Academy all show high-rigor approaches producing strong Black achievement
+- Sean Reardon's SEDA work documents Black-white gaps as largest in heavily-progressive-affluent districts
+- Stanford "Acting White" research (Fryer-Torelli) documents within-school peer-comparison effects in integrated upper-middle-class settings
+
+These external lines converge with the within-California pattern: places implementing rigor + high expectations + accountability produce better Black outcomes than places implementing equity-pedagogy + de-tracking + de-emphasized accountability.
+
+### 10. Substantial Black-student missingness in the data
+
+| filter step | % of CA Black G3-5 retained |
+|---|---|
+| Estimated CA Black G3-5 (3 grades × ~25K) | 100% |
+| Visible in SBAC (any reported value) | 63% |
+| After suppression filter (n≥11 reporting threshold) | 34% |
+| With vote merged | 24% (28% after charter geocoding addendum) |
+
+37% of Black elementary students are missing from SBAC entirely (private school, opt-out, chronic absence). 46% of those reported have school-level scores suppressed. **Findings generalize to roughly 1/3 of California's Black elementary students.** HS coverage is somewhat better (~65%).
+
+### 11. The matched-pair filter selectively retains schools where both groups co-exist
+
+The headline +0.62 correlation is computed on schools where both econ_ok afam AND econ_ok white students appear in reportable numbers (n≥11 each). That's:
+
+- 97 schools statewide for HS econ_ok math
+- ~1,972 Black students = ~8% of California's Black econ_ok HS population
+
+These are unusual schools — diverse suburban, magnet, integrated affluent westside — not representative of where most Black students go. **70% of Black HS students attend majority-Hispanic schools** where the Black-white gap can't be measured because there aren't enough white peers.
+
+### 12. Substantive interpretation (caveated)
+
+Empirical pattern points toward a structural-systems story rather than individual-bias:
+
+- Liberal California has built schools that produce systematically worse Black achievement outcomes than conservative California, controlling for plausible confounders
+- Mechanisms: housing-market sorting, within-school tracking, AP/honors gating, parental fundraising stratification, and pedagogical choices that liberal coalitions have political control over
+- The "soft bigotry of low expectations" hypothesis (articulated by Bush, Obama, Loury, McWhorter, Sowell, others) is empirically consistent with what we observe
+- Within-school differential expectations (high for white, lower for Black, at the same building) is a documented mechanism (Berkeley High case studies, Pollack, Pedro Noguera, etc.)
+- The institutional response — equity-pedagogy, de-tracking, anti-charter, anti-accountability — runs counter to what cross-state and within-CA evidence suggests would help
+
+This is a substantive interpretation supported by but not fully proven by the cross-sectional school-level data. Cross-state quasi-experimental evidence (Mississippi reforms, Florida reforms, charter network outcomes) is the stronger evidence base for the policy mechanism.
+
+## Caveats and limitations
+
+- **Associational, not causal.** Cross-sectional data cannot identify causal mechanisms; the patterns are consistent with multiple causal stories.
+- **Coverage bias.** Substantial fractions of Black students are missing from the analyzable data, especially at elementary.
+- **Mediation framing is causally underdetermined.** Treating baplus_wht as a parallel covariate to vote assumes they're independent; if baplus_wht is upstream of vote (more plausible), then "controlling for it" partials out part of the mechanism.
+- **Selection effects.** Middle-class Black families in extreme-cost liberal precincts are an unusual demographic (housing-priced-out filter); their kids' outcomes may not generalize to Black middle-class families elsewhere.
+- **A long iterative session.** Some early framings in `analysis_findings.md` were corrected later. Treat the finalized findings as best estimates after multiple revisions, not as having undergone formal peer review.
+
+---
+
+## How to run
+
+```bash
+make init                    # virtualenv env
+make env                     # pip install -r requirements.txt
+make data                    # wget SEDA covariate files into seda/
+```
+
+Then unzip the SBAC/STAR score files in `school-data/` (e.g. `sb_ca2025_all_csv_v1.zip`).
+
+The repo is now Python 3 (was Python 2 originally). Driver scripts shell out to workers via `python3 ... os.system(...)` calls.
+
+### Driver scripts
+
+- **`driver-one-table.py`** — primary entry point. Runs the per-(prefix, subgroup, test) pipeline, then computes correlation analyses. Set `year = '2025'` (or 2013, 2018, 2022, etc.) at the top.
+- **`driver-big-correlates.py`** — adds OLS regressions on SEDA covariates.
+- **`driver.py`** — older/legacy driver.
+
+The drivers shell out to:
+
+- **`split_by_demo.py`** (in `school-data/`) — splits a giant SBAC/STAR file into per-subgroup files.
+- **`join_precinct_school_method2.py`** — joins schools to precincts (via cached `school_to_precinct.csv`), filters scores to specified Test Ids and grades, aggregates weighted by `Students Tested`, writes `kahuna.csv`.
+
+The `params_*.py` files configure urban/non-urban filtering. Drivers `cp params_X.py params.py` before each run.
+
+### Output directories
+
+- `kahuna-files/` — both urban and non-urban
+- `urban-kahuna-files/` — urban only
+- `non-urban-kahuna-files/` — non-urban only
+- `results/` — correlation tables and OLS results
+
+Filename convention: `<prefix>.<year>.<test_set>.csv`, e.g. `afam_econ_ok.2025.2.csv`.
+
+### Cached artifacts (do not delete unless stale)
+
+- `school_to_precinct.csv` (~11 MB) — base school↔precinct mapping. Expensive to regenerate.
+- `school_to_precinct_charter_addendum.csv` — 910 charter schools added via ZIP→KDTree precinct lookup (22,503 mappings).
+- `precinct_pts_cache.csv` — first-point representative for each of 25,912 precincts.
+- `charter_seda_lookup.csv` — 1,100 charters with proxy SEDA covariates via modal-district-by-ZIP lookup.
+
+These caches are why iterative analyses run quickly. Delete only if shapefiles or CDE data change.
+
+## Data sources (gitignored, fetch manually)
+
+- `school-data/` — CDE STAR (2012/2013) and CAASPP/SBAC (2017–2025) score files. See `school-data/README` for URLs. Files at https://caaspp-elpac.ets.org/caaspp/researchfiles2024 (substitute year).
+- `school-data/cde-directory/pubschls.txt` — CDE Public Schools Directory. Download: https://www.cde.ca.gov/schooldirectory/report?rid=dl1&tp=txt
+- `election-data/california-2016-election-precinct-maps/` — clone from `github.com/datadesk/california-2016-election-precinct-maps`
+- `seda/SEDA_cov_geodist_pool_v20.csv` — Stanford SEDA district covariates. `make data` fetches it.
+- `zipcodes/US Zip Codes from 2013 Government Data` — ZIP↔lat/lng table.
+
+## See also
+
+- `analysis_findings.md` — structured account of the analytical investigation with methodological detail
+- `california_education_policy.md` — what California legislators and State Board are doing relative to the evidence
+- `conversation_transcript.md` — verbatim transcript of the analytical conversation that produced these findings (saved for transparency: shows where the user challenged framings, where corrections happened, what was pushed back on, etc.)
+- `CLAUDE.md` — guidance for AI assistants working on this code
+- `README.claude.md` — file-by-file reference
+- `TODO.claude.md` — open items
