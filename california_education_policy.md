@@ -1,4 +1,4 @@
-# California's Education Policy Direction Relative to the Evidence
+# California's Education Policy versus Evidence
 
 ## My question to Claude:
 
