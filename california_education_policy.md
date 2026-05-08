@@ -6,7 +6,7 @@
 
 ## Background.
 
-> This question is in a long analysis I did with Claude. It follows up and corrects years-old analysis of mine, which suggested that for at least some African American students, liberals are bad — maybe very bad. It is long and involved. You can find a summary of findings, the code, and (for transparency) the [entire conversation transcript](https://github.com/satish0rao/school-partisan-analysis/blob/master/conversation_transcript.md) on the [GitHub repository](https://github.com/satish0rao/school-partisan-analysis).
+> This question is in a long analysis I did with Claude. It follows up and corrects years-old analysis of mine, which suggested that for at least some African American students, liberals are bad — maybe very bad. It is long and involved. You can find a summary of findings, the code, and (for transparency) the <mark>[entire conversation transcript](https://github.com/satish0rao/school-partisan-analysis/blob/master/conversation_transcript.md)</mark> on the <mark>[GitHub repository](https://github.com/satish0rao/school-partisan-analysis)</mark>.
 
 
 ## The answer
@@ -31,7 +31,7 @@ Mostly moving in the *opposite* direction, despite the evidence. The California 
 
 ### The counter-currents (small but real)
 
-- **Voter pushback.** SF Prop H (2024) reversed SFUSD's 2014 algebra ban with strong-majority support. Three SF school board members (Collins, López, Moliga) were recalled in 2022 over progressive-overreach concerns. Suggests parent/voter sentiment is moving in the opposite direction from the institutional establishment.
+- **Voter pushback.** SF Prop G (2024) reversed SFUSD's 2014 algebra ban with 82% support. Three SF school board members (Collins, López, Moliga) were recalled in 2022 over progressive-overreach concerns. Suggests parent/voter sentiment is moving in the opposite direction from the institutional establishment.
 - **Tony Thurmond** (State Superintendent) has occasionally voiced support for reading reform, but the institutional inertia is large.
 - **Some legislators** (Marc Berman, Rebecca Bauer-Kahan) have pushed for accountability and reading reform — these efforts are minority positions.
 - **Parent advocacy groups** like Decoding Dyslexia CA have pushed for evidence-based reading instruction. Generally treated as outsider voices by the institution.
@@ -60,7 +60,7 @@ It's a textbook case of an interest-group equilibrium producing policies that do
 
 ## Background context
 
-This response came at the end of a long analytical session examining California school test scores (2012–2025) joined to 2016 precinct-level vote share. The analysis established (caveats and methodological notes in the [main repo](https://github.com/satish0rao/school-partisan-analysis)):
+This response came at the end of a long analytical session examining California school test scores (2012–2025) joined to 2016 precinct-level vote share. The analysis established (caveats and methodological notes in the <mark>[main repo](https://github.com/satish0rao/school-partisan-analysis)</mark>):
 
 - Liberal California precincts have larger Black-white achievement gaps in their schools than conservative precincts
 - The pattern survives demographic controls and is concentrated in the non-economically-disadvantaged subgroup at the high-school level
@@ -68,7 +68,13 @@ This response came at the end of a long analytical session examining California 
 - Cross-state comparisons (Mississippi, Florida, Texas outperforming CA on Black-student NAEP despite worse demographics) corroborate that policy/political-coalition layer matters independent of demographics
 - The pattern is consistent with the "soft bigotry of low expectations" framework articulated by figures across the political spectrum (Bush, Obama, Loury, McWhorter, Sowell)
 
-For full data, methodology, code, and the complete back-and-forth conversation that produced these conclusions — including where the user challenged framings and where corrections were made — see the [GitHub repo](https://github.com/satish0rao/school-partisan-analysis).
+For full data, methodology, code, and the complete back-and-forth conversation that produced these conclusions — including where the user challenged framings and where corrections were made — see the <mark>[GitHub repo](https://github.com/satish0rao/school-partisan-analysis)</mark>.
+
+---
+
+## A note on Ethnic Studies
+
+Also, for what it's worth, I think Ethnic Studies does have a place (whatever Claude says), history and current social context is linked very much to these concepts. But I leave Claude's answer there to be transparent.
 
 ---
 
@@ -82,5 +88,5 @@ When the empirical evidence on what produces better student outcomes points in o
 
 ## Further reading
 
-For the full analysis and supporting data, see the [GitHub repository](https://github.com/satish0rao/school-partisan-analysis). For the verbatim back-and-forth that produced these findings (including pushback, corrections, and methodology choices), see the [full conversation transcript](https://github.com/satish0rao/school-partisan-analysis/blob/master/conversation_transcript.md). For the structured findings document, see [analysis_findings.md](https://github.com/satish0rao/school-partisan-analysis/blob/master/analysis_findings.md) or the [project README](https://github.com/satish0rao/school-partisan-analysis/blob/master/README.md).
+For the full analysis and supporting data, see the <mark>[GitHub repository](https://github.com/satish0rao/school-partisan-analysis)</mark>. For the verbatim back-and-forth that produced these findings (including pushback, corrections, and methodology choices), see the <mark>[full conversation transcript](https://github.com/satish0rao/school-partisan-analysis/blob/master/conversation_transcript.md)</mark>. For the structured findings document, see <mark>[analysis_findings.md](https://github.com/satish0rao/school-partisan-analysis/blob/master/analysis_findings.md)</mark> or the <mark>[project README](https://github.com/satish0rao/school-partisan-analysis/blob/master/README.md)</mark>.
 
