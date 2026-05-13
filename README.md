@@ -10,12 +10,24 @@ The findings below come from an extended analytical session against 2012–2025 
 
 ### 1. Liberal California precincts have larger Black–white test score gaps in their schools than conservative precincts
 
-The pattern holds across:
-- Years (2012, 2013, 2018, 2019, 2022, 2023, 2024, 2025)
-- Subjects (math and ELA)
-- Grade bands (G3-5, G6-8, G9-11)
-- Demographic subgroups (econ_ok and broader)
-- Methodological choices (school vs student weighting, strict vs matched cutoffs, school vs district aggregation)
+The pattern is consistent across years, subjects, and grade bands. Within-econ_ok matched-gap-vote correlations (scale score, n≥11 per group per school):
+
+| Year | G6-8 ELA | G6-8 math | G9-11 ELA | G9-11 math |
+|---|---|---|---|---|
+| 2018 | +0.41 | +0.41 | +0.18 | +0.17 |
+| 2019 | +0.43 | +0.39 | +0.25 | +0.26 |
+| 2022 | +0.44 | +0.48 | +0.41 | +0.53 |
+| 2023 | +0.45 | +0.59 | +0.43 | +0.38 |
+| 2024 | +0.44 | +0.52 | +0.51 | +0.50 |
+| 2025 | +0.59 | +0.48 | +0.42 | +0.53 |
+
+**Read:**
+- **Middle school (G6-8)**: consistent +0.39 to +0.59 across all six years. 12 of 12 cells at +0.39 or stronger. Not a post-COVID artifact.
+- **High school (G9-11)**: +0.40 to +0.53 in all four post-COVID years (2022, 2023, 2024, 2025). The 2018-2019 dip (+0.17 to +0.26) appears to be an SBAC-rollout measurement artifact, not a real pre-COVID baseline (see STAR below).
+- **G3-5 econ_ok** mostly suppresses out — Black middle-class elementary populations rarely reach n≥11 at the school level. Race-only Gap A at G3-5 shows +0.17 to +0.28 vote correlations (weaker than MS/HS) but is reliably positive.
+- **STAR (2012-2013)**: Gap B HS math was already +0.39 to +0.61 school-weighted (+0.55 to +0.74 student-weighted) at n≥11/group — comparable to the 2022-2025 SBAC era. So the pattern is **durable across testing regimes**, with a measurement-period anomaly in early SBAC (2018-2019). The corr(afam_econ_ok, vote) ranged from −0.20 to −0.51 in STAR — the same "Black scores fall in liberal precincts" signature visible today.
+
+The pattern also holds across methodological choices: school vs student weighting, strict vs matched cutoffs, school vs district aggregation, tested-weighted vs enrolled-weighted within-grade aggregation, and across three score measures (Met & Above, Nearly Met & Above, Mean Scale Score). Scale scores show stronger signal than percent-proficient cuts, and the partisan effect is **not** an artifact of cut-point compression. See `analysis_findings.md` for the methodological iteration.
 
 ### 2. The signal is strongest among non-economically-disadvantaged Black vs white at high school math
 
@@ -172,9 +184,9 @@ Fryer's program is the most rigorous (RCT-based, replicated, peer-reviewed) evid
 The headline +0.62 correlation is computed on schools where both econ_ok afam AND econ_ok white students appear in reportable numbers (n≥11 each). That's:
 
 - 97 schools statewide for HS econ_ok math
-- ~1,972 Black students = ~8% of California's Black econ_ok HS population
+- 1,972 Black econ_ok students ≈ **46% of California's 4,305 Black econ_ok HS math test-takers** in the 2025 SBAC file. Because Black econ_ok is only ~22% of all Black HS students (the remaining ~71% are econ_dis), the sample covers roughly **10% of all California Black HS students**.
 
-These are unusual schools — diverse suburban, magnet, integrated affluent westside — not representative of where most Black students go. **70% of Black HS students attend majority-Hispanic schools** where the Black-white gap can't be measured because there aren't enough white peers.
+These are unusual schools — diverse suburban, magnet, integrated affluent westside — not representative of where most Black students go. **70% of Black HS students attend majority-Hispanic schools** where the Black-white gap can't be measured because there aren't enough white peers. And among the schools we *can* measure, the OLS regressions with full SEDA controls run on a smaller subset (~69 schools, ~1,371 econ_ok Black students) because some schools are missing district-level covariates.
 
 ### 13. Substantive interpretation (caveated)
 
