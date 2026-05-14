@@ -132,9 +132,9 @@ These external lines converge with the within-California pattern: places impleme
 |---|---|---|---|---|
 | district | 13.1% (n=2,681) | 18.3% (n=4,512) | 21.0% (n=5,697) | 22.2% (n=5,070) |
 | **charter** | 13.5% (n=155) | 34.0% (n=100) | 22.5% (n=961) | **28.0%** (n=2,646) |
-| charter advantage | +0.4 | +15.7 | +1.5 | **+5.8** |
+| charter advantage | +0.4 | +15.7 (n=100, noisy) | +1.5 | **+5.8** |
 
-**G6-8 middle (afam):**
+**G6-8 middle (afam):** (per-cell n's not recorded for this breakdown; G6-8 Black coverage is ~59% statewide so cells are larger than G3-5 on average)
 
 | school type | Trump | Mixed | Liberal | Strong Clinton |
 |---|---|---|---|---|
@@ -151,7 +151,7 @@ These external lines converge with the within-California pattern: places impleme
 | charter advantage | −8.7 | −1.5 | +3.0 | −0.2 |
 
 **Pattern:**
-- At elementary and middle school, charters show their **biggest advantage in liberal areas** (Strong Clinton bucket: +5.8 pts at G3-5; Liberal bucket: +9.5 pts at G6-8)
+- At elementary and middle school, charters show their **biggest advantage in liberal areas** (Strong Clinton bucket at G3-5: +5.8 pts on n=2,646 Black charter students — roughly 34% of all Black G3-5 students in Strong Clinton precincts attend charters, reflecting the concentration of Black-serving networks like KIPP LA, Aspire Bay Area, Rocketship, Wilder's Prep, and Fortune in South LA / Compton / Oakland / SF; Liberal bucket at G6-8: +9.5 pts). The Mixed bucket at G3-5 shows a much larger +15.7 advantage but on only n=100 charter students, too small to lean on.
 - In conservative areas (Trump bucket), district-charter difference is small or even reversed
 - HS samples are too small for clean comparison; mixed picture
 
