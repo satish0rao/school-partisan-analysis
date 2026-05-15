@@ -4,9 +4,9 @@ This project analyzes the relationship between California public school test sco
 
 ## ⚠ Caveat
 
-**This is a working repository, not a final report.** The findings below come from an extended analytical session against 2012–2025 California testing data and have been revised multiple times as methodological issues surfaced — caching mistakes caught and corrected, sample-coverage problems identified, framing choices reconsidered, causal-language slippage tightened. They are **observational/associational, not causal**. Read them as "this is what the data looks like, here are the caveats" rather than as a peer-reviewed study.
+**This README is the current report on an ongoing analytical investigation, not a finalized paper.** The findings below are observational/associational, not causal. They have been revised multiple times as methodological issues surfaced — caching mistakes caught and corrected, sample-coverage problems identified, framing choices reconsidered, causal-language slippage tightened — and may be revised further. Read them as "this is what the data looks like, here are the caveats" rather than as a peer-reviewed study.
 
-For transparency, the iteration is preserved in the repo rather than hidden:
+The working materials behind this report are preserved in the repo rather than hidden:
 
 - `analysis_findings.md` — structured methodological notes, including earlier framings that were later corrected
 - `conversation_transcript.md` — verbatim transcript of the analytical conversation, including pushback, corrections, and dead ends
@@ -235,7 +235,7 @@ Subgroup absenteeism-vote correlations (2025, school-weighted): afam **+0.143**;
 - **Pre-SBAC selection (who appears in the file at all) is distinct from chronic absenteeism (a behavioral outcome of those who appear).** §11 documents the first (37% of Black G3-5 students don't appear in SBAC at all — that's a selection problem affecting which schools enter the analysis). §14 documents the second (Black-white attendance *gap* correlates with vote among schools that do report) — this is a parallel outcome, not a confounder. Neither is a fix to the other.
 - **Mediation framing is causally underdetermined.** Treating baplus_wht as a parallel covariate to vote assumes they're independent; if baplus_wht is upstream of vote (more plausible), then "controlling for it" partials out part of the mechanism.
 - **Selection effects.** Middle-class Black families in extreme-cost liberal precincts are an unusual demographic (housing-priced-out filter); their kids' outcomes may not generalize to Black middle-class families elsewhere.
-- **A long iterative session.** Some early framings in `analysis_findings.md` were corrected later. Treat the finalized findings as best estimates after multiple revisions, not as having undergone formal peer review.
+- **An ongoing iterative investigation.** Some early framings in `analysis_findings.md` were corrected later. Treat the current findings as best estimates after multiple revisions, not as having undergone formal peer review — and not as final.
 
 ---
 
