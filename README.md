@@ -198,11 +198,33 @@ The cross-sectional pattern is consistent with a *structural-systems* story rath
 
 Readers should be cautious about translating these correlations into policy prescriptions. The findings are consistent with multiple causal stories, including some that don't reduce to "liberal districts are pedagogically failing Black students" — e.g., that extreme housing-price stratification has demographically sorted middle-class Black families into structurally difficult circumstances that even well-resourced districts struggle to overcome.
 
+### 14. Attendance shows the same pattern as scores
+
+Attendance is a behavioral outcome variable, not a confounder — it's downstream of the same school / family / neighborhood / district conditions that affect test scores. So this finding is a *corroborating outcome*, not an explanation that reduces the score finding.
+
+The Black-white absenteeism *gap* (Black chronic-absence rate − white chronic-absence rate) is correlated with precinct vote, and the correlation is stronger at higher-SES schools — the same SES gradient seen in the score-gap pattern:
+
+| sample | n schools | corr(absenteeism gap, vote) |
+|---|---|---|
+| All schools (n≥11/group) | 3,445 | +0.13 |
+| All schools (n≥30/group) | 1,520 | +0.18 |
+| econ_ok proxy (sed_share ≤ 0.40, n≥30) | 201 | **+0.39** |
+| Very low econ_dis (sed_share ≤ 0.20, n≥11) | 121 | +0.36 |
+| High econ_dis (sed_share ≥ 0.70, n≥30) | 826 | +0.10 |
+
+Subgroup absenteeism-vote correlations (2025, school-weighted): afam **+0.143**; white **−0.076**; Hispanic +0.039; Asian +0.006; all_students ≈ 0. Black students are more chronically absent in liberal precincts; white students are less. This directionally matches the §3 score pattern (Black falls, white rises in liberal precincts), now visible in a second behavioral measure that doesn't go through the SBAC suppression filter.
+
+**Two outcome variables moving together is corroborating evidence, not a confound.** Vote correlates with multiple downstream outcomes — test scores AND attendance — in the same direction at the same schools. The fact that both move with vote is consistent with there being a common upstream cause; it doesn't tell us what that cause is, but it does suggest the pattern isn't an artifact of any single measurement system (SBAC suppression, cut-point compression, etc.).
+
+**A caution on the regressions.** It's tempting to add `absent_gap` to the score-gap regression and report that the vote coefficient shrinks (it does: at HS-math econ_ok Gap B, β_vote: 168 → 136 with absent_gap alone; 76 → 63 with absent_gap added to full SEDA controls). But this is **bad-control reasoning** — partialling out a mediator and then reading the residual as the "true" political effect. If vote → environment → both attendance and scores, then conditioning on attendance is conditioning on a downstream outcome and biases the vote coefficient toward zero. The mechanically correct regression numbers are in `results/absent_vs_vote_controlled.csv`; the interpretation "attendance explains some of the score-gap-vote effect" should be made cautiously, with the mediator-control issue acknowledged.
+
+**What this finding does say, cleanly:** Liberal California precincts have larger Black-white *behavioral* gaps (attendance) in addition to larger Black-white *cognitive* gaps (scores), at the same schools, with the same SES gradient. Both gaps strengthen at higher-SES schools, both weaken in conservative precincts, and both are stronger in metros than rural areas. This widens the empirical pattern from "scores" to "scores + attendance" and makes it harder to attribute purely to test-specific artifacts.
+
 ## Caveats and limitations
 
 - **Associational, not causal.** Cross-sectional data cannot identify causal mechanisms; the patterns are consistent with multiple causal stories.
 - **Coverage bias.** Substantial fractions of Black students are missing from the analyzable data, especially at elementary.
-- **Differential test participation by precinct is an unaddressed confounder.** If Black-student opt-out, chronic absence, or non-testing rates differ systematically between liberal and conservative precincts (which CDE data suggests they may), then the visible Black population in liberal precincts is differently selected than in conservative precincts. The gap-vote correlation could partially reflect *who shows up to take the test* rather than *what they know if they did*. The `absenteeism_*` scripts in this repo gesture at this but a clean correction is not in the headline findings.
+- **Pre-SBAC selection (who appears in the file at all) is distinct from chronic absenteeism (a behavioral outcome of those who appear).** §11 documents the first (37% of Black G3-5 students don't appear in SBAC at all — that's a selection problem affecting which schools enter the analysis). §14 documents the second (Black-white attendance *gap* correlates with vote among schools that do report) — this is a parallel outcome, not a confounder. Neither is a fix to the other.
 - **Mediation framing is causally underdetermined.** Treating baplus_wht as a parallel covariate to vote assumes they're independent; if baplus_wht is upstream of vote (more plausible), then "controlling for it" partials out part of the mechanism.
 - **Selection effects.** Middle-class Black families in extreme-cost liberal precincts are an unusual demographic (housing-priced-out filter); their kids' outcomes may not generalize to Black middle-class families elsewhere.
 - **A long iterative session.** Some early framings in `analysis_findings.md` were corrected later. Treat the finalized findings as best estimates after multiple revisions, not as having undergone formal peer review.
