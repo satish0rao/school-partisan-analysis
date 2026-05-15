@@ -4,7 +4,15 @@ This project analyzes the relationship between California public school test sco
 
 ## ⚠ Caveat
 
-The findings below come from an extended analytical session against 2012–2025 California testing data. They are **observational/associational, not causal**, and reflect what the data appears to show after substantial methodological iteration — including caching mistakes caught and corrected, sample-coverage problems identified, and multiple framing choices revisited. Read them as "this is what the data looks like, here are the caveats" rather than a peer-reviewed study. Generalizations beyond California 2025 should be made carefully. See `analysis_findings.md` for the structured detail and methodological notes.
+**This is a working repository, not a final report.** The findings below come from an extended analytical session against 2012–2025 California testing data and have been revised multiple times as methodological issues surfaced — caching mistakes caught and corrected, sample-coverage problems identified, framing choices reconsidered, causal-language slippage tightened. They are **observational/associational, not causal**. Read them as "this is what the data looks like, here are the caveats" rather than as a peer-reviewed study.
+
+For transparency, the iteration is preserved in the repo rather than hidden:
+
+- `analysis_findings.md` — structured methodological notes, including earlier framings that were later corrected
+- `conversation_transcript.md` — verbatim transcript of the analytical conversation, including pushback, corrections, and dead ends
+- Git history — successive tightenings of language and framing are visible commit-by-commit
+
+Generalizations beyond California 2025 should be made carefully. Anyone is welcome to re-run the pipeline against newer data, find further bugs, or push back on framings — the repo is set up for that.
 
 ## Findings
 
