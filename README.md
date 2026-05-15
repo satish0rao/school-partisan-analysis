@@ -109,13 +109,13 @@ District-level correlations:
 | 2022 | −0.08 | +0.30 | +0.62 |
 | 2025 | +0.01 | +0.31 | +0.63 |
 
-Per-pupil spending correlates strongly with vote (high-cost-of-living liberal districts spend more) and with white scores (especially 2022/2025). It does **not** correlate with Black scores in any year. Money flowing into liberal-affluent districts reaches white students but not Black students.
+Per-pupil spending is strongly correlated with vote share (high-cost-of-living liberal districts spend more) and with white scores (especially 2022/2025). It does **not** correlate with Black scores in any year. Higher district spending tracks higher white-student outcomes but not higher Black-student outcomes.
 
-### 9. Cross-state / cross-method evidence supports a rigor + accountability mechanism
+### 9. Cross-state and external evidence is consistent with the within-CA pattern
 
 - Mississippi, Florida, Texas outperform California on Black-student NAEP despite worse demographics
-- Mississippi's Literacy-Based Promotion Act (2013, science-of-reading + accountability) produced large Black-student gains
-- Roland Fryer's Houston RCT shows charter-style "no-excuses" methods produce large Black-student gains when injected into traditional schools
+- Mississippi's Literacy-Based Promotion Act (2013, science-of-reading + accountability) was followed by large Black-student NAEP gains (causal attribution to the Act specifically is contested — other reforms ran in parallel)
+- Roland Fryer's Houston RCT (Apollo 20) found that charter-style "no-excuses" methods produced large Black-student gains when injected into traditional schools (this one is RCT-identified)
 - KIPP, Wilder's Prep, Rocketship, Success Academy all show high-rigor approaches producing strong Black achievement
 - Sean Reardon's SEDA work documents Black-white gaps as largest in heavily-progressive-affluent districts
 - Stanford "Acting White" research (Fryer-Torelli) documents within-school peer-comparison effects in integrated upper-middle-class settings
@@ -155,9 +155,9 @@ These external lines are *consistent with* the within-California pattern, though
 - In conservative areas (Trump bucket), district-charter difference is small or even reversed
 - HS samples are too small for clean comparison; mixed picture
 
-This connects to the broader research on no-excuses charter networks (KIPP Compton, Wilder's Preparatory, Rocketship, Aspire) that explicitly run high-rigor programs serving Black students in liberal urban California. They tend to outperform the surrounding district schools — most starkly where district pedagogy has drifted furthest from traditional rigor (i.e., the most progressive districts).
+This connects to the broader research on no-excuses charter networks (KIPP Compton, Wilder's Preparatory, Rocketship, Aspire) that explicitly run structured-instruction programs serving Black students in liberal urban California. They tend to outperform the surrounding district schools, with the gap largest in the most-Democratic precincts.
 
-It's not that "charters are inherently better." It's that **high-rigor charters do better than progressive-equity district schools, especially for Black students, especially in liberal urban areas**. The within-California pattern matches the broader research literature.
+The empirical observation is that **Black-serving charters in liberal urban California outperform the local district schools for Black students at elementary and middle school math**. The mechanism — pedagogical content, scheduling/discipline, family-motivation selection, principal autonomy, teacher hiring practices, school-day length, or some combination — is not identified by this cross-sectional comparison.
 
 **Roland Fryer's work is particularly relevant here.** Fryer (Harvard economist, MacArthur Fellow) has produced the cleanest causal evidence on what makes schools effective for Black students:
 
