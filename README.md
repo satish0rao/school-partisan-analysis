@@ -45,7 +45,7 @@ For 2025 G11 econ_ok math, score-by-vote correlations:
 - Both contribute to the gap-widening
 - Hispanic and Asian middle-class show much weaker score-vote correlations (mostly flat or weakly negative)
 
-The Hispanic-white gap-vote correlation (+0.42) is meaningful but smaller than Black-white (+0.62), driven mostly by the white-rises effect since Hispanic doesn't fall.
+The Hispanic-white gap-vote correlation (+0.42) is meaningful but smaller than Black-white (+0.62), driven mostly by the white-rises effect since Hispanic doesn't fall. This is important for interpreting the Black-white headline: the white-rises mechanism is doing substantial work in the Black-white gap correlation as well. The Black-falls effect is the distinguishing feature of the Black-white gap relative to Hispanic-white, but a reader should not interpret the +0.62 as if Black-falls explained all of it.
 
 ### 4. Trajectory through schooling
 
@@ -84,7 +84,7 @@ Within-metro 2025 G11 econ_ok math gap-vote correlation:
 | San Diego County | 4 | (too few) |
 | Rest of California | 61 | +0.30 |
 
-Pattern is concentrated in Bay Area and LA. Sacramento and San Diego show much weaker effects. Bay Area shows both Black-falls AND white-rises strong; LA shows mostly the white-rises effect (Black scores roughly flat across LA precincts).
+Pattern is concentrated in Bay Area and LA. Sacramento County, with n=10 schools, shows essentially no gap-vote correlation (+0.13) — this is genuine counter-evidence that the pattern is not uniformly statewide. The "Rest of California" +0.30 is also much weaker than the Bay Area / LA headline. Bay Area shows both Black-falls AND white-rises strong; LA shows mostly the white-rises effect (Black scores roughly flat across LA precincts). Interpreting the statewide correlation requires acknowledging that two metros (Bay Area + LA) drive most of the signal.
 
 ### 7. Berkeley is an outlier but not unique
 
@@ -120,7 +120,7 @@ Per-pupil spending correlates strongly with vote (high-cost-of-living liberal di
 - Sean Reardon's SEDA work documents Black-white gaps as largest in heavily-progressive-affluent districts
 - Stanford "Acting White" research (Fryer-Torelli) documents within-school peer-comparison effects in integrated upper-middle-class settings
 
-These external lines converge with the within-California pattern: places implementing rigor + high expectations + accountability produce better Black outcomes than places implementing equity-pedagogy + de-tracking + de-emphasized accountability.
+These external lines are *consistent with* the within-California pattern, though the causal evidence varies in quality (Fryer 2014 is an RCT; the Mississippi/Florida cross-state comparisons are quasi-experimental at best, and the Reardon SEDA work is descriptive). The cross-sectional within-California data established here cannot adjudicate between competing causal mechanisms — pedagogical choices, housing-market sorting, differential teacher quality, peer-composition effects, and others all remain on the table.
 
 ### 10. Black students at charters score better than at district schools, especially in liberal areas
 
@@ -166,7 +166,7 @@ It's not that "charters are inherently better." It's that **high-rigor charters 
 - **Harlem Children's Zone / Promise Academy work** (Dobbie & Fryer 2011, 2013) — the school component (KIPP-style pedagogy) was responsible for nearly all of the gap-closing effect, not the surrounding wraparound services.
 - **"Acting White"** (Fryer & Torelli 2010) — documented within-school peer-comparison effects: Black students at racially integrated upper-middle-class schools face peer dynamics that depress achievement, not present at homogeneously-Black schools.
 
-Fryer's program is the most rigorous (RCT-based, replicated, peer-reviewed) evidence base for the no-excuses / high-rigor approach to Black student achievement. He's also a Black economist who has been willing to publish findings that don't fit progressive-academic orthodoxy — his 2016 paper on police use-of-force found patterns that contradicted prevailing narratives, and he was professionally penalized at Harvard partly as a consequence. The fact that his charter / rigor findings haven't received the institutional uptake their evidence-quality would warrant tracks the broader pattern of evidence-vs-orthodoxy in education research that this analysis points at.
+Fryer's program is one of the most rigorous (RCT-based, replicated, peer-reviewed) evidence bases for high-dosage tutoring + structured curriculum + high expectations as effective ingredients for Black-student achievement.
 
 ### 11. Substantial Black-student missingness in the data
 
@@ -190,20 +190,19 @@ These are unusual schools — diverse suburban, magnet, integrated affluent west
 
 ### 13. Substantive interpretation (caveated)
 
-Empirical pattern points toward a structural-systems story rather than individual-bias:
+The cross-sectional pattern is consistent with a *structural-systems* story rather than an individual-bias one:
 
-- Liberal California has built schools that produce systematically worse Black achievement outcomes than conservative California, controlling for plausible confounders
-- Mechanisms: housing-market sorting, within-school tracking, AP/honors gating, parental fundraising stratification, and pedagogical choices that liberal coalitions have political control over
-- The "soft bigotry of low expectations" hypothesis (articulated by Bush, Obama, Loury, McWhorter, Sowell, others) is empirically consistent with what we observe
-- Within-school differential expectations (high for white, lower for Black, at the same building) is a documented mechanism (Berkeley High case studies, Pollack, Pedro Noguera, etc.)
-- The institutional response — equity-pedagogy, de-tracking, anti-charter, anti-accountability — runs counter to what cross-state and within-CA evidence suggests would help
+- After controlling for plausible district-level covariates (white-parent BA+ rate, racial integration, within-district resource sorting, charter density), a residual political-composition effect on the Black-white gap remains at HS math (§2).
+- Candidate mechanisms supported by external literature include: housing-market sorting into extreme-cost precincts; within-school tracking and AP/honors gating; within-school differential teacher expectations (documented in Berkeley High case studies, Pollack 2004, Noguera and others); and pedagogical-choice differences across districts.
+- Cross-state quasi-experimental evidence (Mississippi LBPA, Florida third-grade retention, charter-network RCTs) is a stronger evidence base than this study for any specific policy mechanism. This study identifies a robust within-California cross-sectional pattern; it cannot adjudicate which mechanism is doing the work.
 
-This is a substantive interpretation supported by but not fully proven by the cross-sectional school-level data. Cross-state quasi-experimental evidence (Mississippi reforms, Florida reforms, charter network outcomes) is the stronger evidence base for the policy mechanism.
+Readers should be cautious about translating these correlations into policy prescriptions. The findings are consistent with multiple causal stories, including some that don't reduce to "liberal districts are pedagogically failing Black students" — e.g., that extreme housing-price stratification has demographically sorted middle-class Black families into structurally difficult circumstances that even well-resourced districts struggle to overcome.
 
 ## Caveats and limitations
 
 - **Associational, not causal.** Cross-sectional data cannot identify causal mechanisms; the patterns are consistent with multiple causal stories.
 - **Coverage bias.** Substantial fractions of Black students are missing from the analyzable data, especially at elementary.
+- **Differential test participation by precinct is an unaddressed confounder.** If Black-student opt-out, chronic absence, or non-testing rates differ systematically between liberal and conservative precincts (which CDE data suggests they may), then the visible Black population in liberal precincts is differently selected than in conservative precincts. The gap-vote correlation could partially reflect *who shows up to take the test* rather than *what they know if they did*. The `absenteeism_*` scripts in this repo gesture at this but a clean correction is not in the headline findings.
 - **Mediation framing is causally underdetermined.** Treating baplus_wht as a parallel covariate to vote assumes they're independent; if baplus_wht is upstream of vote (more plausible), then "controlling for it" partials out part of the mechanism.
 - **Selection effects.** Middle-class Black families in extreme-cost liberal precincts are an unusual demographic (housing-priced-out filter); their kids' outcomes may not generalize to Black middle-class families elsewhere.
 - **A long iterative session.** Some early framings in `analysis_findings.md` were corrected later. Treat the finalized findings as best estimates after multiple revisions, not as having undergone formal peer review.
