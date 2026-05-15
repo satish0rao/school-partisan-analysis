@@ -66,7 +66,7 @@ This response came at the end of a long analytical session examining California 
 - The pattern survives demographic controls and is concentrated in the non-economically-disadvantaged subgroup at the high-school level
 - The mechanism is two-sided: white middle-class students score *higher* in liberal precincts; Black middle-class HS students score *lower*
 - Cross-state comparisons (Mississippi, Florida, Texas outperforming CA on Black-student NAEP despite worse demographics) corroborate that policy/political-coalition layer matters independent of demographics
-- The pattern is consistent with the "soft bigotry of low expectations" framework articulated by figures across the political spectrum (Bush, Obama, Loury, McWhorter, Sowell)
+- The pattern is consistent with the "soft bigotry of low expectations" framework (Bush 2000, echoed by Obama and McWhorter, studied empirically by Noguera and others)
 
 For full data, methodology, code, and the complete back-and-forth conversation that produced these conclusions — including where the user challenged framings and where corrections were made — see the <mark>[GitHub repo](https://github.com/satish0rao/school-partisan-analysis)</mark>.
 

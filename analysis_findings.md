@@ -162,7 +162,7 @@ The behavioral evidence supports a structural-systems story rather than an indiv
 - Liberal California has built schools that produce systematically worse Black achievement outcomes than conservative California, controlling for plausible confounders
 - The mechanism operates through housing-market sorting, within-school tracking, AP/honors gating, parental fundraising stratification, and pedagogical choices that liberal coalitions have political control over
 - Cross-state comparisons (Mississippi, Florida, Texas outperforming California on Black-student NAEP) corroborate that policy choices matter independent of demographics
-- The "soft bigotry of low expectations" hypothesis is empirically consistent with what we observe — places implementing rigor + accountability + high expectations produce better Black outcomes than places implementing equity-via-lowered-rigor pedagogy
+- The "soft bigotry of low expectations" hypothesis (Bush 2000, echoed by Obama and McWhorter, studied empirically by Noguera and others) is empirically consistent with what we observe — places implementing rigor + accountability + high expectations produce better Black outcomes than places implementing equity-via-lowered-rigor pedagogy
 - Within-school differential expectations (high for white, lower for Black at the same building) is a well-documented mechanism (Berkeley High case studies, Pollack, Pedro Noguera, others) that produces exactly the bifurcated outcomes we measure
 
 ## What the data DOES NOT establish
